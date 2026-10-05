@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreeji Saffron Agency – Pure Irani Saffron | Premium Quality Since 1982</title>
+    <meta name="description"
+        content="Experience the finest Irani saffron, hand-harvested from our family farm in Pampore. Lab-tested, ISO certified, 100% pure Mogra, Lachha & Zarda grade saffron.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>"
+        type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ============= SPLASH SCREEN ============= -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-content">
+            <span class="splash-icon">✦</span>
+            <span class="splash-text">Shreeji Saffron</span>
+            <div class="splash-bar">
+                <div class="splash-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============= NAVIGATION ============= -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">Shreeji Saffron</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#products" class="nav-link">Shop</a></li>
+                <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                <li><a href="#recipes" class="nav-link">Recipes</a></li>
+                <li><a href="#story" class="nav-link">Our Story</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn" aria-label="Shopping cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============= HERO SECTION ============= -->
+    <section id="hero" class="hero" data-parallax="hero">
+        <canvas id="heroCanvas" class="three-canvas hero-three-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge animate-on-scroll">✦ Hand-Harvested in Iran ✦</div>
+            <p class="hero-subtitle animate-on-scroll">Four generations of passion, purity, and perfection in every
+                strand. Experience the world's finest saffron, cultivated in the legendary fields of Iran.</p>
+            <div class="hero-cta animate-on-scroll">
+                <a href="#products" class="btn btn-primary" id="shopNowBtn">
+                    <span>Shop Now</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#story" class="btn btn-outline">Our Story</a>
+            </div>
+            <div class="hero-stats animate-on-scroll">
+                <div class="stat">
+                    <span class="stat-number" data-target="40" data-suffix="+">0+</span>
+                    <span class="stat-label">Years of Heritage</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="100" data-suffix="%">0%</span>
+                    <span class="stat-label">Pure & Natural</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="50" data-suffix="K+">0K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to Explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ============= TRUST BAR ============= -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <path d="M9 12l2 2 4-4" />
+                    </svg>
+                    <div>
+                        <strong>Lab Tested</strong>
+                        <span>Purity Guaranteed</span>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    <div>
+                        <strong>ISO 3632 Certified</strong>
+                        <span>International Standard</span>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 12h8" />
+                        <path d="M12 8v8" />
+                    </svg>
+                    <div>
+                        <strong>FSSAI Approved</strong>
+                        <span>Food Safety Certified</span>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <div>
+                        <strong>Origin: Pampore</strong>
+                        <span>Kashmir, India</span>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                        <line x1="4" y1="22" x2="4" y2="15" />
+                    </svg>
+                    <div>
+                        <strong>Free Shipping</strong>
+                        <span>Orders Over ₹999</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= PRODUCTS ============= -->
+    <section id="products" class="products section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Our Collection</span>
+                <h2 class="section-title">Premium Saffron Grades</h2>
+                <p class="section-subtitle">Each grade is hand-picked and sorted with meticulous care, ensuring you
+                    receive only the finest saffron threads from the heart of Kashmir.</p>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1: Mogra -->
+                <div class="product-card animate-on-scroll" data-product="mogra">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="urgency-badge">🔥 Only 8 left!</div>
+                        <img src="images/product-mogra.png" alt="Mogra Grade Saffron - Premium Irani Saffron"
+                            class="product-image" loading="lazy">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                            <span class="product-origin">📍 Iran</span>
+                        <p class="product-description">The highest grade of Irani saffron. Pure, deep-red stigma tips
+                            with intense aroma and maximum coloring strength.</p>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(248)</span>
+                            </div>
+                            <div class="product-purity">
+                                <span class="purity-badge">💎 Category I – ISO 3632</span>
+                            </div>
+                        </div>
+                        <div class="weight-toggle" data-prices='{"1":599,"2":1099,"5":2499}'
+                            data-mrps='{"1":799,"2":1499,"5":3499}'>
+                            <button class="weight-btn active" data-weight="1">1g</button>
+                            <button class="weight-btn" data-weight="2">2g</button>
+                            <button class="weight-btn" data-weight="5">5g</button>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-group">
+                                <span class="current-price">₹599</span>
+                                <span class="price-weight">/ 1 gram</span>
+                            </div>
+                            <span class="mrp-price">₹799</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Mogra Saffron" data-price="599">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="9" cy="21" r="1" />
+                                    <circle cx="20" cy="21" r="1" />
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Lachha -->
+                <div class="product-card animate-on-scroll" data-product="lachha">
+                    <div class="product-badge product-badge-new">Premium</div>
+                    <div class="urgency-badge urgency-hot">🔥 Selling Fast</div>
+                        <img src="images/product-lachha.png" alt="Lachha Grade Saffron - Irani Saffron Threads"
+                            class="product-image" loading="lazy">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                        <div class="product-grade">
+                            <span class="grade-badge grade-high">Grade II</span>
+                            <span class="product-origin">📍 Iran</span>
+                        </div>
+                        <p class="product-description">Long, unbroken strands with attached yellow style. Rich aroma
+                            with excellent coloring power. Perfect for traditional cooking.</p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(186)</span>
+                            </div>
+                            <div class="product-purity">
+                                <span class="purity-badge">💎 Category II – ISO 3632</span>
+                            </div>
+                        </div>
+                        <div class="weight-toggle" data-prices='{"1":449,"2":849,"5":1999}'
+                            data-mrps='{"1":599,"2":1099,"5":2699}'>
+                            <button class="weight-btn active" data-weight="1">1g</button>
+                            <button class="weight-btn" data-weight="2">2g</button>
+                            <button class="weight-btn" data-weight="5">5g</button>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-group">
+                                <span class="current-price">₹449</span>
+                                <span class="price-weight">/ 1 gram</span>
+                            </div>
+                            <span class="mrp-price">₹599</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Lachha Saffron" data-price="449">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="9" cy="21" r="1" />
+                                    <circle cx="20" cy="21" r="1" />
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Zarda -->
+                <div class="product-card animate-on-scroll" data-product="zarda">
+                    <div class="product-badge product-badge-value">Value Pack</div>
+                    <div class="urgency-badge urgency-limited">⚠️ Limited Stock</div>
+                        <img src="images/product-zarda.png" alt="Zarda Grade Saffron Powder - Irani Saffron"
+                            class="product-image" loading="lazy">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                        <div class="product-grade">
+                            <span class="grade-badge grade-standard">Grade III</span>
+                            <span class="product-origin">📍 Iran</span>
+                        </div>
+                        <p class="product-description">Finely ground saffron powder with rich golden color. Ideal for
+                            desserts, milk preparations, and everyday cooking.</p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-count">(312)</span>
+                            </div>
+                            <div class="product-purity">
+                                <span class="purity-badge">💎 Category III – ISO 3632</span>
+                            </div>
+                        </div>
+                        <div class="weight-toggle" data-prices='{"1":299,"2":549,"5":1299}'
+                            data-mrps='{"1":449,"2":799,"5":1899}'>
+                            <button class="weight-btn active" data-weight="1">1g</button>
+                            <button class="weight-btn" data-weight="2">2g</button>
+                            <button class="weight-btn" data-weight="5">5g</button>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-group">
+                                <span class="current-price">₹299</span>
+                                <span class="price-weight">/ 1 gram</span>
+                            </div>
+                            <span class="mrp-price">₹449</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" data-name="Zarda Saffron" data-price="299">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="9" cy="21" r="1" />
+                                    <circle cx="20" cy="21" r="1" />
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= SAFFRON MILK TRANSFORMATION ============= -->
+    <section class="saffron-milk section">
+        <div class="container">
+                <p class="section-subtitle">Just a few strands of pure Irani saffron completely transform ordinary
+                    warm milk into liquid gold. That's the power of authentic quality.</p>
+            <div class="milk-comparison animate-on-scroll">
+                <div class="milk-card">
+                    <img src="images/saffron-milk-before.png" alt="Plain warm milk before saffron" loading="lazy">
+                    <div class="milk-label">Before</div>
+                </div>
+                <div class="milk-arrow">
+                    <span>+ 4 Strands</span>
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </div>
+                <div class="milk-card milk-card-after">
+                    <img src="images/saffron-milk-after.png" alt="Golden saffron milk after adding saffron"
+                        loading="lazy">
+                    <div class="milk-label milk-label-gold">After</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= COMPARISON TABLE ============= -->
+    <section class="comparison section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Compare Grades</span>
+                <h2 class="section-title">Choose Your Perfect Saffron</h2>
+            </div>
+            <div class="comparison-table-wrapper animate-on-scroll">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="highlight-col">Mogra (Grade I)</th>
+                            <th>Lachha (Grade II)</th>
+                            <th>Zarda (Grade III)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Color Strength</td>
+                            <td class="highlight-col">★★★★★ Maximum</td>
+                            <td>★★★★☆ High</td>
+                            <td>★★★☆☆ Good</td>
+                        </tr>
+                        <tr>
+                            <td>Aroma</td>
+                            <td class="highlight-col">Intense & Rich</td>
+                            <td>Strong & Floral</td>
+                            <td>Mild & Sweet</td>
+                        </tr>
+                        <tr>
+                            <td>Form</td>
+                            <td class="highlight-col">Pure Stigma Tips</td>
+                            <td>Full Strand + Style</td>
+                            <td>Fine Powder</td>
+                        </tr>
+                        <tr>
+                            <td>Best For</td>
+                            <td class="highlight-col">Premium Dishes, Milk</td>
+                            <td>Traditional Cooking</td>
+                            <td>Desserts, Everyday</td>
+                        </tr>
+                        <tr>
+                            <td>ISO Category</td>
+                            <td class="highlight-col">Category I</td>
+                            <td>Category II</td>
+                            <td>Category III</td>
+                        </tr>
+                        <tr>
+                            <td>Price (1g)</td>
+                            <td class="highlight-col">₹599</td>
+                            <td>₹449</td>
+                            <td>₹299</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="highlight-col"><a href="#products" class="btn btn-primary btn-sm">Shop Mogra</a>
+                            </td>
+                            <td><a href="#products" class="btn btn-outline btn-sm">Shop Lachha</a></td>
+                            <td><a href="#products" class="btn btn-outline btn-sm">Shop Zarda</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= HOW TO USE ============= -->
+    <section class="how-to-use section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Simple Steps</span>
+                <h2 class="section-title">How to Use Saffron</h2>
+                <p class="section-subtitle">Unlock the full flavor, color, and health benefits of saffron with this
+                    simple method.</p>
+            </div>
+            <div class="steps-grid animate-on-scroll">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">🥛</div>
+                    <h4>Warm the Milk</h4>
+                    <p>Heat a cup of milk until it's warm (not boiling). You can also use water or broth.</p>
+                </div>
+                <div class="step-connector">
+                    <svg width="40" height="24" viewBox="0 0 40 24">
+                        <path d="M0 12h36M30 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">✨</div>
+                    <h4>Add 4–5 Strands</h4>
+                    <p>Take a small pinch of saffron threads and add them to the warm liquid.</p>
+                </div>
+                <div class="step-connector">
+                    <svg width="40" height="24" viewBox="0 0 40 24">
+                        <path d="M0 12h36M30 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">⏳</div>
+                    <h4>Steep 10 Minutes</h4>
+                    <p>Let the saffron infuse. Watch it bloom into a beautiful golden color.</p>
+                </div>
+                <div class="step-connector">
+                    <svg width="40" height="24" viewBox="0 0 40 24">
+                        <path d="M0 12h36M30 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">🍽️</div>
+                    <h4>Enjoy!</h4>
+                    <p>Stir and add to your recipe, or drink it as golden kesar milk. Pure bliss!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= BENEFITS ============= -->
+    <section id="benefits" class="benefits section">
+        <canvas id="benefitsCanvas" class="three-canvas benefits-three-canvas"></canvas>
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Why Saffron?</span>
+                <h2 class="section-title">Health Benefits of Saffron</h2>
+                <p class="section-subtitle">Known as "Red Gold," saffron has been treasured for centuries for its
+                    incredible health properties and therapeutic effects.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </div>
+                    <h3>Powerful Antioxidant</h3>
+                    <p>Rich in crocin and safranal, saffron fights free radicals, reducing oxidative stress and
+                        supporting cellular health.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                        </svg>
+                    </div>
+                    <h3>Mood Enhancement</h3>
+                    <p>Clinically proven to improve mood and reduce symptoms of mild depression. Known as the "sunshine
+                        spice" for its uplifting properties.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 4a2 2 0 11-2 2 2 2 0 012-2zm3 10H9a1 1 0 010-2h6a1 1 0 010 2z" />
+                        </svg>
+                    </div>
+                    <h3>Radiant Skin</h3>
+                    <p>Natural complexion enhancer with anti-inflammatory properties. Used in traditional beauty rituals
+                        for glowing, even-toned skin.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                            <path d="M13.73 21a2 2 0 01-3.46 0" />
+                        </svg>
+                    </div>
+                    <h3>Better Digestion</h3>
+                    <p>Soothes the digestive tract, reduces bloating, and promotes healthy gut function. A time-honored
+                        remedy for digestive comfort.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M19.69 14a6.9 6.9 0 00.31-2V5l-8-3-8 3v7a6.9 6.9 0 00.31 2" />
+                            <path d="M12 22c-4.97 0-9-4.03-9-9" />
+                            <path d="M12 22c4.97 0 9-4.03 9-9" />
+                        </svg>
+                    </div>
+                    <h3>Anti-Inflammatory</h3>
+                    <p>Contains compounds that reduce inflammation throughout the body, supporting joint health and
+                        overall wellness.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                        </svg>
+                    </div>
+                    <h3>Eye Health</h3>
+                    <p>Crocin in saffron supports retinal function and may help protect against age-related macular
+                        degeneration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= RECIPES ============= -->
+    <section id="recipes" class="recipes section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">From Our Kitchen</span>
+                <h2 class="section-title">Traditional Saffron Recipes</h2>
+                <p class="section-subtitle">Discover the timeless recipes passed down through generations, where saffron
+                    transforms every dish into a royal experience.</p>
+            </div>
+            <div class="recipes-grid">
+                <div class="recipe-card animate-on-scroll">
+                    <div class="recipe-image-wrapper">
+                        <img src="images/recipe-kesar-phirni.png" alt="Kesar Phirni - Saffron Rice Pudding"
+                            class="recipe-image" loading="lazy">
+                        <div class="recipe-time">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                            45 mins
+                        </div>
+                    </div>
+                    <div class="recipe-content">
+                        <span class="recipe-category">Dessert</span>
+                        <h3 class="recipe-name">Kesar Phirni</h3>
+                        <p class="recipe-desc">A creamy, aromatic rice pudding infused with saffron, cardamom, and
+                            garnished with pistachios. A royal Kashmiri dessert served in earthen bowls.</p>
+                        <div class="recipe-details">
+                            <span>🍽 Serves 4</span>
+                            <span>🌡️ Medium</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-card animate-on-scroll">
+                    <div class="recipe-image-wrapper">
+                        <img src="images/recipe-saffron-rice.png" alt="Saffron Rice - Zafrani Pulao"
+                            class="recipe-image" loading="lazy">
+                        <div class="recipe-time">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                            60 mins
+                        </div>
+                    </div>
+                    <div class="recipe-content">
+                        <span class="recipe-category">Main Course</span>
+                        <h3 class="recipe-name">Zafrani Pulao</h3>
+                        <p class="recipe-desc">Fragrant basmati rice infused with saffron, whole spices, and caramelized
+                            onions. A celebration dish that graces every Kashmiri feast.</p>
+                        <div class="recipe-details">
+                            <span>🍽 Serves 6</span>
+                            <span>🌡️ Easy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-card animate-on-scroll">
+                    <div class="recipe-image-wrapper">
+                        <img src="images/recipe-kahwa.png" alt="Kashmiri Kahwa - Saffron Tea" class="recipe-image"
+                            loading="lazy">
+                        <div class="recipe-time">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                            15 mins
+                        </div>
+                    </div>
+                    <div class="recipe-content">
+                        <span class="recipe-category">Beverage</span>
+                        <h3 class="recipe-name">Kashmiri Kahwa</h3>
+                        <p class="recipe-desc">A warming Kashmiri green tea with saffron, cinnamon, cardamom, and
+                            crushed almonds. The perfect beverage for cold evenings and cherished conversations.</p>
+                        <div class="recipe-details">
+                            <span>🍽 Serves 2</span>
+                            <span>🌡️ Easy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= OUR STORY ============= -->
+    <section id="story" class="story section">
+        <canvas id="storyCanvas" class="three-canvas story-three-canvas"></canvas>
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image animate-on-scroll">
+                    <img src="images/family-story.png" alt="Our saffron farm in Pampore, Kashmir" loading="lazy">
+                    <div class="story-year-badge">
+                        <span class="year">Est. 1982</span>
+                        <span class="gen">4th Generation</span>
+                    </div>
+                </div>
+                <div class="story-content animate-on-scroll">
+                    <span class="section-tag">Our Heritage</span>
+                    <h2 class="section-title">A Legacy Written in Crimson & Gold</h2>
+                    <p class="story-text">
+                        In the mist-kissed valley of Pampore, where the Himalayas watch over fields of purple crocus,
+                        our family has tended the sacred saffron flower for over four decades. What began with my
+                        grandfather's small plot of land in 1982 has blossomed into a legacy of quality that spans four
+                        generations.
+                    </p>
+                    <p class="story-text">
+                        Every autumn, as the first chill settles over Kashmir, our family gathers before dawn to
+                        hand-harvest each delicate crocus bloom. The three crimson stigmas of each flower are carefully
+                        separated, dried using traditional methods, and graded with the expertise that only generations
+                        of experience can provide.
+                    </p>
+                    <p class="story-text">
+                        We believe that saffron is not just a spice — it is a bridge between cultures, a thread of
+                        tradition, and a gift of the earth. When you choose Shreeji Saffron Agency, you choose a story
+                        of love, integrity, and an unwavering commitment to purity.
+                    </p>
+                    <div class="story-values">
+                        <div class="value">
+                            <span class="value-icon">🌱</span>
+                            <span>Sustainably Farmed</span>
+                        </div>
+                        <div class="value">
+                            <span class="value-icon">🤲</span>
+                            <span>Hand-Harvested</span>
+                        </div>
+                        <div class="value">
+                            <span class="value-icon">🔬</span>
+                            <span>Lab Tested</span>
+                        </div>
+                        <div class="value">
+                            <span class="value-icon">💛</span>
+                            <span>Family Owned</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= CERTIFICATIONS / TRUST SIGNALS ============= -->
+    <section class="certifications section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Our Promise</span>
+                <h2 class="section-title">Purity You Can Trust</h2>
+            </div>
+            <div class="cert-grid animate-on-scroll">
+                <div class="cert-card">
+                    <div class="cert-icon">🛡️</div>
+                    <h4>100% Pure Guarantee</h4>
+                    <p>Every batch is tested for authenticity. If you find any adulteration, we offer a full refund — no
+                        questions asked.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🏅</div>
+                    <h4>ISO 3632 Certified</h4>
+                    <p>Our saffron meets the international standard for quality, graded by crocin content, color
+                        strength, and aroma.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🌿</div>
+                    <h4>Organic & Natural</h4>
+                    <p>Grown without synthetic pesticides or chemicals. Our fields are nurtured with traditional,
+                        sustainable farming practices.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📋</div>
+                    <h4>FSSAI Licensed</h4>
+                    <p>Fully compliant with India's Food Safety and Standards Authority, ensuring the highest food
+                        safety standards.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🔬</div>
+                    <h4>Third-Party Lab Tested</h4>
+                    <p>Every lot undergoes independent lab testing for purity, color value (crocin), and flavour
+                        compound analysis.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">💰</div>
+                    <h4>Money-Back Guarantee</h4>
+                    <p>Not satisfied? Return within 30 days for a complete refund. We stand behind the quality of every
+                        strand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= TESTIMONIALS ============= -->
+    <section id="testimonials" class="testimonials section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">What Our Customers Say</span>
+                <h2 class="section-title">Loved by Thousands</h2>
+            </div>
+            <div class="testimonials-carousel animate-on-scroll" id="testimonialsCarousel">
+                <div class="carousel-track" id="carouselTrack">
+                        <p class="testimonial-text">"The aroma of this saffron is unlike anything I've ever experienced.
+                            Just a few strands transformed my biryani into a restaurant-quality masterpiece. Absolutely
+                            authentic Irani saffron!"</p>
+                            <div class="author-avatar">PK</div>
+                            <div>
+                                <strong>Priya Kapoor</strong>
+                                <span>Mumbai, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I've been buying saffron for 20 years and Shreeji Saffron's Mogra
+                            grade is the purest I've found. The color it releases in warm milk is absolutely stunning.
+                            Worth every penny."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RS</div>
+                            <div>
+                                <strong>Rajesh Sharma</strong>
+                                <span>Delhi, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"As a chef, I'm very particular about my saffron. Shreeji Saffron
+                            delivers consistent quality every time. The packaging is elegant, and the saffron is
+                            incredibly potent. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AM</div>
+                            <div>
+                                <strong>Chef Aisha Malik</strong>
+                                <span>Bangalore, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I gift Shreeji saffron to my family abroad. They always say it's
+                            the best saffron they've tasted. The fact that it's directly from a family farm makes it so
+                            special and genuine."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">VN</div>
+                            <div>
+                                <strong>Vikram Nair</strong>
+                                <span>Kochi, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I use Shreeji saffron in my Kahwa every morning. The flavor and
+                            color are exceptional. Knowing it comes from a family with generations of experience gives
+                            me complete confidence in its purity."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SA</div>
+                            <div>
+                                <strong>Sarah Ahmad</strong>
+                                <span>Srinagar, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous testimonial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next testimonial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= CONTACT ============= -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2 class="section-title">We'd Love to Hear From You</h2>
+                    <p class="contact-desc">Whether you have a question about our saffron, need help with an order, or
+                        want to learn more about our farming practices — we're here for you.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Visit Us</strong>
+                                <p>Shreeji Saffron Agency, Pampore<br>Pulwama, Kashmir – 192121</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Call Us</strong>
+                                <p>+91 98765 43210<br>Mon–Sat, 9AM–7PM IST</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Email Us</strong>
+                                <p>hello@shreejisaffron.in<br>orders@shreejisaffron.in</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" />
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <form class="contact-form" id="contactForm">
+                        <h3 class="form-title">Send Us a Message</h3>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="">Select a topic</option>
+                                <option value="order">Order Inquiry</option>
+                                <option value="wholesale">Wholesale / Bulk Order</option>
+                                <option value="quality">Quality & Certification</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us how we can help..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                            <span>Send Message</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= NEWSLETTER ============= -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content animate-on-scroll">
+                <h2>Join the Shreeji Saffron Family</h2>
+                <p>Subscribe to receive exclusive offers, new recipes, and saffron insights delivered to your inbox.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= FOOTER ============= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#hero" class="nav-logo">
+                        <span class="logo-icon">✦</span>
+                        <span class="logo-text">Shreeji Saffron</span>
+                    <p>Pure Irani Saffron, hand-harvested with love from our family farm in Iran since 1982.</p>
+                        <span class="footer-cert">🛡️ ISO 3632</span>
+                        <span class="footer-cert">🌿 Organic</span>
+                        <span class="footer-cert">📋 FSSAI</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Shop Saffron</a></li>
+                        <li><a href="#benefits">Health Benefits</a></li>
+                        <li><a href="#recipes">Recipes</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>📍 Pampore, Kashmir</li>
+                        <li>📞 +91 98765 43210</li>
+                        <li>✉️ hello@shreejisaffron.in</li>
+                        <li class="footer-hours">Mon – Sat: 9AM – 7PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shreeji Saffron Agency. All rights reserved. Made with ❤️ in Kashmir.</p>
+                <div class="payment-methods">
+                    <span>We Accept:</span>
+                    <span class="payment-icon">💳 Visa</span>
+                    <span class="payment-icon">💳 Mastercard</span>
+                    <span class="payment-icon">📱 UPI</span>
+                    <span class="payment-icon">🏦 Net Banking</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <div class="cart-drawer-body" id="cartDrawerBody">
+            <div class="cart-empty" id="cartEmpty">
+                <span class="cart-empty-icon">🛒</span>
+                <p>Your cart is empty</p>
+                <a href="#products" class="btn btn-primary btn-sm" id="cartShopBtn">Browse Products</a>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+        </div>
+        <div class="cart-drawer-footer" id="cartDrawerFooter" style="display:none;">
+            <div class="cart-total">
+                <span>Total</span>
+                <span class="cart-total-amount" id="cartTotalAmount">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">Proceed to Checkout</button>
+            <p class="cart-note">Free shipping on orders above ₹999</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Product zoom view">
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919876543210?text=Hi%20Shreeji%20Saffron!%20I%27m%20interested%20in%20your%20saffron."
+        target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        <span class="whatsapp-tooltip">Chat with us!</span>
+    </a>
+
+    <!-- Sticky Add to Cart Bar -->
+    <div class="sticky-cart-bar" id="stickyCartBar">
+        <div class="container sticky-cart-inner">
+            <div class="sticky-cart-info">
+                <strong id="stickyProductName">Mogra Saffron</strong>
+                <span id="stickyProductPrice">₹599 / 1g</span>
+            </div>
+            <button class="btn btn-primary btn-sm" id="stickyAddBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                </svg>
+                Quick Add
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="three-scene.js" defer></script>
+</body>
+
+</html>
