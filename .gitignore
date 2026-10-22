@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment secrets
+.env
+
+# SQLite database (runtime-generated)
+data/
+
+# OS / Editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Build / dist
+dist/
+build/
