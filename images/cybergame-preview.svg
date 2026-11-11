@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gameBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#100318"/>
+      <stop offset="100%" stop-color="#1f0830"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#gameBg)"/>
+  <rect x="50" y="40" width="700" height="420" rx="12" fill="#140621" stroke="rgba(245, 184, 46, 0.3)" stroke-width="1.5"/>
+  <rect x="50" y="40" width="700" height="38" rx="12" fill="#240b3b"/>
+  <circle cx="75" cy="59" r="5" fill="#ff5f56"/>
+  <circle cx="92" cy="59" r="5" fill="#ffbd2e"/>
+  <circle cx="109" cy="59" r="5" fill="#27c93f"/>
+  <text x="400" y="63" font-family="'JetBrains Mono', monospace" font-size="11" fill="#f5b82e" text-anchor="middle">CYBER CHALLENGE ARENA // OWASP TOP 10 QUESTS</text>
+
+  <!-- Level Grid -->
+  <g transform="translate(80, 100)">
+    <rect x="0" y="0" width="190" height="130" rx="8" fill="#1c0a2e" stroke="#27c93f" stroke-width="1.5"/>
+    <text x="20" y="30" font-family="'JetBrains Mono', monospace" font-size="11" fill="#27c93f">LEVEL 01 [CLEARED]</text>
+    <text x="20" y="60" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" fill="#fff">SQL Injection</text>
+    <text x="20" y="85" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#bbb">Payload: ' OR 1=1 --</text>
+    <text x="20" y="110" font-family="'JetBrains Mono', monospace" font-size="10" fill="#27c93f">+500 XP // Sanitized</text>
+
+    <rect x="220" y="0" width="190" height="130" rx="8" fill="#1c0a2e" stroke="#27c93f" stroke-width="1.5"/>
+    <text x="240" y="30" font-family="'JetBrains Mono', monospace" font-size="11" fill="#27c93f">LEVEL 02 [CLEARED]</text>
+    <text x="240" y="60" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" fill="#fff">Stored XSS</text>
+    <text x="240" y="85" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#bbb">DOM Context Escaping</text>
+    <text x="240" y="110" font-family="'JetBrains Mono', monospace" font-size="10" fill="#27c93f">+750 XP // CSP Enabled</text>
+
+    <rect x="440" y="0" width="200" height="130" rx="8" fill="#1c0a2e" stroke="#f5b82e" stroke-width="1.5"/>
+    <text x="460" y="30" font-family="'JetBrains Mono', monospace" font-size="11" fill="#f5b82e">LEVEL 03 [ACTIVE]</text>
+    <text x="460" y="60" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" fill="#fff">JWT Signature Strip</text>
+    <text x="460" y="85" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#bbb">alg: 'none' Bypass</text>
+    <text x="460" y="110" font-family="'JetBrains Mono', monospace" font-size="10" fill="#f5b82e">In Progress...</text>
+  </g>
+
+  <!-- Interactive Terminal Prompt at bottom -->
+  <g transform="translate(80, 260)">
+    <rect x="0" y="0" width="640" height="170" rx="8" fill="#12041c" stroke="rgba(245, 184, 46, 0.25)"/>
+    <text x="20" y="35" font-family="'JetBrains Mono', monospace" font-size="12" fill="#f5b82e">> SYSTEM STATUS: PLAYER SCORE: 2,450 PTS | RANK #1</text>
+    <text x="20" y="65" font-family="'JetBrains Mono', monospace" font-size="11" fill="#a78bfa">> Engaging dynamic vulnerability simulation engine...</text>
+    <text x="20" y="95" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00f0ff">> Web Security Education • Gamified Defense Protocols</text>
+    <rect x="20" y="115" width="220" height="36" rx="6" fill="#f5b82e" fill-opacity="0.2" stroke="#f5b82e"/>
+    <text x="130" y="138" font-family="'JetBrains Mono', monospace" font-size="11" fill="#f5b82e" text-anchor="middle">LAUNCH CHALLENGE</text>
+  </g>
+</svg>
+

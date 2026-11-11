@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="stegoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051010"/>
+      <stop offset="100%" stop-color="#02080a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#stegoBg)"/>
+  <rect x="50" y="40" width="700" height="420" rx="12" fill="#07191a" stroke="rgba(0, 245, 212, 0.3)" stroke-width="1.5"/>
+  <rect x="50" y="40" width="700" height="38" rx="12" fill="#0b292b"/>
+  <circle cx="75" cy="59" r="5" fill="#ff5f56"/>
+  <circle cx="92" cy="59" r="5" fill="#ffbd2e"/>
+  <circle cx="109" cy="59" r="5" fill="#27c93f"/>
+  <text x="400" y="63" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00f5d4" text-anchor="middle">CRYPTOGRAPHIC LSB STEGANOGRAPHY ENGINE</text>
+
+  <!-- Visual Matrix / Bit Planes -->
+  <g transform="translate(90, 110)">
+    <!-- Original Matrix -->
+    <rect x="0" y="0" width="260" height="200" rx="8" fill="#0a2224" stroke="rgba(0, 245, 212, 0.2)"/>
+    <text x="130" y="30" font-family="'JetBrains Mono', monospace" font-size="12" fill="#00f5d4" text-anchor="middle">CARRIER PIXELS [RGB]</text>
+    <!-- Pixel bit streams -->
+    <text x="20" y="70" font-family="'JetBrains Mono', monospace" font-size="11" fill="rgba(255,255,255,0.7)">R: 1101011<tspan fill="#ff5f56">0</tspan> [LSB Bit 0]</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', monospace" font-size="11" fill="rgba(255,255,255,0.7)">G: 0100110<tspan fill="#00f5d4">1</tspan> [Payload 1]</text>
+    <text x="20" y="130" font-family="'JetBrains Mono', monospace" font-size="11" fill="rgba(255,255,255,0.7)">B: 1011010<tspan fill="#f5b82e">1</tspan> [Payload 1]</text>
+    <text x="20" y="170" font-family="'JetBrains Mono', monospace" font-size="11" fill="#27c93f">PSNR: 68.4 dB (Imperceptible)</text>
+
+    <!-- Arrow -->
+    <path d="M 285 100 L 335 100 M 325 90 L 335 100 L 325 110" stroke="#00f5d4" stroke-width="2.5" fill="none"/>
+
+    <!-- Cipher Encrypted Matrix -->
+    <rect x="360" y="0" width="260" height="200" rx="8" fill="#0a2224" stroke="rgba(0, 245, 212, 0.4)"/>
+    <text x="490" y="30" font-family="'JetBrains Mono', monospace" font-size="12" fill="#00f5d4" text-anchor="middle">AES-256 CIPHER PAYLOAD</text>
+    <text x="380" y="70" font-family="'JetBrains Mono', monospace" font-size="10" fill="#a78bfa">SHA-256 Key Derivation</text>
+    <text x="380" y="100" font-family="'JetBrains Mono', monospace" font-size="10" fill="#88b5d9">Pseudo-Random Bit Dispersion</text>
+    <text x="380" y="130" font-family="'JetBrains Mono', monospace" font-size="10" fill="#00f5d4">Zero Artifact Structural Delta</text>
+    <text x="380" y="170" font-family="'JetBrains Mono', monospace" font-size="11" fill="#27c93f">Integrity Verified: HMAC OK</text>
+  </g>
+
+  <!-- Bottom Details -->
+  <rect x="90" y="340" width="620" height="85" rx="8" fill="#061a1b" stroke="rgba(0, 245, 212, 0.25)"/>
+  <text x="115" y="372" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#f8fafc">Confidential Information Hiding &amp; Payload Recovery</text>
+  <text x="115" y="400" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#7fa6c8">Academic Research Project • B.Sc. Computer Science • Python, Cryptography, OpenCV</text>
+</svg>
+

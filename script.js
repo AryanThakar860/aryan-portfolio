@@ -1,6 +1,6 @@
 /* ==========================================================================
-   SHREEJI SAFFRON — MASTER INTERACTION CONTROLLER
-   Audio Synthesizer | Magnetic Cursor | 3D Vault Sync | Cart & Telemetry Engine
+   ARYAN THAKAR — MASTER CLIENT INTERACTION & SYSTEM ENGINE
+   Audio Synthesizer | Magnetic Cursor | Project Modal | SOC Lab | Admin Console
    ========================================================================== */
 
 window.lerp = (a, b, t) => a + (b - a) * t;
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clamp = window.clamp;
 
     // ==========================================================================
-    //  01. WEB AUDIO API SYNTHESIZER (ZERO EXTERNAL ASSETS NEEDED)
+    //  01. WEB AUDIO API SYNTHESIZER (PROCEDURAL SCI-FI SOUNDS)
     // ==========================================================================
     let audioCtx = null;
     let isAudioOn = false;
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
+                osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 0.05);
 
                 gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 osc.frequency.setValueAtTime(220, audioCtx.currentTime);
                 osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.8);
 
-                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.14, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.9);
 
                 osc.connect(gain);
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const gain = audioCtx.createGain();
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(520, audioCtx.currentTime);
-                osc.frequency.linearRampToValueAtTime(660, audioCtx.currentTime + 0.4);
+                osc.frequency.linearRampToValueAtTime(680, audioCtx.currentTime + 0.4);
 
                 gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
@@ -87,21 +87,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!audioCtx) return;
             try {
                 ambientGain = audioCtx.createGain();
-                ambientGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+                ambientGain.gain.setValueAtTime(0.03, audioCtx.currentTime);
 
-                // Celestial drone chord (A2 110Hz + E3 165Hz)
                 osc1 = audioCtx.createOscillator();
                 osc2 = audioCtx.createOscillator();
 
                 osc1.type = 'sine';
-                osc1.frequency.setValueAtTime(110, audioCtx.currentTime);
+                osc1.frequency.setValueAtTime(110, audioCtx.currentTime); // A2
 
                 osc2.type = 'triangle';
-                osc2.frequency.setValueAtTime(164.81, audioCtx.currentTime);
+                osc2.frequency.setValueAtTime(164.81, audioCtx.currentTime); // E3
 
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(350, audioCtx.currentTime);
+                filter.frequency.setValueAtTime(320, audioCtx.currentTime);
 
                 osc1.connect(filter);
                 osc2.connect(filter);
@@ -128,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.soundFX = soundFX;
 
-    // Audio HUD Toggle Button
+    // Audio HUD Toggle
     const audioBtn = document.getElementById('audioToggleBtn');
     const audioLabel = document.getElementById('audioLabel');
 
@@ -154,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    //  02. SCI-FI MAGNETIC CURSOR
+    //  02. SCI-FI HOLOGRAPHIC CURSOR WITH MAGNETIC ATTRACTION
     // ==========================================================================
     const cursorDot = document.getElementById('cursorDot');
     const cursorRing = document.getElementById('cursorRing');
@@ -169,48 +168,50 @@ document.addEventListener('DOMContentLoaded', () => {
         mouseY = e.clientY;
 
         if (cursorDot) {
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
+            cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
         }
     }, { passive: true });
 
     function renderCursor() {
-        ringX = lerp(ringX, mouseX, 0.15);
-        ringY = lerp(ringY, mouseY, 0.15);
+        ringX = lerp(ringX, mouseX, 0.16);
+        ringY = lerp(ringY, mouseY, 0.16);
 
         if (cursorRing) {
-            cursorRing.style.left = ringX + 'px';
-            cursorRing.style.top = ringY + 'px';
+            cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
         }
         requestAnimationFrame(renderCursor);
     }
     renderCursor();
 
-    const interactiveSelectors = 'a, button, .product-card, .recipe-card, .benefit-card, .ticker-chip, input, select, textarea';
-    document.querySelectorAll(interactiveSelectors).forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            if (cursorRing) cursorRing.classList.add('cursor-hover');
+    const interactiveSelectors = 'a, button, .project-card, .domain-chip, .skill-category-card, .timeline-card, input, select, textarea';
+    function attachCursorHover() {
+        document.querySelectorAll(interactiveSelectors).forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                if (cursorRing) cursorRing.classList.add('cursor-hover');
+                soundFX.playClick();
+            });
+            el.addEventListener('mouseleave', () => {
+                if (cursorRing) cursorRing.classList.remove('cursor-hover');
+            });
         });
-        el.addEventListener('mouseleave', () => {
-            if (cursorRing) cursorRing.classList.remove('cursor-hover');
-        });
-        el.addEventListener('click', () => {
-            soundFX.playClick();
-        });
-    });
+    }
+    attachCursorHover();
 
     // ==========================================================================
-    //  03. SPLASH SCREEN DISSOLVE
+    //  03. BOOT SPLASH SCREEN
     // ==========================================================================
     const splashScreen = document.getElementById('splashScreen');
     if (splashScreen) {
         setTimeout(() => {
-            splashScreen.classList.add('hidden');
-        }, 1800);
+            splashScreen.classList.add('fade-out');
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+            }, 800);
+        }, 1600);
     }
 
     // ==========================================================================
-    //  04. STICKY NAVBAR & MOBILE MENU
+    //  04. NAVBAR SCROLL & SECTION SPY
     // ==========================================================================
     const navbar = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
@@ -218,773 +219,707 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
+        if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // Section Spy
+        const sections = document.querySelectorAll('section[id]');
+        const scrollPosition = window.scrollY + 200;
+
+        sections.forEach(sec => {
+            const top = sec.offsetTop;
+            const height = sec.offsetHeight;
+            const id = sec.getAttribute('id');
+
+            if (scrollPosition >= top && scrollPosition < top + height) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
     }, { passive: true });
 
+    // Mobile Hamburger Toggle
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
 
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
-                document.body.style.overflow = '';
             });
         });
     }
 
-    // ==========================================================================
-    //  05. 3D PRODUCT VAULT & TELEMETRY SYNCHRONIZATION
-    // ==========================================================================
-    const productCards = document.querySelectorAll('.product-card');
-    const telemetryData = {
-        mogra: {
-            name: 'Mogra Grade I Saffron',
-            crocin: '264.8 / 200 min',
-            crocinWidth: '95%',
-            safranal: '46.2 / 20-50 std',
-            safranalWidth: '88%',
-            picro: '89.4 / 70 min',
-            picroWidth: '92%',
-            tag: 'CATEGORY I PASS'
-        },
-        lachha: {
-            name: 'Lachha Grade II Saffron',
-            crocin: '224.5 / 170 min',
-            crocinWidth: '82%',
-            safranal: '41.0 / 20-50 std',
-            safranalWidth: '78%',
-            picro: '82.1 / 70 min',
-            picroWidth: '85%',
-            tag: 'CATEGORY II PASS'
-        },
-        zarda: {
-            name: 'Zarda Fine Saffron',
-            crocin: '188.2 / 140 min',
-            crocinWidth: '70%',
-            safranal: '36.5 / 20-50 std',
-            safranalWidth: '68%',
-            picro: '74.0 / 60 min',
-            picroWidth: '76%',
-            tag: 'CATEGORY III PASS'
-        }
-    };
-
-    function updateVaultTelemetry(grade) {
-        const data = telemetryData[grade];
-        if (!data) return;
-
-        const crocinVal = document.getElementById('metricCrocin');
-        const crocinBar = document.getElementById('barCrocin');
-        const safranalVal = document.getElementById('metricSafranal');
-        const safranalBar = document.getElementById('barSafranal');
-        const picroVal = document.getElementById('metricPicro');
-        const picroBar = document.getElementById('barPicro');
-        const purityTag = document.getElementById('telemetryPurityTag');
-
-        if (crocinVal) crocinVal.textContent = data.crocin;
-        if (crocinBar) crocinBar.style.width = data.crocinWidth;
-        if (safranalVal) safranalVal.textContent = data.safranal;
-        if (safranalBar) safranalBar.style.width = data.safranalWidth;
-        if (picroVal) picroVal.textContent = data.picro;
-        if (picroBar) picroBar.style.width = data.picroWidth;
-        if (purityTag) purityTag.textContent = data.tag;
-
-        // Dispatch to Three.js Vault Canvas
-        window.dispatchEvent(new CustomEvent('vaultGradeChange', { detail: { grade } }));
-    }
-
-    productCards.forEach(card => {
-        card.addEventListener('click', () => {
-            productCards.forEach(c => c.classList.remove('active-vault-card'));
-            card.classList.add('active-vault-card');
-            const grade = card.dataset.product;
-            updateVaultTelemetry(grade);
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    });
-
-    // Molecular compound chips click interaction
-    document.querySelectorAll('.ticker-chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-            document.querySelectorAll('.ticker-chip').forEach(c => c.classList.remove('active-chip'));
-            chip.classList.add('active-chip');
-        });
-    });
+    }
 
     // ==========================================================================
-    //  06. WEIGHT TOGGLE & PRICING DYNAMICS
+    //  05. PROJECT FILTERING CONTROLS
     // ==========================================================================
-    document.querySelectorAll('.weight-toggle').forEach(toggle => {
-        const buttons = toggle.querySelectorAll('.weight-btn');
-        const card = toggle.closest('.product-card');
-        const priceMap = JSON.parse(toggle.dataset.prices);
-        const mrpMap = JSON.parse(toggle.dataset.mrps);
-        const currentPriceEl = card.querySelector('.current-price');
-        const priceWeightEl = card.querySelector('.price-weight');
-        const mrpPriceEl = card.querySelector('.mrp-price');
-        const addToCartBtn = card.querySelector('.add-to-cart-btn');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
-        buttons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                buttons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const weight = btn.dataset.weight;
-                const price = priceMap[weight];
-                const mrp = mrpMap[weight];
-
-                currentPriceEl.style.transform = 'scale(0.85)';
-                currentPriceEl.style.opacity = '0.5';
-
-                setTimeout(() => {
-                    currentPriceEl.textContent = '₹' + price;
-                    priceWeightEl.textContent = '/ ' + weight + (weight === '1' ? ' gram' : ' grams');
-                    mrpPriceEl.textContent = '₹' + mrp;
-                    addToCartBtn.dataset.price = price;
-                    currentPriceEl.style.transform = 'scale(1)';
-                    currentPriceEl.style.opacity = '1';
-                }, 140);
-            });
-        });
-    });
-
-    // Quantity Selectors
-    document.querySelectorAll('.quantity-selector').forEach(selector => {
-        const minusBtn = selector.querySelector('.qty-minus');
-        const plusBtn = selector.querySelector('.qty-plus');
-        const valueEl = selector.querySelector('.qty-value');
-
-        minusBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            let val = parseInt(valueEl.textContent);
-            if (val > 1) valueEl.textContent = val - 1;
-        });
-
-        plusBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            let val = parseInt(valueEl.textContent);
-            if (val < 10) valueEl.textContent = val + 1;
-        });
-    });
-
-    // ==========================================================================
-    //  07. FULLY FUNCTIONAL CART DRAWER & NOTIFICATIONS
-    // ==========================================================================
-    const cartBtn = document.getElementById('cartBtn');
-    const cartCount = document.getElementById('cartCount');
-    const cartDrawer = document.getElementById('cartDrawer');
-    const cartOverlay = document.getElementById('cartOverlay');
-    const cartCloseBtn = document.getElementById('cartCloseBtn');
-    const cartItemsEl = document.getElementById('cartItems');
-    const cartEmptyEl = document.getElementById('cartEmpty');
-    const cartDrawerFooter = document.getElementById('cartDrawerFooter');
-    const cartTotalAmount = document.getElementById('cartTotalAmount');
-    const cartShopBtn = document.getElementById('cartShopBtn');
-    const checkoutBtn = document.getElementById('checkoutBtn');
-    const toastContainer = document.getElementById('toastContainer');
-
-    // Checkout Modal Elements
-    const checkoutModal = document.getElementById('checkoutModal');
-    const checkoutOverlay = document.getElementById('checkoutOverlay');
-    const checkoutCloseBtn = document.getElementById('checkoutCloseBtn');
-    const checkoutForm = document.getElementById('checkoutForm');
-    const modalSubtotal = document.getElementById('modalSubtotal');
-    const modalShipping = document.getElementById('modalShipping');
-    const modalTotal = document.getElementById('modalTotal');
-    const confirmOrderBtn = document.getElementById('confirmOrderBtn');
-
-    // Receipt Modal Elements
-    const receiptModal = document.getElementById('receiptModal');
-    const receiptOverlay = document.getElementById('receiptOverlay');
-    const receiptCloseBtn = document.getElementById('receiptCloseBtn');
-    const receiptRefCode = document.getElementById('receiptRefCode');
-    const receiptAmount = document.getElementById('receiptAmount');
-
-    // Cart State with LocalStorage Persistence
-    let cart = [];
-    try {
-        const saved = localStorage.getItem('shreeji_cart_v1');
-        if (saved) {
-            cart = JSON.parse(saved);
-        }
-    } catch (e) {
-        cart = [];
-    }
-
-    function saveCart() {
-        try {
-            localStorage.setItem('shreeji_cart_v1', JSON.stringify(cart));
-        } catch (e) {}
-    }
-
-    function openCart() {
-        cartDrawer.classList.add('open');
-        cartOverlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        renderCart();
-    }
-
-    function closeCart() {
-        cartDrawer.classList.remove('open');
-        cartOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-    }
-
-    function openCheckoutModal() {
-        if (cart.length === 0) {
-            showToast('Your allocation vault is empty. Please select a specimen.');
-            return;
-        }
-
-        const subtotal = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
-        const shippingFee = subtotal >= 999 ? 0 : 99;
-        const total = subtotal + shippingFee;
-
-        if (modalSubtotal) modalSubtotal.textContent = '₹' + subtotal.toLocaleString('en-IN');
-        if (modalShipping) {
-            modalShipping.textContent = shippingFee === 0 ? 'COMPLIMENTARY' : '₹99';
-            modalShipping.className = shippingFee === 0 ? 'free-courier' : '';
-        }
-        if (modalTotal) modalTotal.textContent = '₹' + total.toLocaleString('en-IN');
-
-        closeCart();
-        if (checkoutModal) checkoutModal.classList.add('open');
-        if (checkoutOverlay) checkoutOverlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeCheckoutModal() {
-        if (checkoutModal) checkoutModal.classList.remove('open');
-        if (checkoutOverlay) checkoutOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-    }
-
-    function openReceiptModal(orderRef, total) {
-        if (receiptRefCode) receiptRefCode.textContent = orderRef;
-        if (receiptAmount) receiptAmount.textContent = '₹' + Number(total).toLocaleString('en-IN');
-
-        if (receiptModal) receiptModal.classList.add('open');
-        if (receiptOverlay) receiptOverlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeReceiptModal() {
-        if (receiptModal) receiptModal.classList.remove('open');
-        if (receiptOverlay) receiptOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-    }
-
-    if (cartBtn) cartBtn.addEventListener('click', openCart);
-    if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCart);
-    if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
-    if (cartShopBtn) cartShopBtn.addEventListener('click', closeCart);
-
-    if (checkoutBtn) checkoutBtn.addEventListener('click', openCheckoutModal);
-    if (checkoutCloseBtn) checkoutCloseBtn.addEventListener('click', closeCheckoutModal);
-    if (checkoutOverlay) checkoutOverlay.addEventListener('click', closeCheckoutModal);
-
-    if (receiptCloseBtn) receiptCloseBtn.addEventListener('click', closeReceiptModal);
-    if (receiptOverlay) receiptOverlay.addEventListener('click', closeReceiptModal);
-
-    function renderCart() {
-        if (cart.length === 0) {
-            cartEmptyEl.style.display = 'block';
-            cartItemsEl.innerHTML = '';
-            cartDrawerFooter.style.display = 'none';
-        } else {
-            cartEmptyEl.style.display = 'none';
-            cartDrawerFooter.style.display = 'block';
-            cartItemsEl.innerHTML = cart.map((item, index) => `
-                <div class="cart-item">
-                    <div class="cart-item-info">
-                        <div class="cart-item-name">${item.name} (${item.weight})</div>
-                        <div class="cart-item-details">Qty: ${item.qty} × ₹${item.price}</div>
-                    </div>
-                    <div class="cart-item-price">₹${(item.qty * item.price).toLocaleString('en-IN')}</div>
-                    <button class="cart-item-remove" data-index="${index}" aria-label="Remove item">✕</button>
-                </div>
-            `).join('');
-
-            const total = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
-            cartTotalAmount.textContent = '₹' + total.toLocaleString('en-IN');
-
-            cartItemsEl.querySelectorAll('.cart-item-remove').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const idx = parseInt(btn.dataset.index, 10);
-                    cart.splice(idx, 1);
-                    saveCart();
-                    updateCartCount();
-                    renderCart();
-                    showToast('Allocation removed');
-                });
-            });
-        }
-    }
-
-    function updateCartCount() {
-        const total = cart.reduce((sum, item) => sum + item.qty, 0);
-        if (cartCount) cartCount.textContent = total;
-    }
-
-    // Initialize cart count on boot
-    updateCartCount();
-
-    // Add To Cart Handlers
-    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const card = btn.closest('.product-card');
-            const name = btn.dataset.name;
-            const price = parseInt(btn.dataset.price, 10);
-            const qty = parseInt(card.querySelector('.qty-value').textContent, 10);
-            const weight = card.querySelector('.weight-btn.active').textContent;
-
-            const existing = cart.find(item => item.name === name && item.weight === weight);
-            if (existing) {
-                existing.qty += qty;
-            } else {
-                cart.push({ name, price, qty, weight });
-            }
-
-            saveCart();
-            updateCartCount();
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
             soundFX.playClick();
 
-            // Button feedback
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<span>✓ ALLOCATED</span>';
-            btn.style.borderColor = '#00f5d4';
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.style.borderColor = '';
-            }, 1200);
+            const filter = btn.getAttribute('data-filter');
 
-            showToast(`${name} (${weight} × ${qty}) secured in Vault!`);
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
     });
 
-    // Checkout Form Order Submission (ACID Transaction via /api/orders)
-    if (checkoutForm) {
-        checkoutForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            if (cart.length === 0) {
-                showToast('Your allocation cart is empty.');
-                closeCheckoutModal();
-                return;
-            }
-
-            const name = document.getElementById('checkoutName').value.trim();
-            const email = document.getElementById('checkoutEmail').value.trim();
-            const phone = document.getElementById('checkoutPhone').value.trim();
-            const address = document.getElementById('checkoutAddress').value.trim();
-            const city = document.getElementById('checkoutCity').value.trim();
-            const postal = document.getElementById('checkoutPostal').value.trim();
-
-            if (!name || !email || !phone || !address || !city || !postal) {
-                showToast('Please fill in all mandatory dispatch fields.');
-                return;
-            }
-
-            const originalBtnHTML = confirmOrderBtn ? confirmOrderBtn.innerHTML : '';
-            if (confirmOrderBtn) {
-                confirmOrderBtn.disabled = true;
-                confirmOrderBtn.innerHTML = '<span>TRANSMITTING DISPATCH...</span>';
-            }
-
-            try {
-                const payload = {
-                    customer_name: name,
-                    customer_email: email,
-                    customer_phone: phone,
-                    shipping_address: address,
-                    city,
-                    postal_code: postal,
-                    country: 'India',
-                    items: cart.map(item => ({
-                        name: item.name,
-                        weight: item.weight,
-                        qty: item.qty
-                    }))
-                };
-
-                const res = await fetch('/api/orders', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const data = await res.json();
-
-                if (!res.ok || !data.success) {
-                    throw new Error(data.error?.message || 'Order transmission failed.');
-                }
-
-                // Success! Clear cart, close checkout, open receipt
-                cart = [];
-                saveCart();
-                updateCartCount();
-                renderCart();
-                checkoutForm.reset();
-                closeCheckoutModal();
-
-                openReceiptModal(data.orderRef, data.orderSummary.totalAmount);
-                if (soundFX && soundFX.playBloom) soundFX.playBloom();
-                showToast(`Allocation confirmed! Reference: ${data.orderRef}`);
-
-            } catch (err) {
-                console.error('[Checkout Error]:', err);
-                showToast(err.message || 'Network error transmitting allocation.');
-            } finally {
-                if (confirmOrderBtn) {
-                    confirmOrderBtn.disabled = false;
-                    confirmOrderBtn.innerHTML = originalBtnHTML;
-                }
-            }
-        });
-    }
-
-    function showToast(message) {
-        if (!toastContainer) return;
-        const toast = document.createElement('div');
-        toast.className = 'toast toast-success';
-        toast.innerHTML = `<span class="toast-spark">✦</span><span>${message}</span>`;
-        toastContainer.appendChild(toast);
-
-        requestAnimationFrame(() => toast.classList.add('show'));
-
-        setTimeout(() => {
-            toast.classList.remove('show');
-            setTimeout(() => toast.remove(), 400);
-        }, 3600);
-    }
-
     // ==========================================================================
-    //  08. ANIMATED NUMBER COUNTERS & TELEMETRY
+    //  06. PROJECT ARCHITECTURE DETAILS MODAL
     // ==========================================================================
-    const counterElements = document.querySelectorAll('.stat-number[data-target]');
-    let countersDone = false;
+    const projectModal = document.getElementById('projectModal');
+    const projectModalClose = document.getElementById('projectModalClose');
+    const projectModalBackdrop = document.getElementById('projectModalBackdrop');
 
-    function animateCounters() {
-        if (countersDone) return;
-        countersDone = true;
-        counterElements.forEach(el => {
-            const target = parseInt(el.dataset.target, 10);
-            const suffix = el.dataset.suffix || '';
-            const duration = 2200;
-            const start = performance.now();
+    const modalProjectBadge = document.getElementById('modalProjectBadge');
+    const modalProjectTitle = document.getElementById('modalProjectTitle');
+    const modalProjectSubtitle = document.getElementById('modalProjectSubtitle');
+    const modalProjectImg = document.getElementById('modalProjectImg');
+    const modalProjectDesc = document.getElementById('modalProjectDesc');
+    const modalProjectStack = document.getElementById('modalProjectStack');
+    const modalProjectLive = document.getElementById('modalProjectLive');
+    const modalProjectGit = document.getElementById('modalProjectGit');
 
-            function tick(now) {
-                const elapsed = now - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(eased * target);
-                el.textContent = current.toLocaleString('en-IN') + suffix;
-                if (progress < 1) {
-                    requestAnimationFrame(tick);
-                } else {
-                    el.textContent = target.toLocaleString('en-IN') + suffix;
+    function openProjectModal(slug) {
+        soundFX.playClick();
+
+        // Fetch project specs from backend API
+        fetch(`/api/projects/${slug}`)
+            .then(res => res.json())
+            .then(res => {
+                if (!res.success || !res.data) return;
+                const p = res.data;
+
+                if (modalProjectBadge) modalProjectBadge.textContent = p.badge || 'SYSTEM ARCHITECTURE';
+                if (modalProjectTitle) modalProjectTitle.textContent = p.title;
+                if (modalProjectSubtitle) modalProjectSubtitle.textContent = p.tagline;
+                if (modalProjectImg) modalProjectImg.src = p.image_url;
+                if (modalProjectDesc) modalProjectDesc.textContent = p.description;
+
+                if (modalProjectStack) {
+                    modalProjectStack.innerHTML = '';
+                    (p.tech_stack || []).forEach(tech => {
+                        const span = document.createElement('span');
+                        span.className = 'stack-tag';
+                        span.textContent = tech;
+                        modalProjectStack.appendChild(span);
+                    });
                 }
-            }
-            requestAnimationFrame(tick);
-        });
-    }
 
-    const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) {
-        const counterObs = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                animateCounters();
-                counterObs.disconnect();
-            }
-        }, { threshold: 0.3 });
-        counterObs.observe(heroStats);
-    }
-
-    // Live Server Telemetry Syncer
-    async function fetchTelemetry() {
-        try {
-            const res = await fetch('/api/telemetry');
-            if (res.ok) {
-                const data = await res.json();
-                if (data.success && data.telemetry) {
-                    // Update live metrics if elements exist
-                    const teleEl = document.getElementById('telemetryPurityTag');
-                    if (teleEl && data.telemetry.isoStandard) {
-                        teleEl.textContent = data.telemetry.isoStandard.toUpperCase() + ' PASS';
+                if (modalProjectLive) {
+                    modalProjectLive.href = p.live_url || '#';
+                    if (p.slug === 'shreeji-saffron-3d') {
+                        modalProjectLive.href = '#';
+                        modalProjectLive.onclick = (e) => {
+                            e.preventDefault();
+                            closeProjectModal();
+                            openSaffronLabModal();
+                        };
+                    } else {
+                        modalProjectLive.onclick = null;
                     }
                 }
-            }
-        } catch (e) {
-            // Non-blocking telemetry fallback
+
+                if (modalProjectGit) {
+                    modalProjectGit.href = p.github_url || 'https://github.com/AryanThakar860';
+                }
+
+                if (projectModal) {
+                    projectModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            })
+            .catch(err => {
+                console.error('[Error] Project details fetch failed:', err);
+            });
+    }
+
+    function closeProjectModal() {
+        if (projectModal) {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = '';
         }
     }
-    fetchTelemetry();
 
-    // ==========================================================================
-    //  09. TESTIMONIALS CAROUSEL
-    // ==========================================================================
-    const carouselTrack = document.getElementById('carouselTrack');
-    const prevBtn = document.getElementById('carouselPrev');
-    const nextBtn = document.getElementById('carouselNext');
-    const dotsContainer = document.getElementById('carouselDots');
-    const testimonialCards = carouselTrack ? carouselTrack.querySelectorAll('.testimonial-card') : [];
-    let currentSlide = 0;
-    let autoSlideInterval;
-
-    if (testimonialCards.length > 0 && dotsContainer) {
-        testimonialCards.forEach((_, i) => {
-            const dot = document.createElement('button');
-            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-            dot.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(dot);
+    document.querySelectorAll('.open-case-study').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const slug = btn.getAttribute('data-slug');
+            if (slug) openProjectModal(slug);
         });
+    });
 
-        function goToSlide(idx) {
-            currentSlide = idx;
-            carouselTrack.style.transform = `translateX(-${idx * 100}%)`;
-            dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
-                d.classList.toggle('active', i === idx);
-            });
+    if (projectModalClose) projectModalClose.addEventListener('click', closeProjectModal);
+    if (projectModalBackdrop) projectModalBackdrop.addEventListener('click', closeProjectModal);
+
+    // ==========================================================================
+    //  07. SAFFRON 3D INTERACTIVE LAB MODAL
+    // ==========================================================================
+    const saffronLabModal = document.getElementById('saffronLabModal');
+    const saffronLabClose = document.getElementById('saffronLabClose');
+    const saffronLabBackdrop = document.getElementById('saffronLabBackdrop');
+
+    function openSaffronLabModal() {
+        soundFX.playClick();
+        if (saffronLabModal) {
+            saffronLabModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
+    }
 
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                goToSlide(currentSlide === 0 ? testimonialCards.length - 1 : currentSlide - 1);
-                resetAutoSlide();
-            });
+    function closeSaffronLabModal() {
+        if (saffronLabModal) {
+            saffronLabModal.classList.remove('active');
+            document.body.style.overflow = '';
         }
+    }
 
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                goToSlide(currentSlide === testimonialCards.length - 1 ? 0 : currentSlide + 1);
-                resetAutoSlide();
-            });
+    document.querySelectorAll('.open-saffron-demo').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openSaffronLabModal();
+        });
+    });
+
+    if (saffronLabClose) saffronLabClose.addEventListener('click', closeSaffronLabModal);
+    if (saffronLabBackdrop) saffronLabBackdrop.addEventListener('click', closeSaffronLabModal);
+
+    // ==========================================================================
+    //  08. RESUME VIEWER MODAL
+    // ==========================================================================
+    const resumeModal = document.getElementById('resumeModal');
+    const openResumeBtn = document.getElementById('openResumeBtn');
+    const resumeModalClose = document.getElementById('resumeModalClose');
+    const resumeModalBackdrop = document.getElementById('resumeModalBackdrop');
+
+    function openResume() {
+        soundFX.playClick();
+        if (resumeModal) {
+            resumeModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
+    }
 
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                goToSlide((currentSlide + 1) % testimonialCards.length);
-            }, 6000);
+    function closeResume() {
+        if (resumeModal) {
+            resumeModal.classList.remove('active');
+            document.body.style.overflow = '';
         }
+    }
 
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
+    if (openResumeBtn) openResumeBtn.addEventListener('click', openResume);
+    if (resumeModalClose) resumeModalClose.addEventListener('click', closeResume);
+    if (resumeModalBackdrop) resumeModalBackdrop.addEventListener('click', closeResume);
+
+    // ==========================================================================
+    //  09. SOC DEFENSE & THREAT LAB SIMULATOR
+    // ==========================================================================
+    const simAttackBtn = document.getElementById('simAttackBtn');
+    const clearLogBtn = document.getElementById('clearLogBtn');
+    const socFeedRows = document.getElementById('socFeedRows');
+
+    const simulatedIncidents = [
+        {
+            proto: 'HTTP',
+            class: 'proto-http',
+            src: '45.133.1.28:51022',
+            dst: '10.0.0.15:80',
+            event: 'SQL INJECTION ATTEMPT: " UNION SELECT table_name FROM information_schema.tables --',
+            action: 'BLOCKED',
+            actionClass: 'act-block',
+            rowClass: 'row-alert'
+        },
+        {
+            proto: 'TCP',
+            class: 'proto-tcp',
+            src: '198.51.100.44:39102',
+            dst: '10.0.0.15:443',
+            event: 'SYN FLOOD THRESHOLD EXCEEDED: 4,200 packets/sec on VIP interface',
+            action: 'RATE-LIMITED',
+            actionClass: 'act-inspect',
+            rowClass: 'row-warn'
+        },
+        {
+            proto: 'DNS',
+            class: 'proto-dns',
+            src: '10.0.0.15:61902',
+            dst: '8.8.8.8:53',
+            event: 'DNS EXFILTRATION SUSPECTED: High entropy label (base64 payload)',
+            action: 'QUARANTINED',
+            actionClass: 'act-block',
+            rowClass: 'row-alert'
+        },
+        {
+            proto: 'TLS',
+            class: 'proto-https',
+            src: '103.21.244.0:443',
+            dst: '10.0.0.15:58210',
+            event: 'Cloudflare Edge Certificate Verification Passed',
+            action: 'VERIFIED',
+            actionClass: 'act-pass',
+            rowClass: 'row-normal'
         }
+    ];
 
-        startAutoSlide();
+    let incidentCounter = 5;
+
+    if (simAttackBtn && socFeedRows) {
+        simAttackBtn.addEventListener('click', () => {
+            soundFX.playClick();
+            const inc = simulatedIncidents[Math.floor(Math.random() * simulatedIncidents.length)];
+            const now = new Date().toTimeString().split(' ')[0];
+
+            const newRow = document.createElement('div');
+            newRow.className = `feed-row ${inc.rowClass}`;
+            newRow.innerHTML = `
+                <span>#0${incidentCounter++}</span>
+                <span>${now}</span>
+                <span>${inc.src}</span>
+                <span>${inc.dst}</span>
+                <span class="${inc.class}">${inc.proto}</span>
+                <span>${inc.event}</span>
+                <span class="${inc.actionClass}">${inc.action}</span>
+            `;
+
+            socFeedRows.insertBefore(newRow, socFeedRows.firstChild);
+            if (socFeedRows.children.length > 8) {
+                socFeedRows.removeChild(socFeedRows.lastChild);
+            }
+        });
+    }
+
+    if (clearLogBtn && socFeedRows) {
+        clearLogBtn.addEventListener('click', () => {
+            soundFX.playClick();
+            socFeedRows.innerHTML = `
+                <div class="feed-row row-normal">
+                    <span>#01</span>
+                    <span>${new Date().toTimeString().split(' ')[0]}</span>
+                    <span>192.168.1.105:443</span>
+                    <span>10.0.0.15:52194</span>
+                    <span class="proto-tcp">TCP</span>
+                    <span>BASELINE: Network connection established. Zero anomalous threats.</span>
+                    <span class="act-pass">PASSED</span>
+                </div>
+            `;
+            incidentCounter = 2;
+        });
     }
 
     // ==========================================================================
-    //  10. CONTACT & NEWSLETTER FORMS (REAL DATABASE PERSISTENCE)
+    //  10. PORTFOLIO CONTACT FORM SUBMISSION & VALIDATION
     // ==========================================================================
-    const contactForm = document.getElementById('contactForm');
+    const contactForm = document.getElementById('portfolioContactForm');
+    const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+    const btnSubmitTxt = document.getElementById('btnSubmitTxt');
+    const formFeedback = document.getElementById('formFeedback');
+
+    const nameInput = document.getElementById('contactName');
+    const emailInput = document.getElementById('contactEmail');
+    const phoneInput = document.getElementById('contactPhone');
+    const subjectSelect = document.getElementById('contactSubject');
+    const messageInput = document.getElementById('contactMessage');
+    const hpInput = document.getElementById('website_hp');
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const messageError = document.getElementById('messageError');
+
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const originalHTML = submitBtn ? submitBtn.innerHTML : '';
 
-            const formData = new FormData(contactForm);
-            const payload = {
-                name: (formData.get('name') || '').trim(),
-                email: (formData.get('email') || '').trim(),
-                phone: (formData.get('phone') || '').trim(),
-                subject: formData.get('subject') || 'other',
-                message: (formData.get('message') || '').trim(),
-                website_hp: formData.get('website_hp') || ''
-            };
-
-            if (submitBtn) {
-                submitBtn.innerHTML = '<span>TRANSMITTING DISPATCH...</span>';
-                submitBtn.disabled = true;
+            // Reset errors
+            if (nameError) nameError.textContent = '';
+            if (emailError) emailError.textContent = '';
+            if (messageError) messageError.textContent = '';
+            if (formFeedback) {
+                formFeedback.className = 'form-feedback-hud';
+                formFeedback.innerHTML = '';
             }
 
-            try {
-                const res = await fetch('/api/inquiries', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+            // Client Validation
+            let hasError = false;
+            const nameVal = (nameInput?.value || '').trim();
+            const emailVal = (emailInput?.value || '').trim();
+            const messageVal = (messageInput?.value || '').trim();
 
-                const data = await res.json();
-
-                if (!res.ok || !data.success) {
-                    throw new Error(data.error?.message || 'Transmission failed. Please check your details.');
-                }
-
-                if (submitBtn) {
-                    submitBtn.innerHTML = '<span>✓ DISPATCH LOGGED</span>';
-                    submitBtn.style.background = 'linear-gradient(135deg, #00f5d4, #00bbf9)';
-                }
-
-                showToast(data.message || `Concierge dispatch logged. Ref: ${data.inquiryRef}`);
-                contactForm.reset();
-
-                setTimeout(() => {
-                    if (submitBtn) {
-                        submitBtn.innerHTML = originalHTML;
-                        submitBtn.style.background = '';
-                        submitBtn.disabled = false;
-                    }
-                }, 4000);
-
-            } catch (err) {
-                console.error('[Contact Form Error]:', err);
-                showToast(err.message || 'Failed to transmit message.');
-                if (submitBtn) {
-                    submitBtn.innerHTML = originalHTML;
-                    submitBtn.disabled = false;
-                }
+            if (!nameVal || nameVal.length < 2) {
+                if (nameError) nameError.textContent = 'Please provide your name (min 2 characters).';
+                hasError = true;
             }
-        });
-    }
 
-    const newsletterForm = document.getElementById('newsletterForm');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const emailInput = newsletterForm.querySelector('input[type="email"]');
-            const email = emailInput ? emailInput.value.trim() : '';
+            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailVal || !emailRe.test(emailVal)) {
+                if (emailError) emailError.textContent = 'Please enter a valid email address.';
+                hasError = true;
+            }
 
-            if (!email) {
-                showToast('Please enter your email address.');
+            if (!messageVal || messageVal.length < 10) {
+                if (messageError) messageError.textContent = 'Please provide message details (min 10 characters).';
+                hasError = true;
+            }
+
+            if (hasError) {
+                soundFX.playClick();
                 return;
             }
 
+            // Disable button during transit
+            if (contactSubmitBtn) contactSubmitBtn.disabled = true;
+            if (btnSubmitTxt) btnSubmitTxt.textContent = 'TRANSMITTING DISPATCH...';
+
             try {
-                const res = await fetch('/api/newsletter', {
+                const response = await fetch('/api/inquiries', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email })
+                    body: JSON.stringify({
+                        name: nameVal,
+                        email: emailVal,
+                        phone: (phoneInput?.value || '').trim(),
+                        subject: subjectSelect?.value || 'project',
+                        message: messageVal,
+                        website_hp: hpInput?.value || ''
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    soundFX.playBloom();
+                    contactForm.reset();
+                    if (formFeedback) {
+                        formFeedback.classList.add('hud-success');
+                        formFeedback.innerHTML = `
+                            <div class="feedback-icon">✓</div>
+                            <div class="feedback-text">
+                                <strong>DISPATCH TRANSMITTED TO ARYAN THAKAR</strong>
+                                <span>Reference Code: <code>${data.inquiryRef}</code>. Persisted in SQLite. I will review and reply promptly!</span>
+                            </div>
+                        `;
+                    }
+                } else {
+                    soundFX.playClick();
+                    if (formFeedback) {
+                        formFeedback.classList.add('hud-error');
+                        formFeedback.innerHTML = `
+                            <div class="feedback-icon">⚠</div>
+                            <div class="feedback-text">
+                                <strong>DISPATCH FAILED</strong>
+                                <span>${data.error?.message || 'Server error occurred. Please reach out directly to aryanthakar3@gmail.com.'}</span>
+                            </div>
+                        `;
+                    }
+                }
+            } catch (err) {
+                if (formFeedback) {
+                    formFeedback.classList.add('hud-error');
+                    formFeedback.innerHTML = `
+                        <div class="feedback-icon">⚠</div>
+                        <div class="feedback-text">
+                            <strong>NETWORK ERROR</strong>
+                            <span>Unable to reach server. Please email directly: aryanthakar3@gmail.com</span>
+                        </div>
+                    `;
+                }
+            } finally {
+                if (contactSubmitBtn) contactSubmitBtn.disabled = false;
+                if (btnSubmitTxt) btnSubmitTxt.textContent = 'TRANSMIT DISPATCH';
+            }
+        });
+    }
+
+    // ==========================================================================
+    //  11. SECURE ADMIN MANAGEMENT PORTAL
+    // ==========================================================================
+    const adminModal = document.getElementById('adminModal');
+    const openAdminBtn = document.getElementById('openAdminBtn');
+    const footerAdminTrigger = document.getElementById('footerAdminTrigger');
+    const adminModalClose = document.getElementById('adminModalClose');
+    const adminModalBackdrop = document.getElementById('adminModalBackdrop');
+
+    const adminAuthBadge = document.getElementById('adminAuthBadge');
+    const adminLoginView = document.getElementById('adminLoginView');
+    const adminDashboardView = document.getElementById('adminDashboardView');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const adminKeyInput = document.getElementById('adminKeyInput');
+    const adminLoginFeedback = document.getElementById('adminLoginFeedback');
+    const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+
+    let adminSessionKey = sessionStorage.getItem('AT_ADMIN_TOKEN') || '';
+
+    function checkAdminState() {
+        if (adminSessionKey) {
+            if (adminAuthBadge) {
+                adminAuthBadge.textContent = 'AUTHORIZED: SUPER ADMIN';
+                adminAuthBadge.classList.add('badge-authorized');
+            }
+            if (adminLoginView) adminLoginView.style.display = 'none';
+            if (adminDashboardView) adminDashboardView.style.display = 'block';
+            loadAdminData();
+        } else {
+            if (adminAuthBadge) {
+                adminAuthBadge.textContent = 'LOCKED';
+                adminAuthBadge.classList.remove('badge-authorized');
+            }
+            if (adminLoginView) adminLoginView.style.display = 'block';
+            if (adminDashboardView) adminDashboardView.style.display = 'none';
+        }
+    }
+
+    function openAdminModal() {
+        soundFX.playClick();
+        if (adminModal) {
+            adminModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            checkAdminState();
+        }
+    }
+
+    function closeAdminModal() {
+        if (adminModal) {
+            adminModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (openAdminBtn) openAdminBtn.addEventListener('click', openAdminModal);
+    if (footerAdminTrigger) footerAdminTrigger.addEventListener('click', openAdminModal);
+    if (adminModalClose) adminModalClose.addEventListener('click', closeAdminModal);
+    if (adminModalBackdrop) adminModalBackdrop.addEventListener('click', closeAdminModal);
+
+    // Admin Login Submission
+    if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const keyVal = (adminKeyInput?.value || '').trim();
+            if (!keyVal) return;
+
+            try {
+                const res = await fetch('/api/admin/auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: keyVal })
                 });
 
                 const data = await res.json();
-
-                if (!res.ok || !data.success) {
-                    throw new Error(data.error?.message || 'Failed to register subscription.');
+                if (res.ok && data.success) {
+                    soundFX.playBloom();
+                    adminSessionKey = data.token;
+                    sessionStorage.setItem('AT_ADMIN_TOKEN', data.token);
+                    if (adminLoginFeedback) adminLoginFeedback.textContent = '';
+                    checkAdminState();
+                } else {
+                    soundFX.playClick();
+                    if (adminLoginFeedback) {
+                        adminLoginFeedback.textContent = data.error?.message || 'Invalid administrator secret key.';
+                    }
                 }
-
-                showToast(data.message || 'Confidential Guild registration confirmed ✦');
-                newsletterForm.reset();
-
             } catch (err) {
-                console.error('[Newsletter Error]:', err);
-                showToast(err.message || 'Subscription failed.');
+                if (adminLoginFeedback) adminLoginFeedback.textContent = 'Authentication network failure.';
             }
         });
     }
 
-    // ==========================================================================
-    //  11. LIGHTBOX SPECIMEN PREVIEW
-    // ==========================================================================
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-
-    function openLightbox(src) {
-        if (!lightbox || !lightboxImg) return;
-        lightboxImg.src = src;
-        lightbox.classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-        if (!lightbox) return;
-        lightbox.classList.remove('open');
-        document.body.style.overflow = '';
-    }
-
-    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    if (lightbox) {
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
+    if (adminLogoutBtn) {
+        adminLogoutBtn.addEventListener('click', () => {
+            soundFX.playClick();
+            adminSessionKey = '';
+            sessionStorage.removeItem('AT_ADMIN_TOKEN');
+            checkAdminState();
         });
     }
 
-    document.querySelectorAll('.quick-view-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const card = btn.closest('.product-card');
-            const img = card.querySelector('.product-image');
-            if (img) openLightbox(img.src);
+    // Admin Tabs Switcher
+    const adminTabBtns = document.querySelectorAll('.admin-tab-btn:not(.admin-logout)');
+    const adminTabContents = document.querySelectorAll('.admin-tab-content');
+
+    adminTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            soundFX.playClick();
+            adminTabBtns.forEach(b => b.classList.remove('active'));
+            adminTabContents.forEach(c => c.classList.remove('active'));
+
+            btn.classList.add('active');
+            const target = btn.getAttribute('data-tab');
+            const targetContent = document.getElementById(target === 'inquiries' ? 'tabInquiries' : (target === 'projects' ? 'tabProjects' : 'tabStats'));
+            if (targetContent) targetContent.classList.add('active');
         });
     });
 
-    document.addEventListener('keydown', (e) => {
+    // Load Admin Data (Inquiries, Projects, Stats)
+    async function loadAdminData() {
+        if (!adminSessionKey) return;
+
+        // 1. Inquiries
+        try {
+            const inqRes = await fetch('/api/inquiries', {
+                headers: { 'Authorization': `Bearer ${adminSessionKey}` }
+            });
+            const inqData = await inqRes.json();
+            const tbody = document.getElementById('inquiriesTableBody');
+            const countEl = document.getElementById('adminInqCount');
+
+            if (inqRes.ok && inqData.success && tbody) {
+                if (countEl) countEl.textContent = inqData.count;
+                if (inqData.data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" class="text-center">No contact inquiries yet.</td></tr>';
+                } else {
+                    tbody.innerHTML = inqData.data.map(inq => `
+                        <tr>
+                            <td><code>${inq.inquiry_ref}</code></td>
+                            <td><strong>${escapeHtml(inq.name)}</strong><br><small>${escapeHtml(inq.email)} ${inq.phone ? '&bull; ' + escapeHtml(inq.phone) : ''}</small></td>
+                            <td><span class="badge-subject">${escapeHtml(inq.subject)}</span></td>
+                            <td class="msg-cell" title="${escapeHtml(inq.message)}">${escapeHtml(inq.message)}</td>
+                            <td><small>${new Date(inq.created_at).toLocaleString()}</small></td>
+                            <td><span class="badge-status status-${inq.status.toLowerCase()}">${inq.status}</span></td>
+                            <td>
+                                <select class="status-change-select" data-id="${inq.id}">
+                                    <option value="NEW" ${inq.status === 'NEW' ? 'selected' : ''}>NEW</option>
+                                    <option value="REVIEWED" ${inq.status === 'REVIEWED' ? 'selected' : ''}>REVIEWED</option>
+                                    <option value="REPLIED" ${inq.status === 'REPLIED' ? 'selected' : ''}>REPLIED</option>
+                                    <option value="ARCHIVED" ${inq.status === 'ARCHIVED' ? 'selected' : ''}>ARCHIVED</option>
+                                </select>
+                            </td>
+                        </tr>
+                    `).join('');
+
+                    // Wire status change dropdowns
+                    tbody.querySelectorAll('.status-change-select').forEach(sel => {
+                        sel.addEventListener('change', async (e) => {
+                            const inqId = e.target.getAttribute('data-id');
+                            const newStatus = e.target.value;
+                            await fetch(`/api/admin/inquiries/${inqId}`, {
+                                method: 'PATCH',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${adminSessionKey}`
+                                },
+                                body: JSON.stringify({ status: newStatus })
+                            });
+                            loadAdminData();
+                        });
+                    });
+                }
+            }
+        } catch (e) {
+            console.error('Failed to load admin inquiries:', e);
+        }
+
+        // 2. Admin Projects List
+        try {
+            const projRes = await fetch('/api/projects');
+            const projData = await projRes.json();
+            const projTbody = document.getElementById('adminProjectsTableBody');
+            const projCountEl = document.getElementById('adminProjCount');
+
+            if (projRes.ok && projData.success && projTbody) {
+                if (projCountEl) projCountEl.textContent = projData.count;
+                projTbody.innerHTML = projData.data.map(p => `
+                    <tr>
+                        <td><code>${p.id}</code></td>
+                        <td><strong>${escapeHtml(p.title)}</strong></td>
+                        <td><span class="badge-cat">${p.category}</span></td>
+                        <td><span class="badge-flag">${p.badge || '-'}</span></td>
+                        <td>${p.views_count} views</td>
+                        <td>
+                            <button class="btn btn-xs btn-outline open-case-study" data-slug="${p.slug}">VIEW</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        } catch (e) {
+            console.error('Failed to load admin projects:', e);
+        }
+
+        // 3. Telemetry Stats
+        try {
+            const statsRes = await fetch('/api/admin/stats', {
+                headers: { 'Authorization': `Bearer ${adminSessionKey}` }
+            });
+            const statsData = await statsRes.json();
+            if (statsRes.ok && statsData.success && statsData.data) {
+                const s = statsData.data;
+                const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+                setEl('statInquiriesTotal', s.inquiries.total);
+                setEl('statInquiriesNew', s.inquiries.new);
+                setEl('statProjectsTotal', s.projects);
+                setEl('statProjectViews', s.projectViews);
+                setEl('statUptime', `${Math.floor(s.system.uptimeSeconds / 60)} min`);
+                setEl('statMemory', `${s.system.memoryUsageMB} MB`);
+            }
+        } catch (e) {
+            console.error('Failed to load admin stats:', e);
+        }
+    }
+
+    const refreshInquiriesBtn = document.getElementById('refreshInquiriesBtn');
+    if (refreshInquiriesBtn) {
+        refreshInquiriesBtn.addEventListener('click', () => {
+            soundFX.playClick();
+            loadAdminData();
+        });
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>"']/g, (m) => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        })[m]);
+    }
+
+    // ==========================================================================
+    //  12. GLOBAL KEYBOARD SHORTCUTS
+    // ==========================================================================
+    window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            closeLightbox();
-            closeCart();
-            closeCheckoutModal();
-            closeReceiptModal();
+            closeProjectModal();
+            closeSaffronLabModal();
+            closeResume();
+            closeAdminModal();
         }
     });
-
-    // ==========================================================================
-    //  12. STICKY ADD TO CART BAR
-    // ==========================================================================
-    const stickyCartBar = document.getElementById('stickyCartBar');
-    const stickyProductName = document.getElementById('stickyProductName');
-    const stickyProductPrice = document.getElementById('stickyProductPrice');
-    const stickyAddBtn = document.getElementById('stickyAddBtn');
-    const productsSection = document.getElementById('products');
-    let currentSelectedCard = productCards[0];
-
-    window.addEventListener('scroll', () => {
-        if (!productsSection || !stickyCartBar) return;
-        const rect = productsSection.getBoundingClientRect();
-        if (rect.bottom < 0 && window.scrollY > 800) {
-            stickyCartBar.classList.add('visible');
-        } else {
-            stickyCartBar.classList.remove('visible');
-        }
-    }, { passive: true });
-
-    if (stickyAddBtn) {
-        stickyAddBtn.addEventListener('click', () => {
-            if (currentSelectedCard) {
-                const addBtn = currentSelectedCard.querySelector('.add-to-cart-btn');
-                if (addBtn) addBtn.click();
-            }
-        });
-    }
-
-    // Scroll reveal observer
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => revealObserver.observe(el));
-
-    // Nav active link indicator
-    const sections = document.querySelectorAll('section[id]');
-    const navObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
-            }
-        });
-    }, { threshold: 0.25 });
-
-    sections.forEach(s => navObs.observe(s));
 
 });

@@ -188,3 +188,96 @@ test('GET /api/telemetry -> returns aggregated statistics', async () => {
     assert(body.telemetry.verifiedConnoisseurs >= 50000);
     assert(body.telemetry.crocinIndex >= 250);
 });
+
+test('GET /api/projects -> returns portfolio projects list', async () => {
+    const res = await fetch(`${baseUrl}/api/projects`);
+    assert.strictEqual(res.status, 200);
+    const body = await res.json();
+    assert.strictEqual(body.success, true);
+    assert(Array.isArray(body.data));
+    assert(body.data.length >= 6);
+
+    const first = body.data[0];
+    assert(first.title);
+    assert(Array.isArray(first.tech_stack));
+});
+
+test('GET /api/projects/:slug -> returns project details and increments view', async () => {
+    const res = await fetch(`${baseUrl}/api/projects/shreeji-saffron-3d`);
+    assert.strictEqual(res.status, 200);
+    const body = await res.json();
+    assert.strictEqual(body.success, true);
+    assert.strictEqual(body.data.slug, 'shreeji-saffron-3d');
+    assert(body.data.views_count > 0);
+});
+
+test('GET /api/skills & GET /api/timeline -> returns categorized skills and timeline', async () => {
+    const resSkills = await fetch(`${baseUrl}/api/skills`);
+    assert.strictEqual(resSkills.status, 200);
+    const bodySkills = await resSkills.json();
+    assert.strictEqual(bodySkills.success, true);
+    assert(bodySkills.data.length >= 16);
+
+    const resTimeline = await fetch(`${baseUrl}/api/timeline`);
+    assert.strictEqual(resTimeline.status, 200);
+    const bodyTimeline = await resTimeline.json();
+    assert.strictEqual(bodyTimeline.success, true);
+    assert(bodyTimeline.data.length >= 5);
+});
+
+test('POST /api/admin/auth -> authenticates admin key', async () => {
+    // 1. Invalid key
+    const resBad = await fetch(`${baseUrl}/api/admin/auth`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: 'wrong_key_xyz' })
+    });
+    assert.strictEqual(resBad.status, 401);
+
+    // 2. Valid key
+    const adminKey = process.env.ADMIN_API_KEY || 'shreeji_secret_admin_key_2026';
+    const resGood = await fetch(`${baseUrl}/api/admin/auth`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: adminKey })
+    });
+    assert.strictEqual(resGood.status, 200);
+    const bodyGood = await resGood.json();
+    assert.strictEqual(bodyGood.success, true);
+    assert.strictEqual(bodyGood.token, adminKey);
+});
+
+test('POST /api/admin/projects & DELETE /api/admin/projects/:id -> manages project lifecycle', async () => {
+    const adminKey = process.env.ADMIN_API_KEY || 'shreeji_secret_admin_key_2026';
+    const testSlug = `test-cyber-${Date.now()}`;
+
+    // Create project
+    const resCreate = await fetch(`${baseUrl}/api/admin/projects`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${adminKey}`
+        },
+        body: JSON.stringify({
+            slug: testSlug,
+            title: 'Automated Testing Cyber Lab',
+            tagline: 'Integration test payload verification',
+            category: 'cybersecurity',
+            description: 'Automated test suite verification project payload.',
+            tech_stack: ['Wireshark', 'Python', 'Node.js']
+        })
+    });
+    assert.strictEqual(resCreate.status, 201);
+    const bodyCreate = await resCreate.json();
+    assert.strictEqual(bodyCreate.success, true);
+    const projId = bodyCreate.projectId;
+
+    // Delete project
+    const resDel = await fetch(`${baseUrl}/api/admin/projects/${projId}`, {
+        method: 'DELETE',
+        headers: { 'x-admin-key': adminKey }
+    });
+    assert.strictEqual(resDel.status, 200);
+    const bodyDel = await resDel.json();
+    assert.strictEqual(bodyDel.success, true);
+});

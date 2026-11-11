@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050814"/>
+      <stop offset="50%" stop-color="#0a1226"/>
+      <stop offset="100%" stop-color="#02040a"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#7928ca"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- Grid overlay -->
+  <g stroke="rgba(0, 240, 255, 0.07)" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+  <!-- UI Window Mockup -->
+  <rect x="60" y="50" width="680" height="400" rx="14" fill="#0b1329" stroke="rgba(0, 240, 255, 0.28)" stroke-width="1.5"/>
+  <rect x="60" y="50" width="680" height="42" rx="14" fill="#101c3d"/>
+  <!-- Window Controls -->
+  <circle cx="85" cy="71" r="5" fill="#ff5f56"/>
+  <circle cx="102" cy="71" r="5" fill="#ffbd2e"/>
+  <circle cx="119" cy="71" r="5" fill="#27c93f"/>
+  <text x="400" y="75" font-family="'JetBrains Mono', monospace" font-size="11" fill="rgba(255,255,255,0.6)" text-anchor="middle">HEALTHKRAFT // STUDIO MANAGEMENT &amp; CRM PLATFORM</text>
+  <!-- Content Cards inside Mockup -->
+  <rect x="85" y="115" width="180" height="90" rx="8" fill="#142145" stroke="rgba(0,240,255,0.2)"/>
+  <text x="105" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#8b9bb4">Active Members</text>
+  <text x="105" y="178" font-family="'Space Grotesk', sans-serif" font-size="26" font-weight="700" fill="#00f0ff">1,428</text>
+  
+  <rect x="285" y="115" width="180" height="90" rx="8" fill="#142145" stroke="rgba(0,240,255,0.2)"/>
+  <text x="305" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#8b9bb4">Monthly Revenue</text>
+  <text x="305" y="178" font-family="'Space Grotesk', sans-serif" font-size="26" font-weight="700" fill="#27c93f">₹4.82L</text>
+
+  <rect x="485" y="115" width="230" height="90" rx="8" fill="#142145" stroke="rgba(0,240,255,0.2)"/>
+  <text x="505" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#8b9bb4">SEO Health Score</text>
+  <text x="505" y="178" font-family="'Space Grotesk', sans-serif" font-size="26" font-weight="700" fill="#f5b82e">98.4%</text>
+
+  <!-- Chart Visualization -->
+  <path d="M 90 380 Q 200 300 320 340 T 520 270 T 700 240" fill="none" stroke="url(#cyanGrad)" stroke-width="3.5"/>
+  <path d="M 90 380 Q 200 300 320 340 T 520 270 T 700 240 L 700 420 L 90 420 Z" fill="url(#glowGrad)"/>
+  
+  <!-- Accent Badge -->
+  <rect x="580" y="395" width="135" height="28" rx="6" fill="#00f0ff" fill-opacity="0.15" stroke="#00f0ff" stroke-width="1"/>
+  <text x="647" y="414" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00f0ff" text-anchor="middle">5 RBAC ROLES</text>
+</svg>
+

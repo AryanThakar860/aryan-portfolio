@@ -4,24 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHREEJI SAFFRON — Imperial Persian Red Gold | Pure Irani Saffron</title>
+    <title>Aryan Thakar — Creative Developer &amp; Cybersecurity Architect | 3D WebGL Portfolio</title>
+    
+    <!-- SEO & Metadata -->
     <meta name="description"
-        content="Enter the realm of pure Irani saffron. Four generations of heritage from legendary fields. Category I ISO 3632 certified, hand-harvested Mogra, Lachha & Zarda royal saffron.">
-    <meta name="theme-color" content="#030407">
+        content="Personal portfolio of Aryan Rakesh Thakar. Creative Developer, 3D Web Architect (Three.js/WebGL), Full-Stack Engineer (React, Node.js, Express, SQLite/MySQL), and Certified Security Analyst (CCNA, CEH). Based in Mumbai, India.">
+    <meta name="keywords"
+        content="Aryan Thakar, Aryan Rakesh Thakar, Creative Developer, 3D Web Developer, Three.js Portfolio, Full Stack Engineer, Cybersecurity, SOC Analyst, CCNA, CEH, WebGL, Mumbai Developer, Techfest inspired">
+    <meta name="author" content="Aryan Rakesh Thakar">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#03050e">
+    <link rel="canonical" href="https://aryanthakar.dev">
 
-    <!-- Fonts: Space Grotesk, Cinzel, Plus Jakarta Sans, JetBrains Mono -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aryanthakar.dev/">
+    <meta property="og:title" content="Aryan Thakar — Creative Developer &amp; Cybersecurity Architect">
+    <meta property="og:description"
+        content="Synthesizing cinematic 3D spatial experiences, high-performance full-stack architectures, and resilient defensive cybersecurity.">
+    <meta property="og:image" content="images/hero-banner.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aryan Thakar — Creative Developer &amp; Cybersecurity Architect">
+    <meta name="twitter:description"
+        content="Synthesizing cinematic 3D spatial experiences, high-performance full-stack architectures, and resilient defensive cybersecurity.">
+    <meta name="twitter:image" content="images/hero-banner.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aryan Rakesh Thakar",
+      "alternateName": "Aryan Thakar",
+      "jobTitle": "Creative Developer & Cybersecurity Architect",
+      "url": "https://aryanthakar.dev",
+      "email": "aryanthakar3@gmail.com",
+      "telephone": "+919326858681",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "India"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Nirmala Memorial Foundation College of Science & Commerce, Mumbai"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Cisco Certified Network Associate (CCNA)",
+          "credentialCategory": "Professional Certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Certified Ethical Hacker (CEH)",
+          "credentialCategory": "Cybersecurity Certification"
+        }
+      ],
+      "knowsAbout": [
+        "Three.js",
+        "WebGL & GLSL Shaders",
+        "Full-Stack Development",
+        "React",
+        "Node.js & Express",
+        "SQLite & MySQL",
+        "Network Engineering & TCP/IP",
+        "SOC Threat Detection",
+        "Wireshark Packet Analysis",
+        "Ethical Hacking & Vulnerability Assessment"
+      ],
+      "sameAs": [
+        "https://github.com/AryanThakar860"
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts: Cinzel, Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='82' fill='%2300f0ff'>◈</text></svg>"
         type="image/svg+xml">
 
-    <!-- Styles -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
 
     <!-- Three.js & GSAP -->
@@ -32,13 +105,13 @@
 
 <body class="theme-obsidian">
 
-    <!-- ============= CUSTOM SCI-FI / LUXURY CURSOR ============= -->
+    <!-- ============= CUSTOM SCI-FI / HOLOGRAPHIC CURSOR ============= -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- ============= AMBIENT AUDIO CONTROLLER ============= -->
+    <!-- ============= AMBIENT AUDIO SYNTHESIZER HUD ============= -->
     <div class="audio-control-hud" id="audioControl">
-        <button class="audio-btn" id="audioToggleBtn" aria-label="Toggle ambient audio">
+        <button class="audio-btn" id="audioToggleBtn" aria-label="Toggle ambient synthesized sound">
             <span class="audio-waves">
                 <span></span><span></span><span></span><span></span>
             </span>
@@ -46,26 +119,26 @@
         </button>
     </div>
 
-    <!-- ============= LUXURY SPLASH / SYSTEM BOOT ============= -->
+    <!-- ============= SYSTEM BOOT TELEMETRY SPLASH SCREEN ============= -->
     <div class="splash-screen" id="splashScreen">
         <div class="splash-content">
             <div class="splash-emblem">
                 <div class="emblem-ring-outer"></div>
                 <div class="emblem-ring-inner"></div>
-                <span class="splash-icon">✦</span>
+                <span class="splash-icon">◈</span>
             </div>
             <div class="splash-text-group">
-                <span class="splash-pretitle">EST. 1982 • FOURTH GENERATION</span>
-                <span class="splash-text">SHREEJI SAFFRON</span>
-                <span class="splash-subtitle">INITIALIZING 3D BOTANICAL REALM</span>
+                <span class="splash-pretitle">ARYAN THAKAR // ARCHITECTURE</span>
+                <span class="splash-text">INITIALIZING QUANTUM CORE</span>
+                <span class="splash-subtitle">LOADING 3D SPATIAL ENGINE &bull; REST APIS &bull; SOC TELEMETRY</span>
             </div>
             <div class="splash-bar">
                 <div class="splash-bar-fill"></div>
             </div>
             <div class="splash-telemetry">
-                <span>ISO 3632 CATEGORY I</span>
-                <span>ORIGIN: IRAN</span>
-                <span>PURITY: 100%</span>
+                <span>B.SC. COMPUTER SCIENCE</span>
+                <span>CCNA &bull; CEH CERTIFIED</span>
+                <span>STATUS: OPERATIONAL</span>
             </div>
         </div>
     </div>
@@ -73,43 +146,40 @@
     <!-- ============= NAVIGATION ============= -->
     <nav id="navbar" class="navbar">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo">
+            <a href="#hero" class="nav-logo" aria-label="Aryan Thakar Home">
                 <div class="logo-mark">
-                    <span class="mark-core">✦</span>
+                    <span class="mark-core">◈</span>
                     <span class="mark-halo"></span>
                 </div>
                 <div class="logo-text-group">
-                    <span class="logo-title">SHREEJI</span>
-                    <span class="logo-subtitle">SAFFRON AGENCY</span>
+                    <span class="logo-title">ARYAN THAKAR</span>
+                    <span class="logo-subtitle">CREATIVE DEV &bull; CYBER ARCHITECT</span>
                 </div>
             </a>
 
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#hero" class="nav-link active"><span class="nav-idx">01</span><span class="nav-txt">Origin</span></a></li>
-                <li><a href="#products" class="nav-link"><span class="nav-idx">02</span><span class="nav-txt">Vault</span></a></li>
-                <li><a href="#benefits" class="nav-link"><span class="nav-idx">03</span><span class="nav-txt">Alchemy</span></a></li>
-                <li><a href="#transformation" class="nav-link"><span class="nav-idx">04</span><span class="nav-txt">Infusion</span></a></li>
-                <li><a href="#story" class="nav-link"><span class="nav-idx">05</span><span class="nav-txt">Heritage</span></a></li>
-                <li><a href="#recipes" class="nav-link"><span class="nav-idx">06</span><span class="nav-txt">Gastronomy</span></a></li>
-                <li><a href="#contact" class="nav-link"><span class="nav-idx">07</span><span class="nav-txt">Concierge</span></a></li>
+                <li><a href="#about" class="nav-link"><span class="nav-idx">02</span><span class="nav-txt">Archive</span></a></li>
+                <li><a href="#projects" class="nav-link"><span class="nav-idx">03</span><span class="nav-txt">Projects</span></a></li>
+                <li><a href="#skills" class="nav-link"><span class="nav-idx">04</span><span class="nav-txt">Arsenal</span></a></li>
+                <li><a href="#timeline" class="nav-link"><span class="nav-idx">05</span><span class="nav-txt">Timeline</span></a></li>
+                <li><a href="#cyber-lab" class="nav-link"><span class="nav-idx">06</span><span class="nav-txt">Defense</span></a></li>
+                <li><a href="#contact" class="nav-link"><span class="nav-idx">07</span><span class="nav-txt">Terminal</span></a></li>
             </ul>
 
             <div class="nav-actions">
                 <div class="hud-status-pill">
                     <span class="status-pulse"></span>
-                    <span class="status-text">HARVEST 2026 LIVE</span>
+                    <span class="status-text">AVAILABLE 2026</span>
                 </div>
 
-                <button class="cart-btn" id="cartBtn" aria-label="Shopping cart">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1" />
-                        <circle cx="20" cy="21" r="1" />
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                    </svg>
-                    <span class="cart-count" id="cartCount">0</span>
-                    <span class="cart-btn-label">VAULT</span>
+                <!-- Admin Terminal Trigger -->
+                <button class="hud-admin-btn" id="openAdminBtn" title="Launch Management Terminal" aria-label="Open Admin Dashboard">
+                    <span class="admin-btn-icon">⚡</span>
+                    <span class="admin-btn-label">SYS ADMIN</span>
                 </button>
 
+                <!-- Mobile Hamburger Menu Button -->
                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -117,1413 +187,1400 @@
         </div>
     </nav>
 
-    <!-- ============= HERO SECTION: IMMERSIVE 3D BOTANICAL ARTIFACT ============= -->
+    <!-- ==========================================================================
+         SECTION 01: HERO — CINEMATIC 3D QUANTUM MONOLITH CENTERPIECE
+         ========================================================================== -->
     <section id="hero" class="hero" data-parallax="hero">
         <!-- Main 3D Canvas -->
         <canvas id="heroCanvas" class="three-canvas hero-three-canvas"></canvas>
 
-        <!-- Ambient Depth Gradients & Cyber Fog Overlay -->
+        <!-- Fallback Graphic Container if WebGL Disabled -->
+        <div class="webgl-fallback" id="webglFallback">
+            <div class="fallback-glow"></div>
+            <div class="fallback-grid"></div>
+        </div>
+
+        <!-- Ambient Atmospheric Gradients & Holographic HUD Grid -->
         <div class="hero-atmosphere"></div>
         <div class="hero-grid-overlay"></div>
 
         <!-- Interactive 3D HUD Indicators -->
         <div class="hero-hud-topleft">
-            <div class="hud-tag"><span class="hud-bracket">[</span>SYS: ROYAL BOTANICAL CORE<span class="hud-bracket">]</span></div>
-            <div class="hud-coords">COORDINATES: 34.02° N, 74.93° E • ALT: 1,600M</div>
+            <div class="hud-tag"><span class="hud-bracket">[</span>SYS: QUANTUM NEURAL MONOLITH<span class="hud-bracket">]</span></div>
+            <div class="hud-coords">MUMBAI, IN &bull; 19.0760° N, 72.8777° E &bull; 60 FPS WEBGL</div>
         </div>
 
         <div class="hero-hud-topright">
-            <div class="hud-tag"><span class="hud-dot"></span>CROCIN COLOR POWER: &gt; 250</div>
+            <div class="hud-tag"><span class="hud-dot"></span>ENGINE: THREE.JS &bull; NODE:SQLITE &bull; ACID</div>
             <div class="hud-bar-micro"><div class="hud-bar-fill"></div></div>
         </div>
 
         <!-- Hero Content Layer -->
         <div class="hero-content">
             <div class="hero-badge animate-on-scroll">
-                <span class="badge-spark">✦</span>
-                <span class="badge-text">IMPERIAL PERSIA • KASHMIRI PROVENANCE</span>
-                <span class="badge-spark">✦</span>
+                <span class="badge-spark">◈</span>
+                <span class="badge-text">CREATIVE DEVELOPER &bull; FULL-STACK &bull; CYBERSECURITY ARCHITECT</span>
+                <span class="badge-spark">◈</span>
             </div>
 
             <h1 class="hero-title animate-on-scroll">
-                <span class="title-line title-light">THE SACRED</span>
-                <span class="title-line title-gold">RED GOLD</span>
-                <span class="title-line title-italic">Aetherial Purity</span>
+                <span class="title-line title-light">ARYAN</span>
+                <span class="title-line title-accent">THAKAR</span>
+                <span class="title-line title-italic">Spatial Creativity &bull; Systems Resilience</span>
             </h1>
 
             <p class="hero-subtitle animate-on-scroll">
-                Four generations cultivating the world’s most prized botanical treasure. Hand-harvested at dawn, 
-                lab-verified ISO 3632 Category I, delivered straight from legendary fields into your hands.
+                Bridging extraordinary cinematic 3D digital experiences with high-assurance full-stack engineering 
+                and defensive cybersecurity architectures. Certified Cisco CCNA, Certified Ethical Hacker (CEH), 
+                and Computer Science graduate from Mumbai.
             </p>
 
             <div class="hero-cta animate-on-scroll">
-                <a href="#products" class="btn btn-primary" id="shopNowBtn">
+                <a href="#projects" class="btn btn-primary" id="exploreProjectsBtn">
                     <span class="btn-glow-border"></span>
                     <span class="btn-content">
-                        <span>EXPLORE THE VAULT</span>
+                        <span>EXPLORE PROJECTS</span>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </span>
                 </a>
-                <button class="btn btn-hud-action" id="heroBloomTrigger">
-                    <span class="hud-icon">✺</span>
-                    <span>BLOOM CORE SHOCKWAVE</span>
+                <button class="btn btn-hud-action" id="heroBloomTrigger" title="Trigger Quantum Warp Pulse">
+                    <span class="hud-icon">⚡</span>
+                    <span>WARP CORE PULSE</span>
                 </button>
-                <a href="#story" class="btn btn-outline">
-                    <span>THE HERITAGE</span>
+                <a href="#contact" class="btn btn-outline">
+                    <span>GET IN TOUCH</span>
                 </a>
+                <button class="btn btn-cv-view" id="openResumeBtn" title="Inspect Professional Resume">
+                    <span class="hud-icon">📄</span>
+                    <span>VIEW RESUME</span>
+                </button>
+            </div>
+
+            <!-- Domain Badges / Telemetry Chips -->
+            <div class="hero-domain-chips animate-on-scroll">
+                <div class="domain-chip" data-domain="3d">
+                    <span class="chip-idx">01</span>
+                    <span class="chip-title">3D WebGL / Shaders</span>
+                </div>
+                <div class="domain-chip" data-domain="fullstack">
+                    <span class="chip-idx">02</span>
+                    <span class="chip-title">Full-Stack / Node &amp; React</span>
+                </div>
+                <div class="domain-chip" data-domain="security">
+                    <span class="chip-idx">03</span>
+                    <span class="chip-title">Network Security / CCNA</span>
+                </div>
+                <div class="domain-chip" data-domain="soc">
+                    <span class="chip-idx">04</span>
+                    <span class="chip-title">Threat Defense / CEH</span>
+                </div>
             </div>
 
             <!-- Kinetic 3D Interaction Prompt -->
             <div class="hero-interact-hint">
                 <span class="hint-icon">✥</span>
-                <span class="hint-text">CLICK &amp; DRAG TO ORBIT 3D BOTANICAL CORE</span>
-            </div>
-
-            <!-- Stats Bar with Animated Counter -->
-            <div class="hero-stats animate-on-scroll">
-                <div class="stat">
-                    <div class="stat-number-wrapper">
-                        <span class="stat-number" data-target="44" data-suffix="+">0+</span>
-                    </div>
-                    <span class="stat-label">Years of Mastery (Since 1982)</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <div class="stat-number-wrapper">
-                        <span class="stat-number" data-target="100" data-suffix="%">0%</span>
-                    </div>
-                    <span class="stat-label">Pure Organic Mogra Grade</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <div class="stat-number-wrapper">
-                        <span class="stat-number" data-target="75000" data-suffix=" Flowers">0</span>
-                    </div>
-                    <span class="stat-label">To Yield Just 1 Pound of Gold</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <div class="stat-number-wrapper">
-                        <span class="stat-number" data-target="50" data-suffix="K+">0K+</span>
-                    </div>
-                    <span class="stat-label">Connoisseurs Worldwide</span>
-                </div>
+                <span class="hint-text">DRAG 3D MONOLITH TO ROTATE &bull; DOUBLE-CLICK OR PRESS WARP TO EMIT SHOCKWAVE &bull; SCROLL TO EXPLORE ARCHIVE</span>
             </div>
         </div>
 
-        <div class="hero-scroll-indicator">
-            <span class="scroll-txt">DESCEND INTO THE REALM</span>
-            <div class="scroll-track">
-                <div class="scroll-pill"></div>
-            </div>
+        <!-- Ambient Scroll Indicator -->
+        <div class="hero-scroll-cue">
+            <span class="cue-label">SCROLL</span>
+            <div class="cue-line"></div>
         </div>
     </section>
 
-    <!-- ============= TRUST HUD MATRIX ============= -->
-    <section class="trust-bar">
+    <!-- ==========================================================================
+         SECTION 02: ABOUT — EDITORIAL ARCHIVE & TECHNICAL PHILOSOPHY
+         ========================================================================== -->
+    <section id="about" class="section about-section">
         <div class="container">
-            <div class="trust-items">
-                <div class="trust-item">
-                    <div class="trust-icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            <path d="M9 12l2 2 4-4" />
-                        </svg>
-                    </div>
-                    <div class="trust-meta">
-                        <strong>ISO 3632 CATEGORY I</strong>
-                        <span>Spectrophotometric Certified</span>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 6v6l4 2" />
-                        </svg>
-                    </div>
-                    <div class="trust-meta">
-                        <strong>AUTUMN HARVEST 2026</strong>
-                        <span>Freshly Sealed at Peak Potency</span>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                            <path d="M2 17l10 5 10-5" />
-                            <path d="M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-                    <div class="trust-meta">
-                        <strong>100% UNADULTERATED</strong>
-                        <span>Direct From Family Estate</span>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="1" y="3" width="15" height="13" />
-                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-                            <circle cx="5.5" cy="18.5" r="2.5" />
-                            <circle cx="18.5" cy="18.5" r="2.5" />
-                        </svg>
-                    </div>
-                    <div class="trust-meta">
-                        <strong>GLOBAL AIR COURIER</strong>
-                        <span>Complimentary on Orders &gt; ₹999</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============= SECTION 02: THE 3D PRODUCT VAULT ============= -->
-    <section id="products" class="products section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-tag-hud">
-                    <span class="hud-bullet"></span>
-                    <span class="hud-tag-text">DIMENSION 02 // SELECTION VAULT</span>
-                    <span class="hud-bullet"></span>
-                </div>
-                <h2 class="section-title">The Royal Saffron Grades</h2>
+            <div class="section-header text-center animate-on-scroll">
+                <span class="section-tag">[ 02 &bull; BIOGRAPHY &bull; ARCHIVE ]</span>
+                <h2 class="section-title">ENGINEERING WITH <span class="text-accent">PURPOSE &amp; DEPTH</span></h2>
+                <div class="section-line"></div>
                 <p class="section-subtitle">
-                    Select a grade below to inspect the interactive 3D specimen capsule, observe its micro-strand density, 
-                    and review certified laboratory purity ratings.
+                    Fusing visual imagination with bulletproof network reliability and system defensibility.
                 </p>
             </div>
 
-            <!-- Interactive 3D Specimen Showcase -->
-            <div class="vault-3d-showcase animate-on-scroll">
-                <div class="vault-canvas-container">
-                    <canvas id="vaultCanvas" class="three-canvas vault-three-canvas"></canvas>
-                    <div class="vault-canvas-overlay">
-                        <div class="vault-hud-badge">
-                            <span class="badge-dot"></span>
-                            <span id="vaultCurrentGradeName">MOGRA GRADE I • 3D SPECIMEN</span>
+            <div class="about-grid">
+                <!-- Left: Editorial Narrative -->
+                <div class="about-narrative animate-on-scroll">
+                    <div class="hud-card-accent"></div>
+                    <h3 class="about-heading">The Intersect of Art, Code &amp; Security</h3>
+                    
+                    <p class="about-p">
+                        I am <strong>Aryan Rakesh Thakar</strong>, a creative technologist, full-stack engineer, and cybersecurity analyst based in Mumbai, India. Having completed my <strong>B.Sc. in Computer Science (2026)</strong> at Nirmala Memorial Foundation College of Science &amp; Commerce, I construct digital products that transcend generic websites into cinematic, memorable digital worlds.
+                    </p>
+
+                    <p class="about-p">
+                        My philosophy bridges two critical frontiers of software engineering: <strong>Visual Immersion</strong> and <strong>Architectural Hardening</strong>. On the creative side, I craft GPU-accelerated 3D environments using Three.js, procedural GLSL shaders, and timeline choreography. On the systems side, holding <strong>Cisco CCNA</strong> and <strong>Certified Ethical Hacker (CEH)</strong> credentials, I build with strict protocol awareness, encrypted state management, and proactive threat mitigation.
+                    </p>
+
+                    <div class="about-quote">
+                        <span class="quote-mark">“</span>
+                        <span class="quote-text">A website should not just inform; it should evoke visceral emotion through motion, depth, and unwavering technical stability.</span>
+                    </div>
+
+                    <!-- Personal Attributes Checklist -->
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <div class="highlight-info">
+                                <strong>Production Craftsmanship:</strong> Hand-tailored CSS/WebGL architectures with zero generic template bloat.
+                            </div>
                         </div>
-                        <div class="vault-rot-hint">DRAG TO ROTATE 3D CAPSULE</div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <div class="highlight-info">
+                                <strong>Network Security Mindset:</strong> Deep TCP/IP understanding, packet forensic workflows, and OWASP Top 10 defenses.
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <div class="highlight-info">
+                                <strong>High-Performance Delivery:</strong> 60 FPS rendering, lazy loading, lightweight mobile fallbacks, and SQLite/MySQL ACID persistence.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Live Laboratory Spectrophotometric Telemetry -->
-                <div class="vault-telemetry-panel">
-                    <div class="telemetry-header">
-                        <span class="telemetry-title">LABORATORY TELEMETRY (ISO 3632)</span>
-                        <span class="telemetry-badge" id="telemetryPurityTag">CATEGORY I PASS</span>
+                <!-- Right: Futuristic Telemetry HUD & Metrics -->
+                <div class="about-metrics-panel animate-on-scroll">
+                    <div class="hud-terminal-header">
+                        <div class="terminal-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="terminal-title">SYS_TELEMETRY // ARYAN_THAKAR.V26</span>
+                        <span class="terminal-badge">LIVE_DATA</span>
                     </div>
 
-                    <div class="telemetry-metrics">
-                        <div class="metric-row">
-                            <div class="metric-info">
-                                <span class="metric-name">CROCIN (Coloring Strength)</span>
-                                <span class="metric-val" id="metricCrocin">264.8 / 200 min</span>
+                    <div class="terminal-body">
+                        <!-- Metric Row 1 -->
+                        <div class="metric-block">
+                            <div class="metric-top">
+                                <span class="metric-label">B.SC. COMPUTER SCIENCE</span>
+                                <span class="metric-value">GRADUATED 2026</span>
                             </div>
-                            <div class="metric-track"><div class="metric-fill fill-crocin" id="barCrocin" style="width: 95%;"></div></div>
+                            <div class="metric-sub">Nirmala Memorial College, Mumbai</div>
+                            <div class="metric-meter"><div class="meter-bar" style="width: 100%;"></div></div>
                         </div>
 
-                        <div class="metric-row">
-                            <div class="metric-info">
-                                <span class="metric-name">SAFRANAL (Aroma Compound)</span>
-                                <span class="metric-val" id="metricSafranal">46.2 / 20-50 std</span>
+                        <!-- Metric Row 2 -->
+                        <div class="metric-block">
+                            <div class="metric-top">
+                                <span class="metric-label">DUAL INDUSTRY CREDENTIALS</span>
+                                <span class="metric-value">CCNA &bull; CEH</span>
                             </div>
-                            <div class="metric-track"><div class="metric-fill fill-safranal" id="barSafranal" style="width: 88%;"></div></div>
+                            <div class="metric-sub">Cisco Routing &amp; Switching &bull; EC-Council Ethical Hacking</div>
+                            <div class="metric-meter"><div class="meter-bar meter-violet" style="width: 100%;"></div></div>
                         </div>
 
-                        <div class="metric-row">
-                            <div class="metric-info">
-                                <span class="metric-name">PICROCROCIN (Flavor &amp; Bitterness)</span>
-                                <span class="metric-val" id="metricPicro">89.4 / 70 min</span>
+                        <!-- Metric Row 3 -->
+                        <div class="metric-block">
+                            <div class="metric-top">
+                                <span class="metric-label">FLAGSHIP SYSTEMS ARCHITECTED</span>
+                                <span class="metric-value">6+ DEPLOYED</span>
                             </div>
-                            <div class="metric-track"><div class="metric-fill fill-picro" id="barPicro" style="width: 92%;"></div></div>
+                            <div class="metric-sub">Saffron 3D Portal, Healthkraft SaaS, PhisGuard, SOC Labs</div>
+                            <div class="metric-meter"><div class="meter-bar meter-emerald" style="width: 95%;"></div></div>
                         </div>
-                    </div>
 
-                    <div class="telemetry-footer">
-                        <div class="telemetry-spec">
-                            <span class="spec-label">MOISTURE CONTENT</span>
-                            <span class="spec-value">&lt; 8.2% (Crisp Dry)</span>
+                        <!-- Metric Row 4 -->
+                        <div class="metric-block">
+                            <div class="metric-top">
+                                <span class="metric-label">CORE FRAMEWORKS &amp; STACK</span>
+                                <span class="metric-value">FULL SPECTRUM</span>
+                            </div>
+                            <div class="metric-sub">Three.js, WebGL, React 19, Node.js, Express 5, SQLite, MySQL</div>
+                            <div class="metric-meter"><div class="meter-bar meter-amber" style="width: 92%;"></div></div>
                         </div>
-                        <div class="telemetry-spec">
-                            <span class="spec-label">FOREIGN MATTER</span>
-                            <span class="spec-value">0.00% Pure Flora</span>
+
+                        <!-- Quick Credentials Badges -->
+                        <div class="creds-tags">
+                            <span class="cred-pill">CISCO CCNA</span>
+                            <span class="cred-pill">EC-COUNCIL CEH</span>
+                            <span class="cred-pill">CODEWARTS HACKATHON</span>
+                            <span class="cred-pill">ISO 3632 SYSTEM</span>
+                            <span class="cred-pill">ACID PERSISTENCE</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Product Cards Grid -->
-            <div class="products-grid">
-                <!-- Product 1: Mogra Grade I -->
-                <div class="product-card animate-on-scroll active-vault-card" data-product="mogra">
-                    <div class="card-hud-corner top-left"></div>
-                    <div class="card-hud-corner top-right"></div>
-                    <div class="card-hud-corner bottom-left"></div>
-                    <div class="card-hud-corner bottom-right"></div>
+    <!-- ==========================================================================
+         SECTION 03: PROJECTS — THE FLAGSHIP PRODUCTION VAULT
+         ========================================================================== -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header text-center animate-on-scroll">
+                <span class="section-tag">[ 03 &bull; PORTFOLIO &bull; FLAGSHIP VAULT ]</span>
+                <h2 class="section-title">PROVEN <span class="text-accent">ENGINEERING WORKS</span></h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">
+                    Real, verified full-stack applications, immersive 3D experiences, cybersecurity platforms, and systems research.
+                </p>
+            </div>
 
-                    <div class="product-badges-row">
-                        <div class="product-badge badge-imperial">★ IMPERIAL RESERVE</div>
-                        <div class="urgency-badge">⚡ LIMITED AUTUMN LOT</div>
-                    </div>
+            <!-- Project Filter Controls -->
+            <div class="project-filter-bar animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">ALL ARCHITECTURES [6]</button>
+                <button class="filter-btn" data-filter="3d-creative">3D &amp; CREATIVE [1]</button>
+                <button class="filter-btn" data-filter="full-stack">FULL-STACK SAAS [1]</button>
+                <button class="filter-btn" data-filter="cybersecurity">CYBERSECURITY &amp; SOC [2]</button>
+                <button class="filter-btn" data-filter="systems">SYSTEMS &amp; RESEARCH [2]</button>
+            </div>
 
-                    <div class="product-image-container">
-                        <img src="images/product-mogra.png" alt="Mogra Grade Saffron - Premium Irani Saffron"
-                            class="product-image" loading="lazy">
-                        <button class="quick-view-btn" aria-label="Quick inspect">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                <line x1="11" y1="8" x2="11" y2="14"></line>
-                                <line x1="8" y1="11" x2="14" y2="11"></line>
-                            </svg>
-                            <span>ZOOM SPECIMEN</span>
-                        </button>
-                    </div>
-
-                    <div class="product-info">
-                        <div class="product-header-line">
-                            <h3 class="product-name">Mogra Grade I Saffron</h3>
-                            <span class="product-origin-tag">IRAN // KASHMIR</span>
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projectsGrid">
+                
+                <!-- Project 01: Saffron 3D Portal -->
+                <div class="project-card animate-on-scroll" data-category="3d-creative" data-slug="shreeji-saffron-3d">
+                    <div class="project-media-wrap">
+                        <img src="images/hero-banner.png" alt="Shreeji Saffron 3D WebGL Experience" class="project-img" loading="lazy">
+                        <div class="project-media-overlay"></div>
+                        <span class="project-badge badge-flagship">FLAGSHIP 3D</span>
+                        <div class="project-quick-actions">
+                            <button class="quick-btn open-case-study" data-slug="shreeji-saffron-3d">INSPECT SPECS</button>
+                            <button class="quick-btn open-saffron-demo">LAUNCH 3D LAB</button>
                         </div>
-                        <p class="product-description">
-                            The pinnacle of red gold. 100% pure, trumpet-shaped stigma tips hand-snipped without 
-                            yellow style threads. Supreme coloring power and rich floral-honey bouquet.
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta-row">
+                            <span class="project-cat">3D &bull; CREATIVE WEBGL</span>
+                            <span class="project-stars">★ 5.0 ISO 3632</span>
+                        </div>
+                        <h3 class="project-title">Shreeji Saffron — 3D Botanical Portal &amp; E-Commerce</h3>
+                        <p class="project-desc">
+                            A cinematic interactive 3D WebGL storefront featuring procedural shaders, kinetic botanical centerpieces, real-time liquid crocin infusion physics simulator, synthesized Web Audio ambient drone, and an Express 5 + SQLite WAL order transaction engine.
                         </p>
-
-                        <div class="product-meta">
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-count">5.0 (248 verified connoisseurs)</span>
-                            </div>
-                            <div class="product-purity">
-                                <span class="purity-badge">ISO 3632 CATEGORY I</span>
-                            </div>
+                        <div class="project-stack">
+                            <span class="stack-tag">Three.js</span>
+                            <span class="stack-tag">WebGL / GLSL</span>
+                            <span class="stack-tag">Express 5</span>
+                            <span class="stack-tag">Node:sqlite WAL</span>
+                            <span class="stack-tag">GSAP</span>
                         </div>
-
-                        <div class="weight-toggle-hud">
-                            <span class="toggle-label">SELECT NET WEIGHT:</span>
-                            <div class="weight-toggle" data-prices='{"1":599,"2":1099,"5":2499}'
-                                data-mrps='{"1":799,"2":1499,"5":3499}'>
-                                <button class="weight-btn active" data-weight="1">1 GRAM</button>
-                                <button class="weight-btn" data-weight="2">2 GRAMS</button>
-                                <button class="weight-btn" data-weight="5">5 GRAMS</button>
-                            </div>
-                        </div>
-
-                        <div class="product-pricing">
-                            <div class="price-group">
-                                <span class="current-price">₹599</span>
-                                <span class="price-weight">/ 1 gram</span>
-                            </div>
-                            <span class="mrp-price">₹799</span>
-                            <span class="savings-tag">SAVE 25%</span>
-                        </div>
-
-                        <div class="product-actions">
-                            <div class="quantity-selector">
-                                <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
-                                <span class="qty-value">1</span>
-                                <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn btn-primary" data-name="Mogra Saffron" data-price="599">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="9" cy="21" r="1" />
-                                    <circle cx="20" cy="21" r="1" />
-                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                                </svg>
-                                <span>SECURE ALLOCATION</span>
+                        <div class="project-footer">
+                            <a href="https://github.com/AryanThakar860/Saffron" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-git">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>REPOSITORY</span>
+                            </a>
+                            <button class="proj-link proj-link-modal open-saffron-demo">
+                                <span>INTERACTIVE DEMO ↗</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2: Lachha Grade II -->
-                <div class="product-card animate-on-scroll" data-product="lachha">
-                    <div class="card-hud-corner top-left"></div>
-                    <div class="card-hud-corner top-right"></div>
-                    <div class="card-hud-corner bottom-left"></div>
-                    <div class="card-hud-corner bottom-right"></div>
-
-                    <div class="product-badges-row">
-                        <div class="product-badge badge-heritage">HERITAGE CUT</div>
-                        <div class="urgency-badge urgency-hot">🔥 HIGH DEMAND</div>
-                    </div>
-
-                    <div class="product-image-container">
-                        <img src="images/product-lachha.png" alt="Lachha Grade Saffron - Irani Saffron Threads"
-                            class="product-image" loading="lazy">
-                        <button class="quick-view-btn" aria-label="Quick inspect">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                <line x1="11" y1="8" x2="11" y2="14"></line>
-                                <line x1="8" y1="11" x2="14" y2="11"></line>
-                            </svg>
-                            <span>ZOOM SPECIMEN</span>
-                        </button>
-                    </div>
-
-                    <div class="product-info">
-                        <div class="product-header-line">
-                            <h3 class="product-name">Lachha Grade II Saffron</h3>
-                            <span class="product-origin-tag">FULL STRAND</span>
+                <!-- Project 02: Healthkraft Studio CRM -->
+                <div class="project-card animate-on-scroll" data-category="full-stack" data-slug="healthkraft-crm">
+                    <div class="project-media-wrap">
+                        <img src="images/healthkraft-preview.svg" alt="HEALTHKRAFT Enterprise CRM &amp; SEO Platform" class="project-img" loading="lazy">
+                        <div class="project-media-overlay"></div>
+                        <span class="project-badge badge-fullstack">FULL-STACK SAAS</span>
+                        <div class="project-quick-actions">
+                            <button class="quick-btn open-case-study" data-slug="healthkraft-crm">INSPECT SPECS</button>
                         </div>
-                        <p class="product-description">
-                            Traditional whole-flower saffron retaining both the deep crimson stigma and the natural 
-                            golden-yellow style tail. Excellent natural preservation of delicate ethereal oils.
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta-row">
+                            <span class="project-cat">FULL-STACK &bull; ENTERPRISE CRM</span>
+                            <span class="project-stars">★ 5 RBAC ROLES</span>
+                        </div>
+                        <h3 class="project-title">HEALTHKRAFT — Studio Management &amp; CRM Platform</h3>
+                        <p class="project-desc">
+                            Complete wellness operating system engineered with React, Node.js, Express, and MySQL. Features 5 distinct RBAC panels (Super Admin, Admin, Manager, Receptionist, Trainer), public server-side metadata generator for Google crawlers, automated backups, and billing telemetry.
                         </p>
-
-                        <div class="product-meta">
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-count">4.9 (186 reviews)</span>
-                            </div>
-                            <div class="product-purity">
-                                <span class="purity-badge">ISO 3632 CATEGORY II</span>
-                            </div>
+                        <div class="project-stack">
+                            <span class="stack-tag">React</span>
+                            <span class="stack-tag">Node.js / Express</span>
+                            <span class="stack-tag">MySQL</span>
+                            <span class="stack-tag">Tailwind CSS</span>
+                            <span class="stack-tag">Vite</span>
                         </div>
-
-                        <div class="weight-toggle-hud">
-                            <span class="toggle-label">SELECT NET WEIGHT:</span>
-                            <div class="weight-toggle" data-prices='{"1":449,"2":849,"5":1999}'
-                                data-mrps='{"1":599,"2":1099,"5":2699}'>
-                                <button class="weight-btn active" data-weight="1">1 GRAM</button>
-                                <button class="weight-btn" data-weight="2">2 GRAMS</button>
-                                <button class="weight-btn" data-weight="5">5 GRAMS</button>
-                            </div>
-                        </div>
-
-                        <div class="product-pricing">
-                            <div class="price-group">
-                                <span class="current-price">₹449</span>
-                                <span class="price-weight">/ 1 gram</span>
-                            </div>
-                            <span class="mrp-price">₹599</span>
-                            <span class="savings-tag">SAVE 25%</span>
-                        </div>
-
-                        <div class="product-actions">
-                            <div class="quantity-selector">
-                                <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
-                                <span class="qty-value">1</span>
-                                <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn btn-primary" data-name="Lachha Saffron" data-price="449">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="9" cy="21" r="1" />
-                                    <circle cx="20" cy="21" r="1" />
-                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                                </svg>
-                                <span>SECURE ALLOCATION</span>
+                        <div class="project-footer">
+                            <a href="https://github.com/AryanThakar860" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-git">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>GITHUB</span>
+                            </a>
+                            <button class="proj-link proj-link-modal open-case-study" data-slug="healthkraft-crm">
+                                <span>ARCHITECTURE SPECS ↗</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3: Zarda Grade III -->
-                <div class="product-card animate-on-scroll" data-product="zarda">
-                    <div class="card-hud-corner top-left"></div>
-                    <div class="card-hud-corner top-right"></div>
-                    <div class="card-hud-corner bottom-left"></div>
-                    <div class="card-hud-corner bottom-right"></div>
-
-                    <div class="product-badges-row">
-                        <div class="product-badge badge-value">CULINARY ESSENCE</div>
-                        <div class="urgency-badge urgency-limited">✓ READY TO DISPATCH</div>
-                    </div>
-
-                    <div class="product-image-container">
-                        <img src="images/product-zarda.png" alt="Zarda Grade Saffron Powder - Irani Saffron"
-                            class="product-image" loading="lazy">
-                        <button class="quick-view-btn" aria-label="Quick inspect">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                <line x1="11" y1="8" x2="11" y2="14"></line>
-                                <line x1="8" y1="11" x2="14" y2="11"></line>
-                            </svg>
-                            <span>ZOOM SPECIMEN</span>
-                        </button>
-                    </div>
-
-                    <div class="product-info">
-                        <div class="product-header-line">
-                            <h3 class="product-name">Zarda Fine Saffron</h3>
-                            <span class="product-origin-tag">MICRO-GROUND</span>
+                <!-- Project 03: PhisGuard / Hackify -->
+                <div class="project-card animate-on-scroll" data-category="cybersecurity" data-slug="phisguard-hackify">
+                    <div class="project-media-wrap">
+                        <img src="images/phisguard-preview.svg" alt="PhisGuard Threat Telemetry Platform" class="project-img" loading="lazy">
+                        <div class="project-media-overlay"></div>
+                        <span class="project-badge badge-cyber">SECURITY INTEL</span>
+                        <div class="project-quick-actions">
+                            <button class="quick-btn open-case-study" data-slug="phisguard-hackify">INSPECT SPECS</button>
                         </div>
-                        <p class="product-description">
-                            Cryo-milled saffron powder crafted for rapid dispersion. Ideal for artisanal patisserie, 
-                            daily ayurvedic milk preparations, and gourmet masterchef infusions.
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta-row">
+                            <span class="project-cat">CYBERSECURITY &bull; THREAT TELEMETRY</span>
+                            <span class="project-stars">★ REAL-TIME INTEL</span>
+                        </div>
+                        <h3 class="project-title">PhisGuard // Threat Intelligence &amp; Phishing Analytics</h3>
+                        <p class="project-desc">
+                            Cybersecurity intelligence dashboard developed for real-time phishing risk scoring, domain heuristic evaluation, URL entropy calculation, and employee threat awareness simulation. Built with React 19, Recharts visualization, and Node.js.
                         </p>
-
-                        <div class="product-meta">
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-count">4.8 (312 reviews)</span>
-                            </div>
-                            <div class="product-purity">
-                                <span class="purity-badge">ISO 3632 CATEGORY III</span>
-                            </div>
+                        <div class="project-stack">
+                            <span class="stack-tag">React 19</span>
+                            <span class="stack-tag">Recharts</span>
+                            <span class="stack-tag">Vite</span>
+                            <span class="stack-tag">Node.js</span>
+                            <span class="stack-tag">Threat Analytics</span>
                         </div>
-
-                        <div class="weight-toggle-hud">
-                            <span class="toggle-label">SELECT NET WEIGHT:</span>
-                            <div class="weight-toggle" data-prices='{"1":299,"2":549,"5":1299}'
-                                data-mrps='{"1":449,"2":799,"5":1899}'>
-                                <button class="weight-btn active" data-weight="1">1 GRAM</button>
-                                <button class="weight-btn" data-weight="2">2 GRAMS</button>
-                                <button class="weight-btn" data-weight="5">5 GRAMS</button>
-                            </div>
-                        </div>
-
-                        <div class="product-pricing">
-                            <div class="price-group">
-                                <span class="current-price">₹299</span>
-                                <span class="price-weight">/ 1 gram</span>
-                            </div>
-                            <span class="mrp-price">₹449</span>
-                            <span class="savings-tag">SAVE 33%</span>
-                        </div>
-
-                        <div class="product-actions">
-                            <div class="quantity-selector">
-                                <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
-                                <span class="qty-value">1</span>
-                                <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn btn-primary" data-name="Zarda Saffron" data-price="299">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="9" cy="21" r="1" />
-                                    <circle cx="20" cy="21" r="1" />
-                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                                </svg>
-                                <span>SECURE ALLOCATION</span>
+                        <div class="project-footer">
+                            <a href="https://github.com/AryanThakar860" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-git">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>GITHUB</span>
+                            </a>
+                            <button class="proj-link proj-link-modal open-case-study" data-slug="phisguard-hackify">
+                                <span>ARCHITECTURE SPECS ↗</span>
                             </button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 04: SOC & Threat Detection Lab -->
+                <div class="project-card animate-on-scroll" data-category="cybersecurity" data-slug="soc-threat-detection-lab">
+                    <div class="project-media-wrap">
+                        <img src="images/soc-preview.svg" alt="SOC Threat Detection Lab Simulation" class="project-img" loading="lazy">
+                        <div class="project-media-overlay"></div>
+                        <span class="project-badge badge-cyber">DEFENSIVE SEC</span>
+                        <div class="project-quick-actions">
+                            <button class="quick-btn open-case-study" data-slug="soc-threat-detection-lab">INSPECT SPECS</button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta-row">
+                            <span class="project-cat">DEFENSIVE SEC &bull; SOC WORKFLOW</span>
+                            <span class="project-stars">★ NIST SP 800-61</span>
+                        </div>
+                        <h3 class="project-title">SOC &amp; Threat Detection Lab Simulation</h3>
+                        <p class="project-desc">
+                            Simulated Security Operations Center environment analyzing live PCAP packet captures, detecting port sweeps and unauthorized SSH brute-force anomalies, and executing NIST SP 800-61 incident response playbooks using open-source SIEM and IDS stacks.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">Wireshark</span>
+                            <span class="stack-tag">Splunk / ELK</span>
+                            <span class="stack-tag">Nmap</span>
+                            <span class="stack-tag">Kali Linux</span>
+                            <span class="stack-tag">Suricata IDS</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AryanThakar860" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-git">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>GITHUB</span>
+                            </a>
+                            <button class="proj-link proj-link-modal open-case-study" data-slug="soc-threat-detection-lab">
+                                <span>ARCHITECTURE SPECS ↗</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 05: Cryptographic Steganography -->
+                <div class="project-card animate-on-scroll" data-category="systems" data-slug="cryptographic-steganography">
+                    <div class="project-media-wrap">
+                        <img src="images/stego-preview.svg" alt="Cryptographic Image Steganography Suite" class="project-img" loading="lazy">
+                        <div class="project-media-overlay"></div>
+                        <span class="project-badge badge-systems">CIPHER RESEARCH</span>
+                        <div class="project-quick-actions">
+                            <button class="quick-btn open-case-study" data-slug="cryptographic-steganography">INSPECT SPECS</button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta-row">
+                            <span class="project-cat">SYSTEMS &bull; APPLIED CRYPTOGRAPHY</span>
+                            <span class="project-stars">★ ZERO ARTIFACT</span>
+                        </div>
+                        <h3 class="project-title">Cryptographic Image Steganography Suite</h3>
+                        <p class="project-desc">
+                            Academic cryptography research project implementing Least Significant Bit (LSB) carrier plane embedding. Injects AES-256 encrypted payloads into lossless image matrices with zero perceptual distortion and cryptographic HMAC verification.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">Python</span>
+                            <span class="stack-tag">OpenCV</span>
+                            <span class="stack-tag">Cryptography</span>
+                            <span class="stack-tag">LSB Matrices</span>
+                            <span class="stack-tag">SHA-256</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AryanThakar860" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-git">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>GITHUB</span>
+                            </a>
+                            <button class="proj-link proj-link-modal open-case-study" data-slug="cryptographic-steganography">
+                                <span>ARCHITECTURE SPECS ↗</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 06: Cyber Challenge Arena -->
+                <div class="project-card animate-on-scroll" data-category="systems" data-slug="cyber-challenge-arena">
+                    <div class="project-media-wrap">
+                        <img src="images/cybergame-preview.svg" alt="Cyber Challenge Arena Security Education" class="project-img" loading="lazy">
+                        <div class="project-media-overlay"></div>
+                        <span class="project-badge badge-systems">SECURITY EDTECH</span>
+                        <div class="project-quick-actions">
+                            <button class="quick-btn open-case-study" data-slug="cyber-challenge-arena">INSPECT SPECS</button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta-row">
+                            <span class="project-cat">EDTECH &bull; GAMIFIED CTF DEFENSE</span>
+                            <span class="project-stars">★ OWASP TOP 10</span>
+                        </div>
+                        <h3 class="project-title">Cyber Challenge Arena — Gamified Security Training</h3>
+                        <p class="project-desc">
+                            Gamified cyber defense platform presenting real-time vulnerable scenarios (SQL Injection, Stored XSS, JWT header stripping, Insecure Deserialization) to teach software engineers proactive defense and secure coding standards.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">JavaScript</span>
+                            <span class="stack-tag">Canvas API</span>
+                            <span class="stack-tag">OWASP Top 10</span>
+                            <span class="stack-tag">Web Security</span>
+                            <span class="stack-tag">Gamification</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AryanThakar860" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-git">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>GITHUB</span>
+                            </a>
+                            <button class="proj-link proj-link-modal open-case-study" data-slug="cyber-challenge-arena">
+                                <span>ARCHITECTURE SPECS ↗</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ============= SECTION 03: BIO-MOLECULAR ALCHEMY (BENEFITS) ============= -->
-    <section id="benefits" class="benefits section">
-        <!-- Interactive 3D Molecular Lattice Canvas -->
-        <canvas id="benefitsCanvas" class="three-canvas benefits-three-canvas"></canvas>
-
+    <!-- ==========================================================================
+         SECTION 04: SKILLS & TECHNICAL ARSENAL (WITH 3D CYBER NETWORK MESH)
+         ========================================================================== -->
+    <section id="skills" class="section skills-section">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-tag-hud">
-                    <span class="hud-bullet"></span>
-                    <span class="hud-tag-text">DIMENSION 03 // MOLECULAR ALCHEMY</span>
-                    <span class="hud-bullet"></span>
-                </div>
-                <h2 class="section-title">The Therapeutic Bio-Compounds</h2>
+            <div class="section-header text-center animate-on-scroll">
+                <span class="section-tag">[ 04 &bull; ARSENAL &bull; CAPABILITIES ]</span>
+                <h2 class="section-title">TECHNICAL <span class="text-accent">ARSENAL</span></h2>
+                <div class="section-line"></div>
                 <p class="section-subtitle">
-                    Hover over the 3D molecular nodes orbiting above to observe how Crocin, Safranal, and Picrocrocin 
-                    orchestrate profound cellular rejuvenation and neurological harmony.
+                    Rigorous, production-tested competencies organized across spatial graphics, full-stack systems, and cybersecurity operations.
                 </p>
             </div>
 
-            <!-- Molecular HUD Ticker -->
-            <div class="molecular-ticker animate-on-scroll">
-                <div class="ticker-chip active-chip" data-compound="crocin">
-                    <span class="chip-color chip-ruby"></span>
-                    <strong>CROCIN [C44H64O24]</strong>
-                    <span>Deep Ruby Carotenoid • Radical Scavenger</span>
-                </div>
-                <div class="ticker-chip" data-compound="safranal">
-                    <span class="chip-color chip-gold"></span>
-                    <strong>SAFRANAL [C10H14O]</strong>
-                    <span>Ethereal Monoterpene • Mood &amp; Neuro-Balance</span>
-                </div>
-                <div class="ticker-chip" data-compound="picrocrocin">
-                    <span class="chip-color chip-amber"></span>
-                    <strong>PICROCROCIN [C16H26O7]</strong>
-                    <span>Glucoside Complex • Digestive Vitality</span>
-                </div>
-            </div>
-
-            <div class="benefits-grid">
-                <div class="benefit-card animate-on-scroll">
-                    <div class="benefit-hud-notch"></div>
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                            <path d="M12 6v6l4 2" />
-                        </svg>
+            <div class="skills-layout-grid">
+                <!-- Left: 4 Domain Categories with Progress Meters -->
+                <div class="skills-columns-wrap">
+                    
+                    <!-- Domain 1: 3D & Creative Frontend -->
+                    <div class="skill-category-card animate-on-scroll">
+                        <div class="cat-header">
+                            <span class="cat-icon">✦</span>
+                            <h3 class="cat-title">01. Spatial &amp; Creative Frontend</h3>
+                        </div>
+                        <div class="cat-skills-list">
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>Three.js &amp; WebGL Shaders</span><span class="skill-pct">95%</span></div>
+                                <div class="meter-track"><div class="meter-fill" style="width: 95%;"></div></div>
+                                <span class="skill-note">Procedural geometry, GLSL shaders, camera choreography, custom lighting.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>GSAP &amp; ScrollTrigger</span><span class="skill-pct">95%</span></div>
+                                <div class="meter-track"><div class="meter-fill" style="width: 95%;"></div></div>
+                                <span class="skill-note">Timeline motion graphics, canvas scrubbing, kinetic physics.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>Web Audio API &amp; Synthesizers</span><span class="skill-pct">90%</span></div>
+                                <div class="meter-track"><div class="meter-fill" style="width: 90%;"></div></div>
+                                <span class="skill-note">Procedural acoustic oscillators, dynamic biquad filters, ambient drones.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>Modern CSS3 &amp; Design Systems</span><span class="skill-pct">96%</span></div>
+                                <div class="meter-track"><div class="meter-fill" style="width: 96%;"></div></div>
+                                <span class="skill-note">Design tokens, GPU-accelerated compositing, dark obsidian aesthetics.</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Cellular Longevity &amp; Antioxidant</h3>
-                    <p>
-                        Exceptionally dense concentration of natural crocin neutralizes free radicals, 
-                        protecting cellular DNA and boosting mitochondrial respiration.
-                    </p>
-                    <div class="benefit-tag">CROCIN &gt; 250 U/g</div>
+
+                    <!-- Domain 2: Full-Stack Engineering -->
+                    <div class="skill-category-card animate-on-scroll">
+                        <div class="cat-header">
+                            <span class="cat-icon">⚡</span>
+                            <h3 class="cat-title">02. Full-Stack &amp; Data Persistence</h3>
+                        </div>
+                        <div class="cat-skills-list">
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>Node.js &amp; Express 5</span><span class="skill-pct">96%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-cyan" style="width: 96%;"></div></div>
+                                <span class="skill-note">High-throughput REST APIs, security middleware, rate limiting.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>React 19 &amp; Component Lifecycles</span><span class="skill-pct">92%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-cyan" style="width: 92%;"></div></div>
+                                <span class="skill-note">Custom hooks, state management, virtual DOM reconciliation.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>SQLite (Native WAL) &amp; MySQL</span><span class="skill-pct">93%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-cyan" style="width: 93%;"></div></div>
+                                <span class="skill-note">Relational schemas, ACID transactions, foreign key cascades, migrations.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>REST APIs &amp; Input Validation</span><span class="skill-pct">95%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-cyan" style="width: 95%;"></div></div>
+                                <span class="skill-note">Strict sanitization, honeypot defenses, CORS policies, token auth.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain 3: Network Security & SOC Operations -->
+                    <div class="skill-category-card animate-on-scroll">
+                        <div class="cat-header">
+                            <span class="cat-icon">🛡</span>
+                            <h3 class="cat-title">03. Network Security &amp; SOC Operations</h3>
+                        </div>
+                        <div class="cat-skills-list">
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>CCNA Enterprise Networking</span><span class="skill-pct">94%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-violet" style="width: 94%;"></div></div>
+                                <span class="skill-note">TCP/IP, OSI, OSPF/BGP routing, VLAN segmentation, ACL policies.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>CEH Vulnerability Assessment</span><span class="skill-pct">92%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-violet" style="width: 92%;"></div></div>
+                                <span class="skill-note">Reconnaissance, port mapping, penetration testing methodologies.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>Wireshark &amp; Packet Forensics</span><span class="skill-pct">93%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-violet" style="width: 93%;"></div></div>
+                                <span class="skill-note">PCAP deep inspection, protocol dissection, anomalous beacon detection.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>SOC Alert Triage &amp; Incident Escalation</span><span class="skill-pct">90%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-violet" style="width: 90%;"></div></div>
+                                <span class="skill-note">Correlation, false-positive filtering under NIST SP 800-61.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain 4: Systems, DevOps & Deployment -->
+                    <div class="skill-category-card animate-on-scroll">
+                        <div class="cat-header">
+                            <span class="cat-icon">⚙</span>
+                            <h3 class="cat-title">04. Systems, DevOps &amp; Cloud</h3>
+                        </div>
+                        <div class="cat-skills-list">
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>Linux &amp; Kali Toolset</span><span class="skill-pct">92%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-amber" style="width: 92%;"></div></div>
+                                <span class="skill-note">Shell automation, system hardening, server administration.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>Git &amp; GitHub Actions CI/CD</span><span class="skill-pct">95%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-amber" style="width: 95%;"></div></div>
+                                <span class="skill-note">Trunk-based workflows, automated test runners, deployment hooks.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>OWASP Top 10 Hardening</span><span class="skill-pct">94%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-amber" style="width: 94%;"></div></div>
+                                <span class="skill-note">Defense-in-depth against XSS, SQLi, CSRF, insecure token storage.</span>
+                            </div>
+                            <div class="skill-meter-row">
+                                <div class="skill-meta"><span>Vercel &amp; Cloud Deployments</span><span class="skill-pct">95%</span></div>
+                                <div class="meter-track"><div class="meter-fill meter-amber" style="width: 95%;"></div></div>
+                                <span class="skill-note">Serverless rewrites, CDN caching, edge headers, static optimization.</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="benefit-card animate-on-scroll">
-                    <div class="benefit-hud-notch"></div>
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                        </svg>
+                <!-- Right: Interactive 3D Cyber Threat & Network Mesh Scene -->
+                <div class="skills-3d-visualizer animate-on-scroll">
+                    <div class="visualizer-header">
+                        <span class="vis-pulse"></span>
+                        <span class="vis-title">3D THREAT TELEMETRY &bull; NETWORK MESH</span>
+                        <span class="vis-tag">INTERACTIVE</span>
                     </div>
-                    <h3>Serotonin Synthesis &amp; Elevated Mood</h3>
-                    <p>
-                        Clinical trials validate safranal’s mechanism in supporting dopamine and serotonin equilibrium, 
-                        naturally dispelling cognitive fatigue and mood lulls.
-                    </p>
-                    <div class="benefit-tag">THE SUNSHINE SPICE</div>
+                    <div class="vis-canvas-container">
+                        <canvas id="cyberCanvas" class="cyber-canvas"></canvas>
+                        <div class="vis-overlay-info">
+                            <div class="info-line"><span>ACTIVE NODES:</span> <strong>32 CLUSTERED</strong></div>
+                            <div class="info-line"><span>TCP/IP INGRESS:</span> <strong>ENCRYPTED TLS 1.3</strong></div>
+                            <div class="info-line"><span>INCIDENT RESPONSE:</span> <strong>AUTOMATED TRIAGE</strong></div>
+                        </div>
+                    </div>
+                    <div class="visualizer-footer">
+                        <span class="vis-instruction">CLICK &amp; DRAG 3D CYBER NETWORK TO INSPECT TOPOLOGY</span>
+                    </div>
                 </div>
 
-                <div class="benefit-card animate-on-scroll">
-                    <div class="benefit-hud-notch"></div>
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="3" />
-                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                        </svg>
-                    </div>
-                    <h3>Retinal Micro-Vascular Health</h3>
-                    <p>
-                        Crocetin isomers fortify the macular pigment layer, optimizing photoreceptor function 
-                        and protecting ocular tissues from blue-light oxidation.
-                    </p>
-                    <div class="benefit-tag">CLINICALLY STUDIED</div>
-                </div>
-
-                <div class="benefit-card animate-on-scroll">
-                    <div class="benefit-hud-notch"></div>
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 4a2 2 0 11-2 2 2 2 0 012-2zm3 10H9a1 1 0 010-2h6a1 1 0 010 2z" />
-                        </svg>
-                    </div>
-                    <h3>Radiant Dermal Luminescence</h3>
-                    <p>
-                        Royal court concubines and Persian queens used saffron topical infusions to stimulate dermal 
-                        micro-circulation and produce an unmistakable porcelain glow.
-                    </p>
-                    <div class="benefit-tag">ROYAL BEAUTY RITUAL</div>
-                </div>
-
-                <div class="benefit-card animate-on-scroll">
-                    <div class="benefit-hud-notch"></div>
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                            <path d="M13.73 21a2 2 0 01-3.46 0" />
-                        </svg>
-                    </div>
-                    <h3>Metabolic Tone &amp; Gut Equilibrium</h3>
-                    <p>
-                        Picrocrocin stimulates gastric secretagogues, curbing chronic inflammation and 
-                        optimizing nutrient absorption through traditional warming bio-dynamics.
-                    </p>
-                    <div class="benefit-tag">AYURVEDA RASAYANA</div>
-                </div>
-
-                <div class="benefit-card animate-on-scroll">
-                    <div class="benefit-hud-notch"></div>
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M19.69 14a6.9 6.9 0 00.31-2V5l-8-3-8 3v7a6.9 6.9 0 00.31 2" />
-                            <path d="M12 22c-4.97 0-9-4.03-9-9" />
-                        </svg>
-                    </div>
-                    <h3>Deep Rest &amp; Circadian Alignment</h3>
-                    <p>
-                        A single evening cup of saffron infusion modulates GABAergic pathways, encouraging 
-                        deeper restorative REM cycles and morning mental clarity.
-                    </p>
-                    <div class="benefit-tag">EVENING ELIXIR</div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- ============= SECTION 04: THE GOLDEN INFUSION TRANSFORMATION ============= -->
-    <section id="transformation" class="saffron-milk section">
+    <!-- ==========================================================================
+         SECTION 05: EXPERIENCE & ACHIEVEMENTS TIMELINE
+         ========================================================================== -->
+    <section id="timeline" class="section timeline-section">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-tag-hud">
-                    <span class="hud-bullet"></span>
-                    <span class="hud-tag-text">DIMENSION 04 // FLUID TRANSFORMATION</span>
-                    <span class="hud-bullet"></span>
-                </div>
-                <h2 class="section-title">The Alchemy of 4 Strands</h2>
+            <div class="section-header text-center animate-on-scroll">
+                <span class="section-tag">[ 05 &bull; MILESTONES &bull; CREDENTIALS ]</span>
+                <h2 class="section-title">PROFESSIONAL <span class="text-accent">TIMELINE</span></h2>
+                <div class="section-line"></div>
                 <p class="section-subtitle">
-                    Pure saffron does not instantly dump artificial dye. It slowly releases an ethereal golden halo 
-                    of water-soluble crocin carotenoids over 10 minutes. Click below to experience the real-time diffusion.
+                    Authentic academic degrees, verified vendor certifications, and competitive hackathon achievements.
                 </p>
             </div>
 
-            <!-- Interactive Fluid Diffusion Chamber -->
-            <div class="infusion-interactive-box animate-on-scroll">
-                <div class="infusion-stage">
-                    <canvas id="infusionCanvas" class="infusion-canvas"></canvas>
-                    <div class="infusion-hud-overlay">
-                        <div class="infusion-status" id="infusionStatusText">CHAMBER READY: PURE WARM MILK (65°C)</div>
-                        <button class="btn btn-primary" id="infusionTriggerBtn">
-                            <span class="btn-spark">✦</span>
-                            <span>INFUSE 4 MOGRA STRANDS</span>
-                        </button>
-                    </div>
-                </div>
+            <div class="timeline-container">
+                <div class="timeline-spine"></div>
 
-                <!-- Side by Side Comparative Visuals -->
-                <div class="milk-comparison">
-                    <div class="milk-card">
-                        <div class="card-status-badge">BEFORE INFUSION</div>
-                        <img src="images/saffron-milk-before.png" alt="Plain warm milk before saffron" loading="lazy">
-                        <div class="milk-label">T = 0 MIN: NEUTRAL</div>
-                    </div>
-
-                    <div class="infusion-arrow-hud">
-                        <div class="arrow-core">
-                            <span class="arrow-symbol">⟿</span>
-                            <span class="arrow-txt">+ 4 STRANDS</span>
-                            <span class="arrow-time">10 MIN STEEP</span>
+                <!-- Milestone 1: B.Sc. Degree -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-node"><span class="node-spark">◈</span></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-badge badge-edu">GRADUATED DEGREE</span>
                         </div>
-                    </div>
-
-                    <div class="milk-card milk-card-after">
-                        <div class="card-status-badge badge-gold">AFTER INFUSION</div>
-                        <img src="images/saffron-milk-after.png" alt="Golden saffron milk after adding saffron" loading="lazy">
-                        <div class="milk-label milk-label-gold">T = 10 MIN: LIQUID GOLD</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- How To Use 4 Steps HUD -->
-            <div class="steps-grid animate-on-scroll">
-                <div class="step-card">
-                    <div class="step-hud-number">PHASE 01</div>
-                    <div class="step-icon">🥛</div>
-                    <h4>Warm the Medium</h4>
-                    <p>Heat 200ml of pure whole milk, water, or bone broth to approximately 65°C. Avoid rapid boiling.</p>
-                </div>
-                <div class="step-connector">
-                    <span class="step-line"></span>
-                </div>
-                <div class="step-card">
-                    <div class="step-hud-number">PHASE 02</div>
-                    <div class="step-icon">✨</div>
-                    <h4>Drop 4–5 Strands</h4>
-                    <p>Crush threads gently between fingertips or leave intact. Drop directly onto the warm surface.</p>
-                </div>
-                <div class="step-connector">
-                    <span class="step-line"></span>
-                </div>
-                <div class="step-card">
-                    <div class="step-hud-number">PHASE 03</div>
-                    <div class="step-icon">⏳</div>
-                    <h4>The 10-Minute Bloom</h4>
-                    <p>Observe the golden tentacles of crocin dispersing. Do not rush; authentic saffron blooms slowly.</p>
-                </div>
-                <div class="step-connector">
-                    <span class="step-line"></span>
-                </div>
-                <div class="step-card">
-                    <div class="step-hud-number">PHASE 04</div>
-                    <div class="step-icon">👑</div>
-                    <h4>Royal Consumption</h4>
-                    <p>Stir with a silver spoon, breathe in the heavenly safranal bouquet, and ingest pure vitality.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============= SECTION 05: THE HERITAGE & FOUR GENERATIONS ============= -->
-    <section id="story" class="story section">
-        <!-- 3D Kashmiri Mountain Mist & Petals -->
-        <canvas id="storyCanvas" class="three-canvas story-three-canvas"></canvas>
-
-        <div class="container">
-            <div class="story-grid">
-                <div class="story-visual-column animate-on-scroll">
-                    <div class="story-frame">
-                        <div class="frame-corner c-tl"></div>
-                        <div class="frame-corner c-tr"></div>
-                        <div class="frame-corner c-bl"></div>
-                        <div class="frame-corner c-br"></div>
-                        <img src="images/family-story.png" alt="Our saffron farm in Pampore, Kashmir" loading="lazy" class="story-photo">
-                        <div class="story-year-badge">
-                            <span class="year">1982 — 2026</span>
-                            <span class="gen">4TH GENERATION DYNASTY</span>
-                        </div>
-                    </div>
-
-                    <!-- Estate Telemetry Card -->
-                    <div class="estate-data-card">
-                        <div class="data-item">
-                            <span class="data-label">TERROIR</span>
-                            <span class="data-val">Lacustrine Karewa Soils</span>
-                        </div>
-                        <div class="data-item">
-                            <span class="data-label">ALTITUDE</span>
-                            <span class="data-val">1,630m Alpine Plateau</span>
-                        </div>
-                        <div class="data-item">
-                            <span class="data-label">HARVEST WINDOW</span>
-                            <span class="data-val">14 Days Every October</span>
+                        <h3 class="timeline-title">B.Sc. in Computer Science</h3>
+                        <h4 class="timeline-org">Nirmala Memorial Foundation College of Science &amp; Commerce, Mumbai</h4>
+                        <p class="timeline-desc">
+                            Completed rigorous degree curriculum with high academic distinction. Mastered object-oriented programming, data structures, relational database management, operating systems, networking fundamentals, and applied web application development.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>Algorithms</span>
+                            <span>Computer Networks</span>
+                            <span>Database Systems</span>
+                            <span>Software Engineering</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="story-content animate-on-scroll">
-                    <div class="section-tag-hud">
-                        <span class="hud-bullet"></span>
-                        <span class="hud-tag-text">DIMENSION 05 // FAMILY DYNASTY</span>
-                    </div>
-                    <h2 class="section-title">A Legacy Written in Crimson &amp; Gold</h2>
-
-                    <p class="story-lead">
-                        In the mist-kissed plateau of Pampore, where the Himalayas cast eternal watch over fields of purple 
-                        crocus, our family has guarded the sacred saffron bulb for over four decades.
-                    </p>
-
-                    <p class="story-text">
-                        What began in 1982 with my grandfather’s heirloom soil plot has blossomed into an internationally 
-                        celebrated standard of purity. Every autumn at 4:30 AM before sunrise strikes the valley, three 
-                        generations of our family kneel in the dew to hand-gather each blossom before the petals open to sunlight.
-                    </p>
-
-                    <p class="story-text">
-                        The three crimson stigmas of each flower are excised with thumb and forefinger within 6 hours of picking, 
-                        air-dried over traditional silk screens, and sealed hermetically to lock in the volatile safranal essences.
-                    </p>
-
-                    <div class="story-values">
-                        <div class="value">
-                            <span class="value-icon">🌱</span>
-                            <div>
-                                <strong>Regenerative Agriculture</strong>
-                                <span>Zero chemical pesticides</span>
-                            </div>
+                <!-- Milestone 2: CCNA -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-node"><span class="node-spark">🛡</span></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-badge badge-cert">CISCO CERTIFIED</span>
                         </div>
-                        <div class="value">
-                            <span class="value-icon">🤲</span>
-                            <div>
-                                <strong>Pre-Dawn Hand Harvest</strong>
-                                <span>Zero mechanical bruising</span>
-                            </div>
-                        </div>
-                        <div class="value">
-                            <span class="value-icon">🔬</span>
-                            <div>
-                                <strong>Batch-Numbered ISO Lab</strong>
-                                <span>Complete provenance tracing</span>
-                            </div>
-                        </div>
-                        <div class="value">
-                            <span class="value-icon">👑</span>
-                            <div>
-                                <strong>Direct Estate Price</strong>
-                                <span>No brokers, no middlemen</span>
-                            </div>
+                        <h3 class="timeline-title">Cisco Certified Network Associate (CCNA)</h3>
+                        <h4 class="timeline-org">Cisco Systems &bull; Enterprise Networking</h4>
+                        <p class="timeline-desc">
+                            Earned professional certification demonstrating comprehensive mastery over routing protocols (OSPF, EIGRP), switching architectures, VLAN segmentation, IPv4/IPv6 subnetting, Access Control Lists (ACLs), NAT, wireless network management, and network infrastructure security.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>Routing &amp; Switching</span>
+                            <span>TCP/IP Protocols</span>
+                            <span>VLANs &amp; Subnetting</span>
+                            <span>Access Control Lists</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Milestone 3: CEH -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-node"><span class="node-spark">⚡</span></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-badge badge-cert">EC-COUNCIL CERTIFIED</span>
+                        </div>
+                        <h3 class="timeline-title">Certified Ethical Hacker (CEH)</h3>
+                        <h4 class="timeline-org">EC-Council &bull; Cybersecurity Fundamentals</h4>
+                        <p class="timeline-desc">
+                            Mastered offensive and defensive security paradigms: target footprinting, network reconnaissance, port scanning, vulnerability discovery, web application exploit vectors, malware defense, firewall traversal, and security risk assessment reporting.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>Vulnerability Scanning</span>
+                            <span>Penetration Testing Labs</span>
+                            <span>Reconnaissance</span>
+                            <span>OWASP Defense</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 4: Codewarts Hackathon -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-node"><span class="node-spark">🏆</span></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-badge badge-achieve">HACKATHON MERIT</span>
+                        </div>
+                        <h3 class="timeline-title">Codewarts &amp; Technical Hackathons</h3>
+                        <h4 class="timeline-org">Competitive Engineering Competitions</h4>
+                        <p class="timeline-desc">
+                            Engineered full-stack and security-first prototypes within strict competitive deadlines. Awarded Certificate of Participation and Technical Excellence for creative architecture, rapid prototyping, and bug-free execution under pressure.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>Rapid Prototyping</span>
+                            <span>Full-Stack Build</span>
+                            <span>Team Collaboration</span>
+                            <span>High Pressure Coding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 5: Full-Stack Deployments -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-node"><span class="node-spark">✦</span></div>
+                    <div class="timeline-card">
+                        <div class="timeline-meta">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-badge badge-exp">PRODUCTION SHIPPED</span>
+                        </div>
+                        <h3 class="timeline-title">Enterprise Systems &amp; 3D Deployments</h3>
+                        <h4 class="timeline-org">Independent Client &amp; Research Systems</h4>
+                        <p class="timeline-desc">
+                            Architected and shipped multiple end-to-end full-stack applications to production, including HEALTHKRAFT Studio CRM (multi-tenant React + MySQL platform), PhisGuard Threat Intelligence, and the Shreeji Saffron 3D interactive digital portal.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>React 19 &amp; Vite</span>
+                            <span>Three.js WebGL</span>
+                            <span>Express 5 &amp; SQLite/MySQL</span>
+                            <span>Vercel Cloud CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ============= SECTION 06: GASTRONOMY (ROYAL RECIPES) ============= -->
-    <section id="recipes" class="recipes section">
+    <!-- ==========================================================================
+         SECTION 06: DEFENSIVE SECURITY & SOC LAB SIMULATION
+         ========================================================================== -->
+    <section id="cyber-lab" class="section cyber-lab-section">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-tag-hud">
-                    <span class="hud-bullet"></span>
-                    <span class="hud-tag-text">DIMENSION 06 // ROYAL GASTRONOMY</span>
-                    <span class="hud-bullet"></span>
-                </div>
-                <h2 class="section-title">Epicurean Creations</h2>
+            <div class="section-header text-center animate-on-scroll">
+                <span class="section-tag">[ 06 &bull; DEFENSE &bull; SOC LAB SIMULATION ]</span>
+                <h2 class="section-title">DEFENSIVE SECURITY <span class="text-accent">&amp; INCIDENT TRIAGE</span></h2>
+                <div class="section-line"></div>
                 <p class="section-subtitle">
-                    Witness how four strands of Shreeji Mogra elevate ordinary ingredients into dishes fit for 
-                    the Mughal emperors and Persian courts.
+                    Live interactive demonstration of Security Operations Center (SOC) workflows, packet inspection, and automated threat mitigation.
                 </p>
             </div>
 
-            <div class="recipes-grid">
-                <!-- Recipe 1 -->
-                <div class="recipe-card animate-on-scroll">
-                    <div class="recipe-image-wrapper">
-                        <img src="images/recipe-kesar-phirni.png" alt="Kesar Phirni - Saffron Rice Pudding"
-                            class="recipe-image" loading="lazy">
-                        <div class="recipe-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            <span>45 MINS</span>
-                        </div>
-                        <div class="recipe-strands-tag">6 STRANDS MOGRA</div>
+            <div class="soc-terminal-container animate-on-scroll">
+                <div class="soc-terminal-top">
+                    <div class="terminal-controls">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
                     </div>
-                    <div class="recipe-content">
-                        <span class="recipe-category">IMPERIAL DESSERT</span>
-                        <h3 class="recipe-name">Kashmiri Kesar Phirni</h3>
-                        <p class="recipe-desc">
-                            Velvety ground rice slow-simmered in whole milk, infused with steeped Mogra saffron, 
-                            green cardamom, and crowned with Persian slivered pistachios.
-                        </p>
-                        <div class="recipe-details">
-                            <span>🍽 Serves 4</span>
-                            <span>⭐ Royal Difficulty: Medium</span>
+                    <div class="terminal-hud-heading">
+                        <span class="hud-term-id">SOC_STATION_01 // WIRESHARK_FEED</span>
+                        <span class="hud-term-status">DEFENSE: ACTIVE</span>
+                    </div>
+                    <div class="terminal-actions">
+                        <button class="term-btn" id="simAttackBtn">SIMULATE ATTACK</button>
+                        <button class="term-btn term-btn-clear" id="clearLogBtn">CLEAR LOGS</button>
+                    </div>
+                </div>
+
+                <!-- Live Stream Feed Table -->
+                <div class="soc-feed-table-wrap">
+                    <div class="soc-feed-header">
+                        <span>#</span>
+                        <span>TIMESTAMP</span>
+                        <span>SOURCE IP</span>
+                        <span>DESTINATION</span>
+                        <span>PROTOCOL</span>
+                        <span>EVENT / PAYLOAD DESCRIPTION</span>
+                        <span>ACTION</span>
+                    </div>
+                    <div class="soc-feed-rows" id="socFeedRows">
+                        <div class="feed-row row-normal">
+                            <span>#01</span>
+                            <span>17:19:42</span>
+                            <span>192.168.1.105:443</span>
+                            <span>10.0.0.15:52194</span>
+                            <span class="proto-tcp">TCP</span>
+                            <span>TLSv1.3 Handshake Finished [Cipher: AES_256_GCM]</span>
+                            <span class="act-pass">PASSED</span>
+                        </div>
+                        <div class="feed-row row-warn">
+                            <span>#02</span>
+                            <span>17:19:44</span>
+                            <span>10.0.0.15:53</span>
+                            <span>1.1.1.1:53</span>
+                            <span class="proto-dns">DNS</span>
+                            <span>Standard query TXT anomalous-beacon.internal</span>
+                            <span class="act-inspect">INSPECTED</span>
+                        </div>
+                        <div class="feed-row row-alert">
+                            <span>#03</span>
+                            <span>17:19:45</span>
+                            <span>185.220.101.4:42981</span>
+                            <span>10.0.0.15:22</span>
+                            <span class="proto-ssh">SSH</span>
+                            <span>ALERT P1: Brute-force threshold exceeded (24 attempts/sec)</span>
+                            <span class="act-block">DROPPED</span>
+                        </div>
+                        <div class="feed-row row-normal">
+                            <span>#04</span>
+                            <span>17:19:47</span>
+                            <span>10.0.0.15:49182</span>
+                            <span>142.250.190.46:443</span>
+                            <span class="proto-https">HTTPS</span>
+                            <span>Outbound API Telemetry Sync [Status: 200 OK]</span>
+                            <span class="act-pass">PASSED</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Recipe 2 -->
-                <div class="recipe-card animate-on-scroll">
-                    <div class="recipe-image-wrapper">
-                        <img src="images/recipe-saffron-rice.png" alt="Saffron Rice - Zafrani Pulao"
-                            class="recipe-image" loading="lazy">
-                        <div class="recipe-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            <span>60 MINS</span>
-                        </div>
-                        <div class="recipe-strands-tag">10 STRANDS LACHHA</div>
+                <!-- SOC Telemetry Footer -->
+                <div class="soc-terminal-bottom">
+                    <div class="soc-stat-pill">
+                        <span>INGESTION RATE:</span>
+                        <strong>1,420 pkts/s</strong>
                     </div>
-                    <div class="recipe-content">
-                        <span class="recipe-category">MAIN BANQUET</span>
-                        <h3 class="recipe-name">Shahi Zafrani Pulao</h3>
-                        <p class="recipe-desc">
-                            Aged long-grain basmati cooked in saffron-infused vegetable stock, ghee-caramelized onions, 
-                            mace, and toasted whole cashews. The crown jewel of Kashmiri celebratory banquets.
-                        </p>
-                        <div class="recipe-details">
-                            <span>🍽 Serves 6</span>
-                            <span>⭐ Royal Difficulty: Easy</span>
-                        </div>
+                    <div class="soc-stat-pill">
+                        <span>FALSE POSITIVE RATE:</span>
+                        <strong>&lt; 0.02%</strong>
                     </div>
-                </div>
-
-                <!-- Recipe 3 -->
-                <div class="recipe-card animate-on-scroll">
-                    <div class="recipe-image-wrapper">
-                        <img src="images/recipe-kahwa.png" alt="Kashmiri Kahwa - Saffron Tea" class="recipe-image"
-                            loading="lazy">
-                        <div class="recipe-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            <span>15 MINS</span>
-                        </div>
-                        <div class="recipe-strands-tag">4 STRANDS MOGRA</div>
+                    <div class="soc-stat-pill">
+                        <span>FIREWALL RULESET:</span>
+                        <strong>NIST SP 800-61 COMPLIANT</strong>
                     </div>
-                    <div class="recipe-content">
-                        <span class="recipe-category">HERBAL TONIC</span>
-                        <h3 class="recipe-name">Himalayan Samovar Kahwa</h3>
-                        <p class="recipe-desc">
-                            Green tea leaves brewed with crushed cinnamon barks, wild cardamom pods, crushed raw almonds, 
-                            and crowned with blooming crimson saffron stigmas.
-                        </p>
-                        <div class="recipe-details">
-                            <span>🍽 Serves 2</span>
-                            <span>⭐ Royal Difficulty: Instant</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============= SECTION 07: TESTIMONIALS CAROUSEL ============= -->
-    <section id="testimonials" class="testimonials section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-tag-hud">
-                    <span class="hud-bullet"></span>
-                    <span class="hud-tag-text">DIMENSION 07 // GLOBAL ENDORSEMENTS</span>
-                    <span class="hud-bullet"></span>
-                </div>
-                <h2 class="section-title">Revered by Michelin Chefs &amp; Connoisseurs</h2>
-            </div>
-
-            <div class="testimonials-carousel animate-on-scroll" id="testimonialsCarousel">
-                <div class="carousel-track" id="carouselTrack">
-                    <!-- Slide 1 -->
-                    <div class="testimonial-card">
-                        <div class="quote-symbol">“</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">
-                            "The aromatic potency of Shreeji Mogra is unlike anything available in commercial retail. 
-                            Just 4 strands produced a deep amber glow and intoxicating perfume in our signature biryani. 
-                            This is authentic red gold."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">PK</div>
-                            <div class="author-meta">
-                                <strong>Priya Kapoor</strong>
-                                <span>Master Gastronomer • Mumbai</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="testimonial-card">
-                        <div class="quote-symbol">“</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">
-                            "Having sourced saffron across Iran, Spain, and Kashmir for over two decades, Shreeji's batch consistency 
-                            and ISO 3632 certification is the gold standard. The moisture is crisp and color yield is phenomenal."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">RS</div>
-                            <div class="author-meta">
-                                <strong>Rajesh Sharma</strong>
-                                <span>Ayurvedic Vaidya • New Delhi</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="testimonial-card">
-                        <div class="quote-symbol">“</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">
-                            "As an executive pastry chef, I test every batch with spectrophotometry. Shreeji's crocin values consistently 
-                            cross 260. Our saffron macarons and mousses are legendary because of this raw ingredient."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AM</div>
-                            <div class="author-meta">
-                                <strong>Chef Aisha Malik</strong>
-                                <span>Executive Pastry Chef • Bengaluru</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 -->
-                    <div class="testimonial-card">
-                        <div class="quote-symbol">“</div>
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">
-                            "I send Shreeji saffron gift capsules to my relatives in London and Zurich every Diwali. 
-                            The luxury packaging and pristine Kashmiri heritage make it the most prestigious gift imaginable."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">VN</div>
-                            <div class="author-meta">
-                                <strong>Vikram Nair</strong>
-                                <span>Diplomatic Envoy • Kochi</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-controls">
-                    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous testimonial">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M15 18l-6-6 6-6" />
-                        </svg>
-                    </button>
-                    <div class="carousel-dots" id="carouselDots"></div>
-                    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next testimonial">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============= SECTION 08: CONCIERGE TRANSMISSION (CONTACT) ============= -->
-    <section id="contact" class="contact section">
+    <!-- ==========================================================================
+         SECTION 07: CONTACT & CONCIERGE TERMINAL
+         ========================================================================== -->
+    <section id="contact" class="section contact-section">
         <div class="container">
+            <div class="section-header text-center animate-on-scroll">
+                <span class="section-tag">[ 07 &bull; TRANSMIT &bull; DISPATCH TERMINAL ]</span>
+                <h2 class="section-title">START A <span class="text-accent">CONVERSATION</span></h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">
+                    Seeking full-time roles, creative 3D web engineering, security audits, or high-performance full-stack collaborations.
+                </p>
+            </div>
+
             <div class="contact-grid">
-                <div class="contact-info animate-on-scroll">
-                    <div class="section-tag-hud">
-                        <span class="hud-bullet"></span>
-                        <span class="hud-tag-text">DIMENSION 08 // CONCIERGE TERMINAL</span>
-                    </div>
-                    <h2 class="section-title">Direct Transmission</h2>
-                    <p class="contact-desc">
-                        Whether coordinating a bulk harvest contract for five-star dining establishments or inquiring 
-                        about international batch shipments, our concierge responds within 4 business hours.
-                    </p>
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                                    <circle cx="12" cy="10" r="3" />
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>ESTATE HEADQUARTERS</strong>
-                                <p>Shreeji Saffron Agency, Pampore Plateau<br>Pulwama, Kashmir 192121</p>
-                            </div>
+                <!-- Left: Direct Channels & Information -->
+                <div class="contact-info-panel animate-on-scroll">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <span class="info-icon">⚡</span>
+                            <h3 class="info-heading">Direct Comms &amp; Coordinates</h3>
                         </div>
+                        <p class="info-desc">
+                            I am actively available for creative engineering projects, senior full-stack development, and defensive cybersecurity roles in Mumbai, remotely, or worldwide.
+                        </p>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>PRIVATE CLIENT HOTLINE</strong>
-                                <p>+91 98765 43210 • Priority Concierge Desk</p>
-                            </div>
-                        </div>
+                        <div class="contact-channels">
+                            <!-- Email -->
+                            <a href="mailto:aryanthakar3@gmail.com" class="channel-item">
+                                <div class="channel-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div class="channel-data">
+                                    <span class="channel-label">DIRECT EMAIL</span>
+                                    <span class="channel-val">aryanthakar3@gmail.com</span>
+                                </div>
+                            </a>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                    <polyline points="22,6 12,13 2,6" />
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>DIGITAL CORRESPONDENCE</strong>
-                                <p>concierge@shreejisaffron.in • orders@shreejisaffron.in</p>
+                            <!-- Alternative Email -->
+                            <a href="mailto:thakararyan267@gmail.com" class="channel-item">
+                                <div class="channel-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div class="channel-data">
+                                    <span class="channel-label">ACADEMIC / SECONDARY EMAIL</span>
+                                    <span class="channel-val">thakararyan267@gmail.com</span>
+                                </div>
+                            </a>
+
+                            <!-- Phone -->
+                            <a href="tel:+919326858681" class="channel-item">
+                                <div class="channel-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div class="channel-data">
+                                    <span class="channel-label">TELEPHONE &bull; WHATSAPP</span>
+                                    <span class="channel-val">+91 9326858681</span>
+                                </div>
+                            </a>
+
+                            <!-- GitHub -->
+                            <a href="https://github.com/AryanThakar860" target="_blank" rel="noopener noreferrer" class="channel-item">
+                                <div class="channel-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                </div>
+                                <div class="channel-data">
+                                    <span class="channel-label">GITHUB REPOSITORIES</span>
+                                    <span class="channel-val">github.com/AryanThakar860</span>
+                                </div>
+                            </a>
+
+                            <!-- Location -->
+                            <div class="channel-item">
+                                <div class="channel-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div class="channel-data">
+                                    <span class="channel-label">LOCATION</span>
+                                    <span class="channel-val">Mumbai, Maharashtra, India (Available Globally)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-form-wrapper animate-on-scroll">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-header">
-                            <h3 class="form-title">Transmit Inquiry</h3>
-                            <span class="form-secure-tag">ENCRYPTED PROTOCOL</span>
-                        </div>
-                        <input type="text" name="website_hp" style="display:none;" tabindex="-1" autocomplete="off">
-
-                        <div class="form-group">
-                            <label for="name">FULL NAME / TITLE</label>
-                            <input type="text" id="name" name="name" placeholder="E.g. Lord Alistair Vance" required>
+                <!-- Right: Fully Functional Contact Form -->
+                <div class="contact-form-panel animate-on-scroll">
+                    <form id="portfolioContactForm" class="portfolio-form" novalidate>
+                        <!-- Honeypot Field to trap automated spam bots -->
+                        <div class="form-hp" style="display:none!important;" aria-hidden="true">
+                            <label for="website_hp">Leave this empty</label>
+                            <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off">
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="email">EMAIL ADDRESS</label>
-                                <input type="email" id="email" name="email" placeholder="vance@heritage.com" required>
+                                <label for="contactName" class="form-label">YOUR FULL NAME <span class="req">*</span></label>
+                                <input type="text" id="contactName" name="name" class="form-input" placeholder="e.g. Lord Alexander" required>
+                                <span class="field-error" id="nameError"></span>
                             </div>
                             <div class="form-group">
-                                <label for="phone">TELEPHONE / WHATSAPP</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+91 98765 00000">
+                                <label for="contactEmail" class="form-label">EMAIL ADDRESS <span class="req">*</span></label>
+                                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="e.g. alexander@enterprise.com" required>
+                                <span class="field-error" id="emailError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactPhone" class="form-label">PHONE / WHATSAPP (OPTIONAL)</label>
+                                <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+91 98765 43210">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject" class="form-label">INQUIRY SUBJECT <span class="req">*</span></label>
+                                <select id="contactSubject" name="subject" class="form-select" required>
+                                    <option value="project">Creative 3D / Web Engineering Project</option>
+                                    <option value="hiring">Full-Time / Contract Engineering Role</option>
+                                    <option value="consulting">Cybersecurity / SOC Threat Consulting</option>
+                                    <option value="collaboration">Full-Stack SaaS Collaboration</option>
+                                    <option value="other">General Dispatch / Inquiries</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="subject">NATURE OF INQUIRY</label>
-                            <select id="subject" name="subject">
-                                <option value="">Select allocation topic...</option>
-                                <option value="order">Personal Order &amp; Courier Status</option>
-                                <option value="wholesale">Bespoke Hotel / Michelin Bulk Harvest Contract</option>
-                                <option value="quality">ISO 3632 Certificate Verification</option>
-                                <option value="other">Private Estate Allocation</option>
-                            </select>
+                            <label for="contactMessage" class="form-label">PROJECT SCOPE OR MESSAGE <span class="req">*</span></label>
+                            <textarea id="contactMessage" name="message" class="form-textarea" rows="5" placeholder="Describe your project vision, timeline, technical requirements, or role specs..." required></textarea>
+                            <span class="field-error" id="messageError"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="message">TRANSMISSION MESSAGE</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Detail your requirements..." required></textarea>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-submit" id="contactSubmitBtn">
+                                <span class="btn-glow-border"></span>
+                                <span class="btn-content">
+                                    <span id="btnSubmitTxt">TRANSMIT DISPATCH</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </span>
+                            </button>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-                            <span class="btn-content">
-                                <span>TRANSMIT DISPATCH</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="22" y1="2" x2="11" y2="13" />
-                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                                </svg>
-                            </span>
-                        </button>
+                        <!-- Form Feedback HUD -->
+                        <div class="form-feedback-hud" id="formFeedback"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============= NEWSLETTER PROTOCOL ============= -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content animate-on-scroll">
-                <span class="news-tag">PRIVATE GUILD REGISTRY</span>
-                <h2>Receive First Notice of the 2026 Autumn Harvest</h2>
-                <p>Guild members receive reserve allocations 14 days prior to public availability.</p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Enter your confidential email..." required>
-                    <button type="submit" class="btn btn-primary">
-                        <span>JOIN GUILD</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============= FOOTER ============= -->
+    <!-- ==========================================================================
+         SECTION 08: FOOTER
+         ========================================================================== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
+        <div class="container footer-container">
+            <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="#hero" class="nav-logo">
-                        <div class="logo-mark"><span class="mark-core">✦</span></div>
-                        <div class="logo-text-group">
-                            <span class="logo-title">SHREEJI SAFFRON</span>
-                            <span class="logo-subtitle">IMPERIAL PERSIA</span>
-                        </div>
-                    </a>
-                    <p>
-                        Pure Irani &amp; Kashmiri Saffron, hand-harvested at dawn from our family estate in Pampore. 
-                        Unadulterated red gold since 1982.
-                    </p>
-                    <div class="footer-certs-hud">
-                        <span class="footer-cert">ISO 3632 CATEGORY I</span>
-                        <span class="footer-cert">FSSAI VERIFIED</span>
-                        <span class="footer-cert">100% ORGANIC</span>
+                    <div class="footer-logo">
+                        <span class="brand-spark">◈</span>
+                        <span class="brand-title">ARYAN THAKAR</span>
                     </div>
+                    <p class="footer-desc">
+                        Creative Developer, 3D Web Architect &amp; Defensive Cybersecurity Specialist.
+                        Engineering high-assurance digital products with visceral visual ambition.
+                    </p>
                 </div>
 
-                <div class="footer-links">
-                    <h4>VAULT NAVIGATION</h4>
-                    <ul>
-                        <li><a href="#hero">Origin &amp; Centerpiece</a></li>
-                        <li><a href="#products">Mogra Grade I</a></li>
-                        <li><a href="#products">Lachha Grade II</a></li>
-                        <li><a href="#benefits">Therapeutic Alchemy</a></li>
-                        <li><a href="#transformation">Liquid Bloom</a></li>
+                <div class="footer-links-group">
+                    <span class="links-title">CORE NAVIGATION</span>
+                    <ul class="footer-nav">
+                        <li><a href="#hero">01. Origin &bull; 3D Monolith</a></li>
+                        <li><a href="#about">02. Archive &bull; Biography</a></li>
+                        <li><a href="#projects">03. Projects &bull; Flagship Vault</a></li>
+                        <li><a href="#skills">04. Arsenal &bull; Capabilities</a></li>
+                        <li><a href="#timeline">05. Timeline &bull; Credentials</a></li>
+                        <li><a href="#contact">06. Terminal &bull; Transmit</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-links">
-                    <h4>HERITAGE &amp; ASSURANCE</h4>
-                    <ul>
-                        <li><a href="#story">Our 1982 Dynasty</a></li>
-                        <li><a href="#recipes">Imperial Recipes</a></li>
-                        <li><a href="#testimonials">Connoisseur Reviews</a></li>
-                        <li><a href="#">Spectrophotometry Tests</a></li>
-                        <li><a href="#">Zero Adulteration Bond</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>GLOBAL DISPATCH</h4>
-                    <ul>
-                        <li>📍 Pampore Plateau, Kashmir 192121</li>
-                        <li>📞 +91 98765 43210</li>
-                        <li>✉️ concierge@shreejisaffron.in</li>
-                        <li class="footer-hours">Global Air Express: Mon – Sat</li>
-                    </ul>
+                <div class="footer-status-group">
+                    <span class="links-title">SYSTEM STATUS</span>
+                    <div class="status-indicator-box">
+                        <div class="status-line">
+                            <span class="status-dot"></span>
+                            <span>NODE ENGINE: 22+ REST ONLINE</span>
+                        </div>
+                        <div class="status-line">
+                            <span class="status-dot"></span>
+                            <span>DATABASE: SQLITE WAL ACID VERIFIED</span>
+                        </div>
+                        <div class="status-line">
+                            <span class="status-dot"></span>
+                            <span>DEPLOYMENT: GITHUB CI &amp; VERCEL</span>
+                        </div>
+                    </div>
+                    <button class="footer-admin-link" id="footerAdminTrigger">
+                        ⚡ OPEN SYSTEM ADMIN TERMINAL
+                    </button>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Shreeji Saffron Agency. Hand-harvested with devotion. All rights reserved.</p>
-                <div class="payment-methods">
-                    <span>SECURE CHANNELS:</span>
-                    <span class="payment-icon">VISA</span>
-                    <span class="payment-icon">MASTERCARD</span>
-                    <span class="payment-icon">UPI EXPRESS</span>
-                    <span class="payment-icon">NET BANKING</span>
+                <div class="footer-copy">
+                    &copy; 2026 ARYAN RAKESH THAKAR. ALL RIGHTS RESERVED. HAND-CRAFTED WITH THREE.JS &amp; EXCELLENCE.
+                </div>
+                <div class="footer-socials">
+                    <a href="https://github.com/AryanThakar860" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GITHUB</a>
+                    <a href="mailto:aryanthakar3@gmail.com" aria-label="Email">EMAIL</a>
+                    <a href="tel:+919326858681" aria-label="Phone">TEL</a>
+                    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll back to top">TOP ↑</button>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- ============= CART DRAWER ============= -->
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-drawer-header">
-            <div class="drawer-header-title">
-                <span class="drawer-icon">✦</span>
-                <h3>YOUR SAFFRON ALLOCATION</h3>
+    <!-- ==========================================================================
+         MODAL 01: PROJECT ARCHITECTURE DETAILS MODAL
+         ========================================================================== -->
+    <div class="custom-modal" id="projectModal" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop" id="projectModalBackdrop"></div>
+        <div class="modal-card">
+            <button class="modal-close-btn" id="projectModalClose" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-badge" id="modalProjectBadge">SYSTEM ARCHITECTURE</span>
+                <h3 class="modal-title" id="modalProjectTitle">Project Title</h3>
+                <p class="modal-subtitle" id="modalProjectSubtitle">Project Tagline</p>
             </div>
-            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close allocation drawer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-            </button>
-        </div>
+            <div class="modal-media-wrap">
+                <img src="images/hero-banner.png" alt="Project Preview" id="modalProjectImg" class="modal-img">
+            </div>
+            <div class="modal-body">
+                <h4 class="body-heading">OVERVIEW &amp; PROBLEM SOLVED</h4>
+                <p id="modalProjectDesc" class="body-text"></p>
 
-        <div class="cart-drawer-body" id="cartDrawerBody">
-            <div class="cart-empty" id="cartEmpty">
-                <div class="cart-empty-visual">✦</div>
-                <p class="empty-title">YOUR VAULT ALLOCATION IS EMPTY</p>
-                <p class="empty-desc">Select an authentic reserve from our Mogra, Lachha, or Zarda collection.</p>
-                <a href="#products" class="btn btn-primary btn-sm" id="cartShopBtn">EXPLORE SPECIMENS</a>
-            </div>
-            <div class="cart-items" id="cartItems"></div>
-        </div>
+                <h4 class="body-heading">TECHNICAL STACK &amp; METHODOLOGY</h4>
+                <div class="modal-tech-stack" id="modalProjectStack"></div>
 
-        <div class="cart-drawer-footer" id="cartDrawerFooter" style="display:none;">
-            <div class="cart-subtotal-row">
-                <span>ESTIMATED TAX &amp; DUTY</span>
-                <span>INCLUDED</span>
+                <div class="modal-actions">
+                    <a href="#" id="modalProjectLive" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        <span>LIVE EXPERIENCE ↗</span>
+                    </a>
+                    <a href="#" id="modalProjectGit" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <span>VIEW REPOSITORY</span>
+                    </a>
+                </div>
             </div>
-            <div class="cart-total">
-                <span>VAULT TOTAL</span>
-                <span class="cart-total-amount" id="cartTotalAmount">₹0</span>
-            </div>
-            <button class="btn btn-primary btn-full" id="checkoutBtn">
-                <span>PROCEED TO SECURE DISPATCH</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </button>
-            <p class="cart-note">⚡ Free insured courier dispatch on orders &gt; ₹999</p>
         </div>
     </div>
-    <!-- ============= CHECKOUT MODAL ============= -->
-    <div class="checkout-overlay" id="checkoutOverlay"></div>
-    <div class="checkout-modal" id="checkoutModal">
-        <div class="checkout-header">
-            <div class="checkout-title-group">
-                <span class="modal-spark">✦</span>
-                <h3>CONFIRM SECURE ALLOCATION</h3>
-            </div>
-            <button class="checkout-close-btn" id="checkoutCloseBtn" aria-label="Close checkout">&times;</button>
-        </div>
 
-        <form class="checkout-form" id="checkoutForm">
-            <div class="checkout-body">
-                <div class="checkout-section-tag">RECIPIENT &amp; DISPATCH DESTINATION</div>
-                
-                <div class="form-group">
-                    <label for="checkoutName">FULL NAME / TITLE</label>
-                    <input type="text" id="checkoutName" required placeholder="E.g. Priya Kapoor">
+    <!-- ==========================================================================
+         MODAL 02: SAFFRON 3D INTERACTIVE LAB & INFUSION SIMULATOR MODAL
+         ========================================================================== -->
+    <div class="custom-modal modal-fullscreen" id="saffronLabModal" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop" id="saffronLabBackdrop"></div>
+        <div class="modal-card lab-card">
+            <button class="modal-close-btn" id="saffronLabClose" aria-label="Close 3D Lab">&times;</button>
+            
+            <div class="lab-grid">
+                <!-- 3D Canvas Viewport -->
+                <div class="lab-canvas-column">
+                    <div class="lab-hud-top">
+                        <span class="lab-tag">[ 3D SIMULATION // CROCUS SATIVUS LAB ]</span>
+                        <span class="lab-purity">ISO 3632 CATEGORY I &bull; CROCIN 264.8</span>
+                    </div>
+                    <canvas id="vaultCanvas" class="lab-three-canvas"></canvas>
+                    <div class="lab-hint">CLICK &amp; DRAG 3D CAPSULE &bull; ROTATE BOTANICAL VESSEL</div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="checkoutEmail">EMAIL FOR TRACKING</label>
-                        <input type="email" id="checkoutEmail" required placeholder="priya@domain.com">
+                <!-- Control Console & Infusion Simulation -->
+                <div class="lab-control-column">
+                    <div class="lab-control-header">
+                        <h3 class="lab-title">SHREEJI SAFFRON 3D LAB</h3>
+                        <p class="lab-desc">
+                            Interactive digital showcase preserving Aryan Thakar's custom Three.js botanical models, liquid crocin diffusion simulator, and telemetry algorithms.
+                        </p>
                     </div>
-                    <div class="form-group">
-                        <label for="checkoutPhone">TELEPHONE (FOR COURIER)</label>
-                        <input type="tel" id="checkoutPhone" required placeholder="+91 98765 00000">
+
+                    <!-- Infusion Canvas Simulator -->
+                    <div class="infusion-sim-box">
+                        <div class="sim-header">
+                            <span class="sim-label">REAL-TIME INFUSION PHYSICS SIMULATOR</span>
+                            <span class="sim-status" id="infusionStatusText">READY (AMBIENT 24°C)</span>
+                        </div>
+                        <div class="infusion-viewport">
+                            <canvas id="infusionCanvas" width="480" height="240"></canvas>
+                        </div>
+                        <button class="btn btn-primary btn-sim-trigger" id="triggerInfusionBtn">
+                            <span class="btn-glow-border"></span>
+                            <span class="btn-content">
+                                <span>INFUSE CROCIN (65°C)</span>
+                                <span>✦</span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Botanical Telemetry -->
+                    <div class="lab-telemetry-meters">
+                        <div class="telemetry-bar-row">
+                            <div class="telemetry-labels"><span>CROCIN COLOR POWER</span><strong>264.8 / 250</strong></div>
+                            <div class="tele-bar-track"><div class="tele-bar-fill" style="width: 100%;"></div></div>
+                        </div>
+                        <div class="telemetry-bar-row">
+                            <div class="telemetry-labels"><span>SAFRANAL AROMA INDEX</span><strong>46.2 / 40</strong></div>
+                            <div class="tele-bar-track"><div class="tele-bar-fill tele-amber" style="width: 92%;"></div></div>
+                        </div>
+                        <div class="telemetry-bar-row">
+                            <div class="telemetry-labels"><span>PICROCROCIN BITTERNESS</span><strong>89.4 / 70</strong></div>
+                            <div class="tele-bar-track"><div class="tele-bar-fill tele-emerald" style="width: 95%;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="lab-modal-footer">
+                        <a href="https://github.com/AryanThakar860/Saffron" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block">
+                            <span>INSPECT FULL REPOSITORY CODE</span>
+                        </a>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="checkoutAddress">STREET / RESIDENCY ADDRESS</label>
-                    <input type="text" id="checkoutAddress" required placeholder="Apartment / Suite, Building, Street">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="checkoutCity">CITY</label>
-                        <input type="text" id="checkoutCity" required placeholder="Mumbai">
-                    </div>
-                    <div class="form-group">
-                        <label for="checkoutPostal">POSTAL PIN CODE</label>
-                        <input type="text" id="checkoutPostal" required placeholder="400001">
-                    </div>
-                </div>
-
-                <!-- Order Receipt Summary -->
-                <div class="checkout-summary-box">
-                    <div class="summary-line">
-                        <span>ALLOCATION SUB-TOTAL</span>
-                        <span id="modalSubtotal">₹0</span>
-                    </div>
-                    <div class="summary-line">
-                        <span>INSURED EXPRESS AIR COURIER</span>
-                        <span id="modalShipping" class="free-courier">COMPLIMENTARY</span>
-                    </div>
-                    <div class="summary-line total-line">
-                        <strong>TOTAL INVESTMENT</strong>
-                        <strong id="modalTotal" class="gold-total">₹0</strong>
-                    </div>
-                    <div class="payment-mode-pill">
-                        <span>SECURE DISPATCH:</span>
-                        <strong>PAY ON DELIVERY / UPI VERIFIED</strong>
-                    </div>
-                </div>
-            </div>
-
-            <div class="checkout-footer">
-                <button type="submit" class="btn btn-primary btn-full" id="confirmOrderBtn">
-                    <span class="btn-content">
-                        <span>TRANSMIT ALLOCATION ORDER</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </span>
-                </button>
-            </div>
-        </form>
-    </div>
-
-    <!-- ============= ORDER CONFIRMATION RECEIPT MODAL ============= -->
-    <div class="receipt-overlay" id="receiptOverlay"></div>
-    <div class="receipt-modal" id="receiptModal">
-        <div class="receipt-icon">✦</div>
-        <span class="receipt-tag">ALLOCATION SECURED &amp; DISPATCH LOGGED</span>
-        <h3 class="receipt-title">Imperial Saffron Allocation Confirmed</h3>
-        <p class="receipt-desc">
-            Your reserve lot has been sealed in our climate-controlled vault in Pampore, Kashmir and scheduled for insured express air dispatch.
-        </p>
-
-        <div class="receipt-details-box">
-            <div class="receipt-row">
-                <span>ORDER REFERENCE:</span>
-                <strong id="receiptRefCode" class="ref-code">SFF-2026-XXXX</strong>
-            </div>
-            <div class="receipt-row">
-                <span>TOTAL AMOUNT:</span>
-                <strong id="receiptAmount">₹0</strong>
-            </div>
-            <div class="receipt-row">
-                <span>DELIVERY TIMELINE:</span>
-                <span>3–5 Business Days via Insured Express</span>
             </div>
         </div>
-
-        <button class="btn btn-primary btn-full" id="receiptCloseBtn">
-            <span>RETURN TO BOTANICAL REALM</span>
-        </button>
-    </div>
-    <div class="toast-container" id="toastContainer"></div>
-
-    <!-- ============= LIGHTBOX ============= -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Close zoom preview">&times;</button>
-        <img class="lightbox-img" id="lightboxImg" src="" alt="Specimen high-resolution view">
     </div>
 
-    <!-- ============= CONCIERGE WHATSAPP FLOATING BADGE ============= -->
-    <a href="https://wa.me/919876543210?text=Hello%20Shreeji%20Saffron%2C%20I%20am%20inquiring%20about%20your%20pure%20Irani%20saffron%20harvest."
-        target="_blank" class="whatsapp-btn" aria-label="Chat with Concierge on WhatsApp">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-        <span class="whatsapp-tooltip">Direct Harvest Concierge</span>
-    </a>
-
-    <!-- ============= STICKY ADD TO CART BAR ============= -->
-    <div class="sticky-cart-bar" id="stickyCartBar">
-        <div class="container sticky-cart-inner">
-            <div class="sticky-cart-info">
-                <span class="sticky-tag">ACTIVE SELECTION:</span>
-                <strong id="stickyProductName">Mogra Grade I Saffron</strong>
-                <span id="stickyProductPrice">₹599 / 1g</span>
+    <!-- ==========================================================================
+         MODAL 03: RESUME & CREDENTIALS VIEWER MODAL
+         ========================================================================== -->
+    <div class="custom-modal" id="resumeModal" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop" id="resumeModalBackdrop"></div>
+        <div class="modal-card resume-card">
+            <button class="modal-close-btn" id="resumeModalClose" aria-label="Close resume viewer">&times;</button>
+            <div class="modal-header text-center">
+                <span class="modal-badge">PROFESSIONAL CURRICULUM VITAE</span>
+                <h3 class="modal-title">ARYAN RAKESH THAKAR</h3>
+                <p class="modal-subtitle">Creative Developer &bull; Full-Stack Engineer &bull; Cybersecurity Analyst</p>
+                <div class="resume-contact-bar">
+                    <span>📍 Mumbai, Maharashtra, India</span>
+                    <span>✉️ aryanthakar3@gmail.com</span>
+                    <span>📞 +91 9326858681</span>
+                </div>
             </div>
-            <button class="btn btn-primary btn-sm" id="stickyAddBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="9" cy="21" r="1" />
-                    <circle cx="20" cy="21" r="1" />
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                </svg>
-                <span>QUICK ALLOCATE</span>
-            </button>
+
+            <div class="modal-body resume-body">
+                <div class="resume-section-item">
+                    <h4 class="resume-section-heading">PROFESSIONAL SUMMARY</h4>
+                    <p class="resume-text">
+                        Fresh B.Sc. Computer Science graduate (2026) holding Cisco CCNA and EC-Council CEH credentials. Proven ability to architect high-performance full-stack web applications, build immersive Three.js 3D spatial experiences, and execute network security monitoring, packet analysis, and SOC alert triage under standard incident response playbooks.
+                    </p>
+                </div>
+
+                <div class="resume-section-item">
+                    <h4 class="resume-section-heading">FORMAL EDUCATION</h4>
+                    <div class="resume-entry">
+                        <div class="entry-header">
+                            <strong>Bachelor of Science in Computer Science (B.Sc. CS)</strong>
+                            <span class="entry-date">Completed June 2026</span>
+                        </div>
+                        <div class="entry-sub">Nirmala Memorial Foundation College of Science &amp; Commerce, Mumbai</div>
+                    </div>
+                </div>
+
+                <div class="resume-section-item">
+                    <h4 class="resume-section-heading">INDUSTRY CERTIFICATIONS</h4>
+                    <ul class="resume-list">
+                        <li><strong>Cisco Certified Network Associate (CCNA)</strong> — Routing &amp; Switching, IPv4/IPv6 Subnetting, VLANs, ACLs, NAT, Enterprise Security Architecture.</li>
+                        <li><strong>Certified Ethical Hacker (CEH)</strong> — Reconnaissance, Vulnerability Scanning, Web App Exploits, System Hardening, Mitigation Reporting.</li>
+                    </ul>
+                </div>
+
+                <div class="resume-section-item">
+                    <h4 class="resume-section-heading">KEY FLAGSHIP PROJECTS</h4>
+                    <ul class="resume-list">
+                        <li><strong>Shreeji Saffron 3D Portal:</strong> WebGL procedural shaders, Express 5, Node:sqlite WAL persistence, ACID checkout flow.</li>
+                        <li><strong>HEALTHKRAFT Studio CRM:</strong> Enterprise fitness management SaaS, React + MySQL + Express, 5 RBAC roles, automated SEO.</li>
+                        <li><strong>PhisGuard / Hackify:</strong> Real-time phishing threat detection &amp; domain heuristic analytics, React 19, Recharts.</li>
+                        <li><strong>SOC Threat Detection Lab:</strong> Wireshark packet capture, SIEM alert triage, and incident response playbook execution.</li>
+                        <li><strong>Image Steganography Suite:</strong> Least Significant Bit (LSB) carrier plane embedding with AES-256 encryption.</li>
+                    </ul>
+                </div>
+
+                <div class="resume-actions">
+                    <a href="mailto:aryanthakar3@gmail.com?subject=Offer%20or%20Interview%20Invitation%20for%20Aryan%20Thakar" class="btn btn-primary">
+                        <span>CONNECT FOR INTERVIEW</span>
+                    </a>
+                    <a href="https://github.com/AryanThakar860" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        <span>VISIT GITHUB PROFILE</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         MODAL 04: SECURE ADMIN MANAGEMENT PORTAL
+         ========================================================================== -->
+    <div class="custom-modal modal-large" id="adminModal" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop" id="adminModalBackdrop"></div>
+        <div class="modal-card admin-card">
+            <button class="modal-close-btn" id="adminModalClose" aria-label="Close admin dashboard">&times;</button>
+            
+            <div class="admin-modal-header">
+                <div class="admin-brand">
+                    <span class="admin-spark">⚡</span>
+                    <div>
+                        <h3 class="admin-title">SYSTEM MANAGEMENT TERMINAL</h3>
+                        <span class="admin-sub">AUTHORIZED ACCESS ONLY &bull; SECURE REST PERSISTENCE</span>
+                    </div>
+                </div>
+                <div class="admin-auth-indicator" id="adminAuthBadge">LOCKED</div>
+            </div>
+
+            <!-- Login View -->
+            <div class="admin-view" id="adminLoginView">
+                <div class="admin-login-box">
+                    <div class="login-prompt">Enter Administrator Secret Key to authorize privileged operations:</div>
+                    <form id="adminLoginForm" class="admin-login-form">
+                        <div class="form-group">
+                            <input type="password" id="adminKeyInput" class="form-input" placeholder="Enter ADMIN_API_KEY..." autocomplete="current-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" id="adminLoginBtn">
+                            <span>AUTHORIZE SESSION</span>
+                        </button>
+                    </form>
+                    <div class="admin-login-feedback" id="adminLoginFeedback"></div>
+                </div>
+            </div>
+
+            <!-- Dashboard View (Shown when authorized) -->
+            <div class="admin-view" id="adminDashboardView" style="display:none;">
+                <div class="admin-tabs">
+                    <button class="admin-tab-btn active" data-tab="inquiries">INQUIRIES INBOX (<span id="adminInqCount">0</span>)</button>
+                    <button class="admin-tab-btn" data-tab="projects">PROJECT MANAGER (<span id="adminProjCount">6</span>)</button>
+                    <button class="admin-tab-btn" data-tab="stats">SYSTEM TELEMETRY</button>
+                    <button class="admin-tab-btn admin-logout" id="adminLogoutBtn">LOGOUT</button>
+                </div>
+
+                <!-- Tab 1: Inquiries -->
+                <div class="admin-tab-content active" id="tabInquiries">
+                    <div class="admin-table-toolbar">
+                        <span class="toolbar-title">Contact Form Dispatches</span>
+                        <button class="btn btn-sm btn-outline" id="refreshInquiriesBtn">REFRESH DATA</button>
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table" id="inquiriesTable">
+                            <thead>
+                                <tr>
+                                    <th>REF CODE</th>
+                                    <th>NAME &amp; CONTACT</th>
+                                    <th>SUBJECT</th>
+                                    <th>MESSAGE</th>
+                                    <th>DATE</th>
+                                    <th>STATUS</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inquiriesTableBody">
+                                <tr><td colspan="7" class="text-center">Loading inquiries from SQLite database...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Projects Manager -->
+                <div class="admin-tab-content" id="tabProjects">
+                    <div class="admin-table-toolbar">
+                        <span class="toolbar-title">Active Portfolio Projects</span>
+                        <button class="btn btn-sm btn-primary" id="openAddProjectModalBtn">+ ADD NEW PROJECT</button>
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table" id="adminProjectsTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>TITLE</th>
+                                    <th>CATEGORY</th>
+                                    <th>BADGE</th>
+                                    <th>VIEWS</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminProjectsTableBody">
+                                <tr><td colspan="6" class="text-center">Loading projects...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 3: System Telemetry Stats -->
+                <div class="admin-tab-content" id="tabStats">
+                    <div class="stats-overview-grid" id="statsGrid">
+                        <div class="stat-card">
+                            <span class="stat-num" id="statInquiriesTotal">0</span>
+                            <span class="stat-name">Total Inquiries</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num" id="statInquiriesNew">0</span>
+                            <span class="stat-name">New Dispatches</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num" id="statProjectsTotal">6</span>
+                            <span class="stat-name">Projects Active</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num" id="statProjectViews">0</span>
+                            <span class="stat-name">Total Project Views</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num" id="statUptime">0s</span>
+                            <span class="stat-name">Server Uptime</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num" id="statMemory">0 MB</span>
+                            <span class="stat-name">Memory RSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

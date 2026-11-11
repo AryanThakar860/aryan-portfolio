@@ -1,12 +1,12 @@
 /* ==========================================================================
-   SHREEJI SAFFRON — MASTERCLASS 3D ENGINE
-   Kinetic Botanical Core | 3D Vault Capsule | Bio-Molecular Lattice | Kashmiri Mist
+   ARYAN THAKAR — CINEMATIC 3D ENGINE & SPATIAL ENVIRONMENT
+   Quantum Neural Monolith | 3D Cyber Threat Mesh | Specimen Vault | WebGL Physics
    ========================================================================== */
 
 (function () {
     'use strict';
 
-    // Global check for WebGL support
+    // Global check for WebGL support with graceful fallback
     function hasWebGL() {
         try {
             const canvas = document.createElement('canvas');
@@ -17,8 +17,10 @@
     }
 
     if (!hasWebGL()) {
-        console.warn('WebGL is not supported on this device. Fallback static backgrounds enabled.');
+        console.warn('[WebGL Fallback]: WebGL is not supported on this device. Fallback static holographic grid enabled.');
         document.body.classList.add('no-webgl');
+        const fallback = document.getElementById('webglFallback');
+        if (fallback) fallback.style.display = 'block';
         return;
     }
 
@@ -26,14 +28,12 @@
     const lerp = (a, b, t) => a + (b - a) * t;
     const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
 
-    // Global mouse tracker
+    // Global mouse tracking
     const mouse = {
         x: 0, y: 0,
         nx: 0, ny: 0, // normalized [-1, 1]
-        targetX: 0, targetY: 0,
         isDown: false,
-        dragStartX: 0, dragStartY: 0,
-        deltaX: 0, deltaY: 0
+        prevX: 0, prevY: 0
     };
 
     window.addEventListener('mousemove', (e) => {
@@ -43,7 +43,7 @@
         mouse.ny = -(e.clientY / window.innerHeight) * 2 + 1;
     }, { passive: true });
 
-    // IntersectionObserver to only render visible WebGL scenes (60FPS optimization)
+    // 60FPS Visibility Observer
     function createObserver(element, onEnter, onLeave) {
         if (!element) return { visible: false };
         let isVisible = false;
@@ -58,7 +58,7 @@
         return { get visible() { return isVisible; } };
     }
 
-    // Procedural Glowing Particle Canvas Texture
+    // Procedural Glowing Particle Texture
     function createGlowTexture(coreColor, edgeColor) {
         const size = 128;
         const canvas = document.createElement('canvas');
@@ -67,9 +67,9 @@
         const ctx = canvas.getContext('2d');
 
         const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-        gradient.addColorStop(0, coreColor || 'rgba(255, 230, 160, 1)');
-        gradient.addColorStop(0.25, 'rgba(245, 184, 46, 0.7)');
-        gradient.addColorStop(0.6, edgeColor || 'rgba(255, 42, 95, 0.2)');
+        gradient.addColorStop(0, coreColor || 'rgba(0, 240, 255, 1)');
+        gradient.addColorStop(0.25, 'rgba(0, 240, 255, 0.7)');
+        gradient.addColorStop(0.6, edgeColor || 'rgba(139, 92, 246, 0.2)');
         gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
         ctx.fillStyle = gradient;
@@ -81,16 +81,16 @@
     const sharedGlowTexture = createGlowTexture();
 
     // ==========================================================================
-    //  SCENE 01: HERO — KINETIC SACRED BOTANICAL CORE
+    //  SCENE 01: HERO — QUANTUM NEURAL MONOLITH & ORBITAL MATRIX
     // ==========================================================================
     function initHeroScene() {
         const canvas = document.getElementById('heroCanvas');
         if (!canvas) return;
 
         const scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x030408, 0.015);
+        scene.fog = new THREE.FogExp2(0x03050e, 0.018);
 
-        const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.set(0, 0, 42);
 
         const renderer = new THREE.WebGLRenderer({
@@ -103,266 +103,212 @@
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.setClearColor(0x000000, 0);
 
-        // Master 3D Artifact Group
-        const artifactGroup = new THREE.Group();
-        scene.add(artifactGroup);
+        // Master 3D Group
+        const monolithMasterGroup = new THREE.Group();
+        scene.add(monolithMasterGroup);
 
-        // 1. Gyroscopic Celestial Rings (Imperial Sacred Geometry)
-        const ringGroup = new THREE.Group();
-        artifactGroup.add(ringGroup);
+        // 1. The Central Futuristic Monolith Obelisk
+        const obeliskGroup = new THREE.Group();
+        monolithMasterGroup.add(obeliskGroup);
 
-        const ringMaterials = [
+        // Monolith Titanium Body
+        const obeliskGeom = new THREE.CylinderGeometry(2.6, 3.4, 13.5, 6, 1, false);
+        const obeliskMat = new THREE.MeshStandardMaterial({
+            color: 0x0a101d,
+            roughness: 0.18,
+            metalness: 0.94,
+            flatShading: true
+        });
+        const obeliskMesh = new THREE.Mesh(obeliskGeom, obeliskMat);
+        obeliskGroup.add(obeliskMesh);
+
+        // Glowing Core Energy Grooves (Wireframe accent)
+        const wireframeGeom = new THREE.WireframeGeometry(obeliskGeom);
+        const wireframeMat = new THREE.LineBasicMaterial({
+            color: 0x00f0ff,
+            transparent: true,
+            opacity: 0.35,
+            blending: THREE.AdditiveBlending
+        });
+        const wireframeMesh = new THREE.LineSegments(wireframeGeom, wireframeMat);
+        obeliskMesh.add(wireframeMesh);
+
+        // 2. Floating Quantum Core (Inside Center Aperture)
+        const coreGeom = new THREE.IcosahedronGeometry(2.0, 1);
+        const coreMat = new THREE.MeshPhysicalMaterial({
+            color: 0x8b5cf6,
+            emissive: 0x00f0ff,
+            emissiveIntensity: 0.6,
+            roughness: 0.12,
+            metalness: 0.88,
+            wireframe: false
+        });
+        const quantumCoreMesh = new THREE.Mesh(coreGeom, coreMat);
+        quantumCoreMesh.position.y = 0;
+        obeliskGroup.add(quantumCoreMesh);
+
+        // Inner core wireframe cage
+        const coreWireGeom = new THREE.IcosahedronGeometry(2.35, 1);
+        const coreWireMat = new THREE.MeshBasicMaterial({
+            color: 0x00f0ff,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.75
+        });
+        const coreWireMesh = new THREE.Mesh(coreWireGeom, coreWireMat);
+        quantumCoreMesh.add(coreWireMesh);
+
+        // 3. Counter-Rotating Gyroscopic Orbital Gimbals
+        const gimbalsGroup = new THREE.Group();
+        monolithMasterGroup.add(gimbalsGroup);
+
+        const gimbalMaterials = [
             new THREE.MeshStandardMaterial({
-                color: 0xf5b82e,
+                color: 0x00f0ff,
                 roughness: 0.2,
                 metalness: 0.9,
-                emissive: 0xf5b82e,
-                emissiveIntensity: 0.15
+                emissive: 0x00f0ff,
+                emissiveIntensity: 0.25
             }),
             new THREE.MeshStandardMaterial({
-                color: 0xffd166,
-                roughness: 0.3,
-                metalness: 0.85,
-                emissive: 0xff2a5f,
-                emissiveIntensity: 0.1
-            }),
-            new THREE.MeshStandardMaterial({
-                color: 0x8a2be2,
+                color: 0x8b5cf6,
                 roughness: 0.25,
-                metalness: 0.8,
-                emissive: 0x8a2be2,
+                metalness: 0.85,
+                emissive: 0x8b5cf6,
+                emissiveIntensity: 0.3
+            }),
+            new THREE.MeshStandardMaterial({
+                color: 0xffaa00,
+                roughness: 0.3,
+                metalness: 0.9,
+                emissive: 0xffaa00,
                 emissiveIntensity: 0.2
             })
         ];
 
-        const ringRadii = [11, 13.5, 16];
-        const rings = [];
+        const ringConfigs = [
+            { radius: 10.5, tube: 0.08, speedX: 0.005, speedY: 0.008, mat: gimbalMaterials[0] },
+            { radius: 13.8, tube: 0.10, speedX: -0.006, speedY: 0.004, mat: gimbalMaterials[1] },
+            { radius: 16.8, tube: 0.07, speedX: 0.004, speedY: -0.007, mat: gimbalMaterials[2] }
+        ];
 
-        ringRadii.forEach((r, idx) => {
-            const ringGeom = new THREE.TorusGeometry(r, 0.08, 16, 120);
-            const ringMesh = new THREE.Mesh(ringGeom, ringMaterials[idx]);
-            ringMesh.rotation.x = Math.PI / (2 + idx * 0.4);
-            ringMesh.rotation.y = idx * 0.7;
-            ringGroup.add(ringMesh);
+        const orbitalRings = [];
 
-            // Add node markers on ring
-            const markerCount = 8;
-            for (let m = 0; m < markerCount; m++) {
-                const angle = (m / markerCount) * Math.PI * 2;
-                const markerGeom = new THREE.OctahedronGeometry(0.22);
-                const markerMesh = new THREE.Mesh(markerGeom, ringMaterials[0]);
-                markerMesh.position.set(Math.cos(angle) * r, Math.sin(angle) * r, 0);
-                ringMesh.add(markerMesh);
+        ringConfigs.forEach((cfg, idx) => {
+            const ringGeom = new THREE.TorusGeometry(cfg.radius, cfg.tube, 16, 120);
+            const ringMesh = new THREE.Mesh(ringGeom, cfg.mat);
+            ringMesh.rotation.x = Math.PI / (2.2 + idx * 0.5);
+            ringMesh.rotation.y = idx * 0.9;
+            gimbalsGroup.add(ringMesh);
+
+            // Telemetry Node Markers
+            const nodeCount = 8;
+            for (let n = 0; n < nodeCount; n++) {
+                const angle = (n / nodeCount) * Math.PI * 2;
+                const nodeGeom = new THREE.OctahedronGeometry(0.24);
+                const nodeMesh = new THREE.Mesh(nodeGeom, cfg.mat);
+                nodeMesh.position.set(Math.cos(angle) * cfg.radius, Math.sin(angle) * cfg.radius, 0);
+                ringMesh.add(nodeMesh);
             }
 
-            rings.push({
+            orbitalRings.push({
                 mesh: ringMesh,
-                speedX: (idx % 2 === 0 ? 0.003 : -0.004) * (idx + 1),
-                speedY: (idx % 2 === 0 ? 0.005 : -0.003) * (idx + 1)
+                speedX: cfg.speedX,
+                speedY: cfg.speedY
             });
         });
 
-        // 2. Blooming Kinetic Crocus Petals
-        const flowerGroup = new THREE.Group();
-        artifactGroup.add(flowerGroup);
+        // 4. Four Satellite Floating Domain Polyhedra
+        const domainShardsGroup = new THREE.Group();
+        monolithMasterGroup.add(domainShardsGroup);
 
-        const petalColors = [0x6A1B9A, 0x8E24AA, 0x7B1FA2, 0x9C27B0, 0x6A1B9A, 0x8E24AA];
-        const petals = [];
-        const petalCount = 6;
+        const domainConfigs = [
+            { name: '3D WebGL', geom: new THREE.OctahedronGeometry(0.9), color: 0x00f0ff, angle: 0 },
+            { name: 'Full-Stack', geom: new THREE.DodecahedronGeometry(0.85), color: 0x00f5a0, angle: Math.PI * 0.5 },
+            { name: 'Network CCNA', geom: new THREE.IcosahedronGeometry(0.9), color: 0x8b5cf6, angle: Math.PI },
+            { name: 'Threat CEH', geom: new THREE.TetrahedronGeometry(1.0), color: 0xffaa00, angle: Math.PI * 1.5 }
+        ];
 
-        for (let i = 0; i < petalCount; i++) {
-            const petalShape = new THREE.Shape();
-            petalShape.moveTo(0, 0);
-            petalShape.bezierCurveTo(0.8, 0.8, 1.4, 3.2, 0.2, 5.8);
-            petalShape.bezierCurveTo(0, 6.4, 0, 6.4, -0.2, 5.8);
-            petalShape.bezierCurveTo(-1.4, 3.2, -0.8, 0.8, 0, 0);
+        const domainNodes = [];
+        const orbitRadius = 21.0;
 
-            const extrudeSettings = {
-                depth: 0.08,
-                bevelEnabled: true,
-                bevelThickness: 0.04,
-                bevelSize: 0.04,
-                bevelSegments: 4
-            };
-
-            const petalGeom = new THREE.ExtrudeGeometry(petalShape, extrudeSettings);
-            const petalMat = new THREE.MeshStandardMaterial({
-                color: petalColors[i],
-                roughness: 0.4,
-                metalness: 0.35,
-                emissive: petalColors[i],
-                emissiveIntensity: 0.18,
-                side: THREE.DoubleSide
-            });
-
-            const petalMesh = new THREE.Mesh(petalGeom, petalMat);
-            const angle = (i / petalCount) * Math.PI * 2;
-
-            const petalPivot = new THREE.Group();
-            petalPivot.rotation.z = angle;
-            petalPivot.add(petalMesh);
-
-            petalMesh.position.y = 0.5;
-            petalMesh.rotation.x = -0.45; // baseline tilt
-
-            flowerGroup.add(petalPivot);
-            petals.push({ pivot: petalPivot, mesh: petalMesh, baseTilt: -0.45 });
-        }
-
-        // 3. The 3 Bioluminescent Ruby Saffron Stigmas (Centerpiece)
-        const stigmaGroup = new THREE.Group();
-        artifactGroup.add(stigmaGroup);
-
-        const stigmas = [];
-        const stigmaColors = [0xff2a5f, 0xe6194b, 0xff0044];
-
-        for (let s = 0; s < 3; s++) {
-            const angle = (s / 3) * Math.PI * 2;
-            const curve = new THREE.CatmullRomCurve3([
-                new THREE.Vector3(0, 0.8, 0),
-                new THREE.Vector3(Math.cos(angle) * 0.6, 2.5, Math.sin(angle) * 0.6),
-                new THREE.Vector3(Math.cos(angle) * 1.5, 4.8, Math.sin(angle) * 1.5),
-                new THREE.Vector3(Math.cos(angle + 0.3) * 2.4, 6.5, Math.sin(angle + 0.3) * 2.4)
-            ]);
-
-            const stigmaGeom = new THREE.TubeGeometry(curve, 24, 0.09, 8, false);
-            const stigmaMat = new THREE.MeshStandardMaterial({
-                color: stigmaColors[s],
-                emissive: stigmaColors[s],
-                emissiveIntensity: 0.8,
+        domainConfigs.forEach(d => {
+            const mat = new THREE.MeshStandardMaterial({
+                color: d.color,
                 roughness: 0.2,
-                metalness: 0.6
-            });
-
-            const stigmaMesh = new THREE.Mesh(stigmaGeom, stigmaMat);
-            stigmaGroup.add(stigmaMesh);
-
-            // Flared trumpet crown at the tip
-            const tipGeom = new THREE.ConeGeometry(0.28, 0.6, 12, 1, true);
-            const tipMat = new THREE.MeshStandardMaterial({
-                color: 0xff2a5f,
-                emissive: 0xff2a5f,
-                emissiveIntensity: 1.0,
-                roughness: 0.1,
-                side: THREE.DoubleSide
-            });
-            const tipMesh = new THREE.Mesh(tipGeom, tipMat);
-            tipMesh.position.copy(curve.getPoint(1));
-            tipMesh.rotation.x = Math.PI;
-            stigmaGroup.add(tipMesh);
-
-            stigmas.push({ mesh: stigmaMesh, curve, tipMesh, baseAngle: angle });
-        }
-
-        // 4. Golden Stamens & Luminous Anthers
-        for (let a = 0; a < 3; a++) {
-            const angle = ((a + 0.5) / 3) * Math.PI * 2;
-            const stamenGeom = new THREE.CylinderGeometry(0.04, 0.04, 3.6, 8);
-            const stamenMat = new THREE.MeshStandardMaterial({
-                color: 0xf5b82e,
                 metalness: 0.8,
-                roughness: 0.3,
-                emissive: 0xf5b82e,
-                emissiveIntensity: 0.3
+                emissive: d.color,
+                emissiveIntensity: 0.5
             });
-            const stamen = new THREE.Mesh(stamenGeom, stamenMat);
-            stamen.position.set(Math.cos(angle) * 0.5, 2.2, Math.sin(angle) * 0.5);
-            stamen.rotation.x = Math.sin(angle) * 0.2;
-            stamen.rotation.z = -Math.cos(angle) * 0.2;
-            flowerGroup.add(stamen);
+            const mesh = new THREE.Mesh(d.geom, mat);
+            
+            // Wireframe outer aura
+            const wire = new THREE.Mesh(
+                d.geom,
+                new THREE.MeshBasicMaterial({ color: d.color, wireframe: true, transparent: true, opacity: 0.6 })
+            );
+            wire.scale.setScalar(1.25);
+            mesh.add(wire);
 
-            // Pollen glowing cap
-            const pollenGeom = new THREE.SphereGeometry(0.18, 12, 12);
-            const pollenMat = new THREE.MeshStandardMaterial({
-                color: 0xffd166,
-                emissive: 0xffd166,
-                emissiveIntensity: 0.7,
-                roughness: 0.2
+            domainShardsGroup.add(mesh);
+            domainNodes.push({
+                mesh,
+                baseAngle: d.angle,
+                color: d.color
             });
-            const pollen = new THREE.Mesh(pollenGeom, pollenMat);
-            pollen.position.set(Math.cos(angle) * 0.6, 4.0, Math.sin(angle) * 0.6);
-            flowerGroup.add(pollen);
-        }
-
-        // 5. Central Bio-Core (Pulsing Heart)
-        const coreGeom = new THREE.IcosahedronGeometry(1.0, 3);
-        const coreMat = new THREE.MeshStandardMaterial({
-            color: 0xf5b82e,
-            emissive: 0xf5b82e,
-            emissiveIntensity: 0.5,
-            wireframe: true
         });
-        const coreMesh = new THREE.Mesh(coreGeom, coreMat);
-        coreMesh.position.y = 1.0;
-        artifactGroup.add(coreMesh);
 
-        // 6. Vast Golden Nebula Vortex (1,500 particles)
+        // 5. Volumetric Particle Stardust Constellation
         const particleCount = 1400;
         const particleGeom = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
-        const colors = new Float32Array(particleCount * 3);
-        const sizes = new Float32Array(particleCount);
+        const particleScales = new Float32Array(particleCount);
 
-        const goldColor = new THREE.Color(0xf5b82e);
-        const rubyColor = new THREE.Color(0xff2a5f);
-        const violetColor = new THREE.Color(0xb388ff);
-
-        for (let p = 0; p < particleCount; p++) {
-            // Spiral distribution
+        for (let i = 0; i < particleCount; i++) {
+            const rad = 14 + Math.random() * 32;
             const theta = Math.random() * Math.PI * 2;
-            const rad = 3 + Math.pow(Math.random(), 1.5) * 35;
-            const y = (Math.random() - 0.5) * 22;
+            const phi = (Math.random() - 0.5) * Math.PI * 0.9;
 
-            positions[p * 3] = Math.cos(theta) * rad;
-            positions[p * 3 + 1] = y;
-            positions[p * 3 + 2] = Math.sin(theta) * rad;
+            positions[i * 3] = Math.cos(theta) * Math.cos(phi) * rad;
+            positions[i * 3 + 1] = Math.sin(phi) * rad + (Math.random() - 0.5) * 8;
+            positions[i * 3 + 2] = Math.sin(theta) * Math.cos(phi) * rad;
 
-            // Gradient particle coloring
-            const mix = Math.random();
-            let c = goldColor;
-            if (mix > 0.65) c = rubyColor;
-            else if (mix > 0.85) c = violetColor;
-
-            colors[p * 3] = c.r;
-            colors[p * 3 + 1] = c.g;
-            colors[p * 3 + 2] = c.b;
-
-            sizes[p] = Math.random() * 1.8 + 0.4;
+            particleScales[i] = 0.5 + Math.random() * 1.5;
         }
 
         particleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        particleGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        particleGeom.setAttribute('scale', new THREE.BufferAttribute(particleScales, 1));
 
         const particleMat = new THREE.PointsMaterial({
-            size: 0.9,
-            vertexColors: true,
+            size: 0.65,
             map: sharedGlowTexture,
             transparent: true,
-            opacity: 0.75,
+            opacity: 0.85,
             blending: THREE.AdditiveBlending,
-            depthWrite: false
+            depthWrite: false,
+            color: 0x00f0ff
         });
 
         const particleSystem = new THREE.Points(particleGeom, particleMat);
         scene.add(particleSystem);
 
-        // 7. Cinematic Lighting
-        const ambientLight = new THREE.AmbientLight(0x0d1428, 1.2);
+        // 6. Cinematic Lighting Architecture
+        const ambientLight = new THREE.AmbientLight(0x060c1d, 1.4);
         scene.add(ambientLight);
 
-        const centralRubyLight = new THREE.PointLight(0xff2a5f, 2.8, 60);
-        centralRubyLight.position.set(0, 3, 0);
-        scene.add(centralRubyLight);
+        const cyanKeyLight = new THREE.PointLight(0x00f0ff, 3.2, 75);
+        cyanKeyLight.position.set(22, 16, 18);
+        scene.add(cyanKeyLight);
 
-        const goldSunLight = new THREE.DirectionalLight(0xffd166, 1.6);
-        goldSunLight.position.set(20, 25, 20);
-        scene.add(goldSunLight);
+        const violetFillLight = new THREE.PointLight(0x8b5cf6, 2.8, 65);
+        violetFillLight.position.set(-20, -14, -10);
+        scene.add(violetFillLight);
 
-        const violetRimLight = new THREE.PointLight(0x8a2be2, 2.2, 50);
-        violetRimLight.position.set(-20, -10, -15);
-        scene.add(violetRimLight);
+        const amberRimLight = new THREE.DirectionalLight(0xffaa00, 1.4);
+        amberRimLight.position.set(0, 30, -25);
+        scene.add(amberRimLight);
 
-        // Mouse Drag Orbit Controls
+        // 7. Interactive Mouse Drag & Parallax
         let isDragging = false;
         let prevMouseX = 0, prevMouseY = 0;
         let rotVelocityX = 0, rotVelocityY = 0;
@@ -379,97 +325,113 @@
             if (!isDragging) return;
             const deltaX = e.clientX - prevMouseX;
             const deltaY = e.clientY - prevMouseY;
-            rotVelocityY += deltaX * 0.003;
-            rotVelocityX += deltaY * 0.003;
+            rotVelocityY += deltaX * 0.0035;
+            rotVelocityX += deltaY * 0.0035;
             prevMouseX = e.clientX;
             prevMouseY = e.clientY;
         });
 
-        // Bloom Shockwave Trigger
+        // 8. Quantum Warp Pulse Shockwave
         let shockwaveActive = false;
         let shockwaveProgress = 0;
-        const shockwaveBtn = document.getElementById('heroBloomTrigger');
+        const warpBtn = document.getElementById('heroBloomTrigger');
 
-        function triggerBloomShockwave() {
+        function triggerWarpPulse() {
             shockwaveActive = true;
             shockwaveProgress = 0;
             if (window.soundFX) window.soundFX.playBloom();
         }
 
-        if (shockwaveBtn) {
-            shockwaveBtn.addEventListener('click', triggerBloomShockwave);
-        }
+        if (warpBtn) warpBtn.addEventListener('click', triggerWarpPulse);
+        canvas.addEventListener('dblclick', triggerWarpPulse);
 
-        canvas.addEventListener('dblclick', triggerBloomShockwave);
+        // Domain Chips Hover Interaction
+        const domainChips = document.querySelectorAll('.domain-chip');
+        domainChips.forEach((chip, idx) => {
+            chip.addEventListener('mouseenter', () => {
+                if (domainNodes[idx]) {
+                    domainNodes[idx].mesh.scale.setScalar(1.6);
+                    cyanKeyLight.intensity = 4.8;
+                }
+            });
+            chip.addEventListener('mouseleave', () => {
+                if (domainNodes[idx]) {
+                    domainNodes[idx].mesh.scale.setScalar(1.0);
+                    cyanKeyLight.intensity = 3.2;
+                }
+            });
+        });
 
-        // Visibility Observer for 60fps Optimization
+        // 60FPS Visibility Observer
         const heroSection = document.getElementById('hero');
         let heroVisible = true;
         createObserver(heroSection, () => { heroVisible = true; }, () => { heroVisible = false; });
 
-        // Master Animation Loop
+        // Animation Loop
         const clock = new THREE.Clock();
 
         function animate() {
             requestAnimationFrame(animate);
-
             if (!heroVisible) return;
 
             const elapsed = clock.getElapsedTime();
 
-            // 1. Gyroscopic Rings Rotation
-            rings.forEach(r => {
-                r.mesh.rotation.x += r.speedX;
-                r.mesh.rotation.y += r.speedY;
-            });
+            // 1. Monolith Gentle Rotation & Pulse
+            obeliskMesh.rotation.y = elapsed * 0.22;
+            quantumCoreMesh.rotation.x = -elapsed * 0.45;
+            quantumCoreMesh.rotation.y = elapsed * 0.6;
+            const coreBreathe = 1 + Math.sin(elapsed * 2.5) * 0.09;
+            quantumCoreMesh.scale.setScalar(coreBreathe);
 
-            // 2. Petal Breathing & Organic Flaring
-            const breathe = Math.sin(elapsed * 1.5) * 0.08;
-            let bloomExpansion = 0;
-
+            // 2. Orbital Gimbals Counter-Rotation
+            let warpSpeedMultiplier = 1;
             if (shockwaveActive) {
-                shockwaveProgress += 0.03;
-                bloomExpansion = Math.sin(shockwaveProgress * Math.PI) * 0.6;
-                centralRubyLight.intensity = 2.8 + Math.sin(shockwaveProgress * Math.PI) * 5.0;
-                if (shockwaveProgress >= 1) shockwaveActive = false;
+                shockwaveProgress += 0.025;
+                const wave = Math.sin(shockwaveProgress * Math.PI);
+                warpSpeedMultiplier = 1 + wave * 4.5;
+                cyanKeyLight.intensity = 3.2 + wave * 5.0;
+                particleMat.size = 0.65 + wave * 0.8;
+                if (shockwaveProgress >= 1) {
+                    shockwaveActive = false;
+                    particleMat.size = 0.65;
+                }
             }
 
-            petals.forEach((p, idx) => {
-                const individualOffset = Math.sin(elapsed * 2 + idx) * 0.04;
-                p.mesh.rotation.x = p.baseTilt - (breathe + individualOffset + bloomExpansion);
+            orbitalRings.forEach(r => {
+                r.mesh.rotation.x += r.speedX * warpSpeedMultiplier;
+                r.mesh.rotation.y += r.speedY * warpSpeedMultiplier;
             });
 
-            // 3. Stigma Living Undulation
-            stigmaGroup.rotation.y = elapsed * 0.12;
-            stigmaGroup.position.y = Math.sin(elapsed * 2) * 0.2;
-            const pulse = 0.7 + Math.sin(elapsed * 3) * 0.3;
-            centralRubyLight.intensity = 2.4 + pulse;
+            // 3. Domain Satellites Orbiting
+            domainNodes.forEach(d => {
+                const currentAngle = d.baseAngle + elapsed * 0.25 * warpSpeedMultiplier;
+                d.mesh.position.x = Math.cos(currentAngle) * orbitRadius;
+                d.mesh.position.z = Math.sin(currentAngle) * orbitRadius;
+                d.mesh.position.y = Math.sin(elapsed * 1.5 + d.baseAngle) * 3.5;
+                d.mesh.rotation.x = elapsed * 0.8;
+                d.mesh.rotation.y = elapsed * 0.6;
+            });
 
-            // 4. Bio-Core Inner Pulse
-            coreMesh.rotation.y = -elapsed * 0.5;
-            coreMesh.rotation.x = elapsed * 0.3;
-            coreMesh.scale.setScalar(1 + Math.sin(elapsed * 2.5) * 0.08);
+            // 4. Stardust Particles Motion
+            particleSystem.rotation.y = elapsed * 0.04;
+            particleSystem.rotation.x = Math.sin(elapsed * 0.03) * 0.08;
 
-            // 5. Particle Vortex Swirling
-            particleSystem.rotation.y = elapsed * 0.03;
-            particleSystem.rotation.x = Math.sin(elapsed * 0.02) * 0.08;
+            // 5. Inertia Damping & Mouse Drag Response
+            monolithMasterGroup.rotation.y += rotVelocityY;
+            monolithMasterGroup.rotation.x += rotVelocityX;
+            rotVelocityX *= 0.93;
+            rotVelocityY *= 0.93;
 
-            // 6. Inertial Rotation & Mouse Drag Response
-            artifactGroup.rotation.y += rotVelocityY;
-            artifactGroup.rotation.x += rotVelocityX;
-            rotVelocityX *= 0.94;
-            rotVelocityY *= 0.94;
-
-            // Smooth mouse follow parallax on camera
-            const targetCamX = mouse.nx * 5;
-            const targetCamY = mouse.ny * 3;
+            // Camera Parallax
+            const targetCamX = mouse.nx * 5.5;
+            const targetCamY = mouse.ny * 3.5;
             camera.position.x = lerp(camera.position.x, targetCamX, 0.04);
             camera.position.y = lerp(camera.position.y, targetCamY, 0.04);
 
             // Scroll Zoom Choreography
             const scrollY = window.scrollY;
-            const scrollProgress = clamp(scrollY / window.innerHeight, 0, 1.5);
-            camera.position.z = 42 - scrollProgress * 15;
+            const scrollProgress = clamp(scrollY / window.innerHeight, 0, 1.4);
+            camera.position.z = 42 - scrollProgress * 16;
             camera.lookAt(0, 0, 0);
 
             renderer.render(scene, camera);
@@ -486,7 +448,149 @@
     }
 
     // ==========================================================================
-    //  SCENE 02: 3D PRODUCT VAULT SPECIMEN CAPSULE
+    //  SCENE 02: SKILLS SECTION — 3D CYBER THREAT NETWORK MESH
+    // ==========================================================================
+    function initCyberMeshScene() {
+        const canvas = document.getElementById('cyberCanvas');
+        if (!canvas) return;
+
+        const container = canvas.parentElement;
+        const width = container.clientWidth || 440;
+        const height = container.clientHeight || 420;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(48, width / height, 0.1, 100);
+        camera.position.set(0, 0, 18);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const cyberGroup = new THREE.Group();
+        scene.add(cyberGroup);
+
+        // 1. Icosahedron Network Geometry
+        const networkGeom = new THREE.IcosahedronGeometry(6.5, 2);
+        const positionAttr = networkGeom.attributes.position;
+        const vertexCount = positionAttr.count;
+
+        // Vertex Sphere Nodes
+        const nodeMatCyan = new THREE.MeshStandardMaterial({
+            color: 0x00f0ff,
+            emissive: 0x00f0ff,
+            emissiveIntensity: 0.8,
+            roughness: 0.2
+        });
+        const nodeMatViolet = new THREE.MeshStandardMaterial({
+            color: 0x8b5cf6,
+            emissive: 0x8b5cf6,
+            emissiveIntensity: 0.8,
+            roughness: 0.2
+        });
+
+        const nodeSpheres = [];
+        for (let i = 0; i < vertexCount; i += 3) {
+            const x = positionAttr.getX(i);
+            const y = positionAttr.getY(i);
+            const z = positionAttr.getZ(i);
+
+            const sphere = new THREE.Mesh(
+                new THREE.SphereGeometry(0.22, 8, 8),
+                i % 2 === 0 ? nodeMatCyan : nodeMatViolet
+            );
+            sphere.position.set(x, y, z);
+            cyberGroup.add(sphere);
+            nodeSpheres.push(sphere);
+        }
+
+        // Connecting Network Filaments
+        const wireframeGeom = new THREE.WireframeGeometry(networkGeom);
+        const wireframeMat = new THREE.LineBasicMaterial({
+            color: 0x00f0ff,
+            transparent: true,
+            opacity: 0.35,
+            blending: THREE.AdditiveBlending
+        });
+        const wireframeLines = new THREE.LineSegments(wireframeGeom, wireframeMat);
+        cyberGroup.add(wireframeLines);
+
+        // Core Glowing Threat Center
+        const centerGlow = new THREE.Mesh(
+            new THREE.SphereGeometry(2.4, 16, 16),
+            new THREE.MeshBasicMaterial({
+                color: 0x8b5cf6,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.4
+            })
+        );
+        cyberGroup.add(centerGlow);
+
+        // Lighting
+        const lightKey = new THREE.PointLight(0x00f0ff, 2.5, 40);
+        lightKey.position.set(10, 10, 10);
+        scene.add(lightKey);
+
+        const lightFill = new THREE.PointLight(0x8b5cf6, 2.2, 40);
+        lightFill.position.set(-10, -10, -10);
+        scene.add(lightFill);
+
+        // Mouse Drag Interaction on Cyber Mesh
+        let isDragging = false;
+        let prevX = 0, prevY = 0;
+        let vX = 0, vY = 0;
+
+        canvas.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            prevX = e.clientX;
+            prevY = e.clientY;
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - prevX;
+            const dy = e.clientY - prevY;
+            vY += dx * 0.005;
+            vX += dy * 0.005;
+            prevX = e.clientX;
+            prevY = e.clientY;
+        });
+
+        // Visibility Observer
+        let cyberVisible = true;
+        createObserver(canvas, () => { cyberVisible = true; }, () => { cyberVisible = false; });
+
+        function animateCyber() {
+            requestAnimationFrame(animateCyber);
+            if (!cyberVisible) return;
+
+            cyberGroup.rotation.y += 0.006 + vY;
+            cyberGroup.rotation.x += 0.004 + vX;
+            vX *= 0.92;
+            vY *= 0.92;
+
+            centerGlow.rotation.y -= 0.012;
+            centerGlow.rotation.x += 0.008;
+
+            renderer.render(scene, camera);
+        }
+        animateCyber();
+
+        window.addEventListener('resize', () => {
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            if (w && h) {
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w, h);
+            }
+        }, { passive: true });
+    }
+
+    // ==========================================================================
+    //  SCENE 03: 3D SPECIMEN VAULT CAPSULE (SAFFRON 3D LAB MODAL)
     // ==========================================================================
     function initVaultScene() {
         const canvas = document.getElementById('vaultCanvas');
@@ -504,20 +608,18 @@
         renderer.setSize(width, height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        // Capsule Master Group
         const capsuleGroup = new THREE.Group();
         scene.add(capsuleGroup);
 
-        // 1. Crystal Outer Glass Shell
+        // Crystal Outer Glass Shell
         const glassGeom = new THREE.CylinderGeometry(2.4, 2.4, 6.2, 32, 1, true);
         const glassMat = new THREE.MeshPhysicalMaterial({
             color: 0xffffff,
             transparent: true,
-            opacity: 0.28,
+            opacity: 0.35,
             roughness: 0.05,
             metalness: 0.1,
-            transmission: 0.9,
-            ior: 1.5,
+            transmission: 0.85,
             reflectivity: 0.9,
             side: THREE.DoubleSide
         });
@@ -539,355 +641,98 @@
         botCap.position.y = -3.35;
         capsuleGroup.add(botCap);
 
-        // 2. Suspended Saffron Strands Inside Capsule
+        // Suspended Saffron Strands Inside
         const strandGroup = new THREE.Group();
         capsuleGroup.add(strandGroup);
 
-        let strands = [];
-
-        function buildStrands(grade) {
-            // Clear existing
-            while (strandGroup.children.length > 0) {
-                strandGroup.remove(strandGroup.children[0]);
-            }
-            strands = [];
-
-            const count = grade === 'zarda' ? 180 : (grade === 'lachha' ? 70 : 90);
-
-            for (let i = 0; i < count; i++) {
-                if (grade === 'zarda') {
-                    // Fine powder / micro-crystals
-                    const pGeom = new THREE.TetrahedronGeometry(0.08 + Math.random() * 0.06);
-                    const pMat = new THREE.MeshStandardMaterial({
-                        color: Math.random() > 0.5 ? 0xf5b82e : 0xff2a5f,
-                        emissive: 0xff2a5f,
-                        emissiveIntensity: 0.3
-                    });
-                    const pMesh = new THREE.Mesh(pGeom, pMat);
-                    pMesh.position.set(
-                        (Math.random() - 0.5) * 3.4,
-                        (Math.random() - 0.5) * 4.8,
-                        (Math.random() - 0.5) * 3.4
-                    );
-                    strandGroup.add(pMesh);
-                } else {
-                    // Full Strands
-                    const len = grade === 'mogra' ? (1.2 + Math.random() * 1.5) : (1.8 + Math.random() * 2.2);
-                    const pts = [
-                        new THREE.Vector3(0, -len * 0.5, 0),
-                        new THREE.Vector3((Math.random() - 0.5) * 0.4, 0, (Math.random() - 0.5) * 0.4),
-                        new THREE.Vector3((Math.random() - 0.5) * 0.8, len * 0.5, (Math.random() - 0.5) * 0.8)
-                    ];
-                    const curve = new THREE.CatmullRomCurve3(pts);
-                    const geom = new THREE.TubeGeometry(curve, 10, 0.04, 6, false);
-                    const color = grade === 'mogra' ? 0xff2a5f : (i % 3 === 0 ? 0xf5b82e : 0xe6194b);
-                    const mat = new THREE.MeshStandardMaterial({
-                        color,
-                        emissive: color,
-                        emissiveIntensity: 0.4,
-                        roughness: 0.3
-                    });
-                    const mesh = new THREE.Mesh(geom, mat);
-                    mesh.position.set(
-                        (Math.random() - 0.5) * 3.2,
-                        (Math.random() - 0.5) * 4.5,
-                        (Math.random() - 0.5) * 3.2
-                    );
-                    mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
-                    strandGroup.add(mesh);
-                    strands.push({
-                        mesh,
-                        rotSpeed: (Math.random() - 0.5) * 0.015,
-                        driftY: (Math.random() - 0.5) * 0.005,
-                        baseY: mesh.position.y
-                    });
-                }
-            }
+        const count = 75;
+        for (let i = 0; i < count; i++) {
+            const curve = new THREE.CatmullRomCurve3([
+                new THREE.Vector3((Math.random() - 0.5) * 1.5, -2.5 + Math.random() * 0.8, (Math.random() - 0.5) * 1.5),
+                new THREE.Vector3((Math.random() - 0.5) * 2.0, (Math.random() - 0.5) * 2.0, (Math.random() - 0.5) * 2.0),
+                new THREE.Vector3((Math.random() - 0.5) * 1.6, 2.5 - Math.random() * 0.8, (Math.random() - 0.5) * 1.6)
+            ]);
+            const strandGeom = new THREE.TubeGeometry(curve, 16, 0.04, 6, false);
+            const strandMat = new THREE.MeshStandardMaterial({
+                color: 0xff2a5f,
+                emissive: 0xff2a5f,
+                emissiveIntensity: 0.6,
+                roughness: 0.3
+            });
+            const strandMesh = new THREE.Mesh(strandGeom, strandMat);
+            strandGroup.add(strandMesh);
         }
 
-        buildStrands('mogra');
+        // Lights
+        const lightA = new THREE.PointLight(0xf5b82e, 2.5, 30);
+        lightA.position.set(6, 6, 8);
+        scene.add(lightA);
 
-        // Lighting
-        const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
-        dirLight.position.set(5, 10, 7);
-        scene.add(dirLight);
+        const lightB = new THREE.PointLight(0xff2a5f, 2.2, 30);
+        lightB.position.set(-6, -4, 6);
+        scene.add(lightB);
 
-        const pointLight = new THREE.PointLight(0xf5b82e, 1.5, 20);
-        pointLight.position.set(-3, 0, 4);
-        scene.add(pointLight);
+        // Drag to rotate
+        let isDragging = false;
+        let prevX = 0, prevY = 0;
+        let vX = 0, vY = 0;
 
-        // Visibility
-        let vaultVisible = true;
-        createObserver(canvas.closest('.vault-3d-showcase'), () => { vaultVisible = true; }, () => { vaultVisible = false; });
+        canvas.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            prevX = e.clientX;
+            prevY = e.clientY;
+        });
 
-        // Animation
-        const clock = new THREE.Clock();
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - prevX;
+            const dy = e.clientY - prevY;
+            vY += dx * 0.005;
+            vX += dy * 0.005;
+            prevX = e.clientX;
+            prevY = e.clientY;
+        });
 
         function animateVault() {
             requestAnimationFrame(animateVault);
-            if (!vaultVisible) return;
-
-            const elapsed = clock.getElapsedTime();
-
-            capsuleGroup.rotation.y = elapsed * 0.4;
-            capsuleGroup.rotation.z = Math.sin(elapsed * 0.5) * 0.08;
-
-            strands.forEach(s => {
-                s.mesh.rotation.x += s.rotSpeed;
-                s.mesh.rotation.y += s.rotSpeed * 0.5;
-                s.mesh.position.y = s.baseY + Math.sin(elapsed * 2 + s.baseY) * 0.2;
-            });
-
+            capsuleGroup.rotation.y += 0.008 + vY;
+            capsuleGroup.rotation.x += vX;
+            vX *= 0.92;
+            vY *= 0.92;
+            strandGroup.rotation.y -= 0.004;
             renderer.render(scene, camera);
         }
-
         animateVault();
 
-        // Listen for Grade Switches
-        window.addEventListener('vaultGradeChange', (e) => {
-            buildStrands(e.detail.grade);
-            const nameEl = document.getElementById('vaultCurrentGradeName');
-            if (nameEl) {
-                const names = {
-                    mogra: 'MOGRA GRADE I • 3D SPECIMEN',
-                    lachha: 'LACHHA GRADE II • 3D SPECIMEN',
-                    zarda: 'ZARDA GRADE III • 3D SPECIMEN'
-                };
-                nameEl.textContent = names[e.detail.grade] || '3D SPECIMEN';
+        window.addEventListener('resize', () => {
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            if (w && h) {
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w, h);
             }
-        });
-
-        // Resize
-        window.addEventListener('resize', () => {
-            const w = container.clientWidth;
-            const h = container.clientHeight;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h);
         }, { passive: true });
     }
 
     // ==========================================================================
-    //  SCENE 03: BIO-MOLECULAR LATTICE (BENEFITS)
-    // ==========================================================================
-    function initBenefitsScene() {
-        const canvas = document.getElementById('benefitsCanvas');
-        if (!canvas) return;
-
-        const container = canvas.parentElement;
-        const width = container.clientWidth || window.innerWidth;
-        const height = container.clientHeight || 800;
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
-        camera.position.set(0, 0, 28);
-
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-        renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        const molecularGroup = new THREE.Group();
-        scene.add(molecularGroup);
-
-        // Core central atom cluster (Crocin Molecule)
-        const atoms = [];
-        const atomColors = [0xff2a5f, 0xf5b82e, 0x8a2be2, 0x00f5d4];
-
-        for (let a = 0; a < 14; a++) {
-            const radius = 0.4 + Math.random() * 0.4;
-            const geom = new THREE.SphereGeometry(radius, 16, 16);
-            const color = atomColors[a % atomColors.length];
-            const mat = new THREE.MeshStandardMaterial({
-                color,
-                emissive: color,
-                emissiveIntensity: 0.5,
-                metalness: 0.7,
-                roughness: 0.2
-            });
-            const mesh = new THREE.Mesh(geom, mat);
-            mesh.position.set(
-                (Math.random() - 0.5) * 12,
-                (Math.random() - 0.5) * 8,
-                (Math.random() - 0.5) * 8
-            );
-            molecularGroup.add(mesh);
-            atoms.push(mesh);
-        }
-
-        // Connecting chemical bond tubes
-        for (let b = 0; b < atoms.length - 1; b++) {
-            const p1 = atoms[b].position;
-            const p2 = atoms[b + 1].position;
-            const dist = p1.distanceTo(p2);
-            if (dist < 8) {
-                const bondGeom = new THREE.CylinderGeometry(0.04, 0.04, dist, 8);
-                const bondMat = new THREE.MeshBasicMaterial({
-                    color: 0xf5b82e,
-                    transparent: true,
-                    opacity: 0.35
-                });
-                const bond = new THREE.Mesh(bondGeom, bondMat);
-                bond.position.copy(p1).lerp(p2, 0.5);
-                bond.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), p2.clone().sub(p1).normalize());
-                molecularGroup.add(bond);
-            }
-        }
-
-        // Orbiting electron rings
-        for (let r = 0; r < 3; r++) {
-            const ringGeom = new THREE.TorusGeometry(8 + r * 3, 0.02, 8, 80);
-            const ringMat = new THREE.MeshBasicMaterial({
-                color: 0x00f5d4,
-                transparent: true,
-                opacity: 0.15
-            });
-            const ring = new THREE.Mesh(ringGeom, ringMat);
-            ring.rotation.x = Math.PI / 2 + r * 0.4;
-            ring.rotation.y = r * 0.6;
-            molecularGroup.add(ring);
-        }
-
-        const ambLight = new THREE.AmbientLight(0xffffff, 0.8);
-        scene.add(ambLight);
-
-        let benefitsVisible = true;
-        createObserver(canvas.closest('.benefits'), () => { benefitsVisible = true; }, () => { benefitsVisible = false; });
-
-        const clock = new THREE.Clock();
-
-        function animateBenefits() {
-            requestAnimationFrame(animateBenefits);
-            if (!benefitsVisible) return;
-
-            const elapsed = clock.getElapsedTime();
-
-            molecularGroup.rotation.y = elapsed * 0.15;
-            molecularGroup.rotation.x = Math.sin(elapsed * 0.2) * 0.1;
-
-            camera.position.x = mouse.nx * 2;
-            camera.position.y = mouse.ny * 1.5;
-            camera.lookAt(0, 0, 0);
-
-            renderer.render(scene, camera);
-        }
-
-        animateBenefits();
-
-        window.addEventListener('resize', () => {
-            const w = container.clientWidth;
-            const h = container.clientHeight;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h);
-        }, { passive: true });
-    }
-
-    // ==========================================================================
-    //  SCENE 04: KASHMIRI MOUNTAIN MIST & CROCUS PETALS (STORY)
-    // ==========================================================================
-    function initStoryScene() {
-        const canvas = document.getElementById('storyCanvas');
-        if (!canvas) return;
-
-        const container = canvas.parentElement;
-        const width = container.clientWidth || window.innerWidth;
-        const height = container.clientHeight || 700;
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-        camera.position.set(0, 0, 20);
-
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-        renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        // Tumbling Crocus Petals
-        const petalGroup = new THREE.Group();
-        scene.add(petalGroup);
-
-        const petals = [];
-        const petalColors = [0x7B1FA2, 0x8E24AA, 0x9C27B0, 0xBA68C8];
-
-        for (let i = 0; i < 40; i++) {
-            const shape = new THREE.Shape();
-            shape.moveTo(0, 0);
-            shape.bezierCurveTo(0.4, 0.4, 0.6, 1.2, 0.1, 2.0);
-            shape.bezierCurveTo(0, 2.2, 0, 2.2, -0.1, 2.0);
-            shape.bezierCurveTo(-0.6, 1.2, -0.4, 0.4, 0, 0);
-
-            const geom = new THREE.ShapeGeometry(shape);
-            const color = petalColors[i % petalColors.length];
-            const mat = new THREE.MeshStandardMaterial({
-                color,
-                side: THREE.DoubleSide,
-                roughness: 0.5,
-                metalness: 0.1
-            });
-            const mesh = new THREE.Mesh(geom, mat);
-            mesh.position.set(
-                (Math.random() - 0.5) * 24,
-                (Math.random() - 0.5) * 16,
-                (Math.random() - 0.5) * 12
-            );
-            mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
-            petalGroup.add(mesh);
-            petals.push({
-                mesh,
-                speedY: 0.01 + Math.random() * 0.02,
-                rotSpeedX: (Math.random() - 0.5) * 0.02,
-                rotSpeedY: (Math.random() - 0.5) * 0.02
-            });
-        }
-
-        const amb = new THREE.AmbientLight(0xfff8dc, 0.9);
-        scene.add(amb);
-
-        let storyVisible = true;
-        createObserver(canvas.closest('.story'), () => { storyVisible = true; }, () => { storyVisible = false; });
-
-        function animateStory() {
-            requestAnimationFrame(animateStory);
-            if (!storyVisible) return;
-
-            petals.forEach(p => {
-                p.mesh.position.y -= p.speedY;
-                p.mesh.rotation.x += p.rotSpeedX;
-                p.mesh.rotation.y += p.rotSpeedY;
-
-                if (p.mesh.position.y < -9) {
-                    p.mesh.position.y = 9;
-                    p.mesh.position.x = (Math.random() - 0.5) * 24;
-                }
-            });
-
-            renderer.render(scene, camera);
-        }
-
-        animateStory();
-
-        window.addEventListener('resize', () => {
-            const w = container.clientWidth;
-            const h = container.clientHeight;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h);
-        }, { passive: true });
-    }
-
-    // ==========================================================================
-    //  SCENE 05: INTERACTIVE FLUID INFUSION SIMULATOR (CANVAS)
+    //  SCENE 04: FLUID INFUSION SIMULATOR (CANVAS)
     // ==========================================================================
     function initInfusionSimulator() {
         const canvas = document.getElementById('infusionCanvas');
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
-        const triggerBtn = document.getElementById('infusionTriggerBtn');
+        const triggerBtn = document.getElementById('triggerInfusionBtn');
         const statusText = document.getElementById('infusionStatusText');
 
         function resize() {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
+            if (canvas.parentElement) {
+                canvas.width = canvas.parentElement.clientWidth || 480;
+                canvas.height = canvas.parentElement.clientHeight || 240;
+            }
         }
         resize();
         window.addEventListener('resize', resize, { passive: true });
@@ -895,23 +740,20 @@
         let particles = [];
         let strands = [];
         let isInfusing = false;
-        let ambientGoldLevel = 0; // 0 to 1
+        let ambientGold = 0;
 
         class SaffronStrand {
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
-                this.length = 40 + Math.random() * 20;
+                this.len = 35 + Math.random() * 20;
                 this.angle = Math.random() * Math.PI;
-                this.velY = 0.8 + Math.random() * 0.6;
-                this.sway = Math.random() * 2;
+                this.vy = 0.8 + Math.random() * 0.5;
             }
             update() {
-                this.y += this.velY;
+                this.y += this.vy;
                 this.angle += 0.02;
-                if (this.y > canvas.height * 0.65) {
-                    this.velY *= 0.96;
-                }
+                if (this.y > canvas.height * 0.7) this.vy *= 0.97;
             }
             draw() {
                 ctx.save();
@@ -919,11 +761,9 @@
                 ctx.rotate(this.angle);
                 ctx.strokeStyle = '#ff2a5f';
                 ctx.lineWidth = 3;
-                ctx.shadowColor = '#ff2a5f';
-                ctx.shadowBlur = 10;
                 ctx.beginPath();
-                ctx.moveTo(-this.length / 2, 0);
-                ctx.quadraticCurveTo(0, 8, this.length / 2, 0);
+                ctx.moveTo(-this.len / 2, 0);
+                ctx.quadraticCurveTo(0, 6, this.len / 2, 0);
                 ctx.stroke();
                 ctx.restore();
             }
@@ -933,32 +773,25 @@
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
-                this.vx = (Math.random() - 0.5) * 2.2;
-                this.vy = (Math.random() - 0.5) * 1.8;
-                this.radius = 2 + Math.random() * 5;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 1.6;
+                this.rad = 2 + Math.random() * 4;
                 this.alpha = 0.8;
-                this.life = 0;
-                this.maxLife = 120 + Math.random() * 80;
             }
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
                 this.vx *= 0.98;
                 this.vy *= 0.98;
-                this.radius += 0.08;
+                this.rad += 0.06;
                 this.alpha -= 0.005;
-                this.life++;
             }
             draw() {
                 if (this.alpha <= 0) return;
                 ctx.save();
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-                grad.addColorStop(0, `rgba(255, 209, 102, ${this.alpha * 0.6})`);
-                grad.addColorStop(0.5, `rgba(245, 184, 46, ${this.alpha * 0.3})`);
-                grad.addColorStop(1, 'rgba(245, 184, 46, 0)');
-                ctx.fillStyle = grad;
+                ctx.arc(this.x, this.y, this.rad, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(245, 184, 46, ${this.alpha * 0.6})`;
                 ctx.fill();
                 ctx.restore();
             }
@@ -967,84 +800,62 @@
         function infuse() {
             if (isInfusing) return;
             isInfusing = true;
-            if (statusText) statusText.textContent = 'INFUSION IN PROGRESS: CROCIN DYE BLOOMING AT 65°C...';
-
+            if (statusText) statusText.textContent = 'INFUSION IN PROGRESS: CROCIN BLOOMING AT 65°C...';
             if (window.soundFX) window.soundFX.playInfuse();
 
-            // Drop 4 strands
             for (let i = 0; i < 4; i++) {
                 setTimeout(() => {
-                    strands.push(new SaffronStrand(
-                        canvas.width * 0.3 + (i / 4) * (canvas.width * 0.4),
-                        20
-                    ));
+                    strands.push(new SaffronStrand(canvas.width * 0.25 + (i / 4) * (canvas.width * 0.5), 15));
                 }, i * 250);
             }
 
-            // Spawn dye clouds over 6 seconds
-            let timer = setInterval(() => {
+            const timer = setInterval(() => {
                 strands.forEach(s => {
-                    for (let p = 0; p < 6; p++) {
+                    for (let p = 0; p < 5; p++) {
                         particles.push(new DyeParticle(s.x + (Math.random() - 0.5) * 20, s.y));
                     }
                 });
-                ambientGoldLevel = Math.min(ambientGoldLevel + 0.015, 0.85);
+                ambientGold = Math.min(ambientGold + 0.02, 0.8);
             }, 60);
 
             setTimeout(() => {
                 clearInterval(timer);
-                if (statusText) statusText.textContent = 'INFUSION COMPLETE: AUTHENTIC LIQUID GOLD (CRO = 264)';
+                if (statusText) statusText.textContent = 'INFUSION COMPLETE: AUTHENTIC LIQUID GOLD (CRO = 264.8)';
                 setTimeout(() => { isInfusing = false; }, 2000);
-            }, 6500);
+            }, 6000);
         }
 
-        if (triggerBtn) {
-            triggerBtn.addEventListener('click', infuse);
-        }
+        if (triggerBtn) triggerBtn.addEventListener('click', infuse);
 
-        // Animation Loop
         function render() {
             requestAnimationFrame(render);
-
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Ambient background glow from diffused saffron
-            if (ambientGoldLevel > 0) {
+            if (ambientGold > 0) {
                 const bgGrad = ctx.createRadialGradient(
-                    canvas.width / 2, canvas.height / 2, 20,
+                    canvas.width / 2, canvas.height / 2, 10,
                     canvas.width / 2, canvas.height / 2, canvas.width / 2
                 );
-                bgGrad.addColorStop(0, `rgba(245, 184, 46, ${ambientGoldLevel * 0.45})`);
-                bgGrad.addColorStop(0.7, `rgba(230, 25, 75, ${ambientGoldLevel * 0.15})`);
+                bgGrad.addColorStop(0, `rgba(245, 184, 46, ${ambientGold * 0.45})`);
                 bgGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
                 ctx.fillStyle = bgGrad;
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
             }
 
-            // Update & Draw Particles
             particles = particles.filter(p => p.alpha > 0);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-
-            // Update & Draw Strands
-            strands.forEach(s => {
-                s.update();
-                s.draw();
-            });
+            particles.forEach(p => { p.update(); p.draw(); });
+            strands.forEach(s => { s.update(); s.draw(); });
         }
         render();
     }
 
     // ==========================================================================
-    //  INITIALIZATION SEQUENCE
+    //  ENGINE BOOTSTRAP
     // ==========================================================================
     function bootEngine() {
         initHeroScene();
+        initCyberMeshScene();
         initVaultScene();
-        initBenefitsScene();
-        initStoryScene();
         initInfusionSimulator();
     }
 

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="socBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020813"/>
+      <stop offset="100%" stop-color="#071830"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#socBg)"/>
+  <!-- Terminal Wireframe -->
+  <rect x="50" y="40" width="700" height="420" rx="12" fill="#040d1a" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5"/>
+  <rect x="50" y="40" width="700" height="38" rx="12" fill="#091b33"/>
+  <circle cx="75" cy="59" r="5" fill="#ff5f56"/>
+  <circle cx="92" cy="59" r="5" fill="#ffbd2e"/>
+  <circle cx="109" cy="59" r="5" fill="#27c93f"/>
+  <text x="400" y="63" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00f0ff" text-anchor="middle">SOC LAB // PACKET CAPTURE &amp; ALERT TRIAGE PLAYBOOK</text>
+
+  <!-- Wireshark Packet Rows -->
+  <g font-family="'JetBrains Mono', monospace" font-size="11">
+    <rect x="70" y="95" width="660" height="26" fill="rgba(0,240,255,0.1)"/>
+    <text x="85" y="112" fill="#00f0ff">#01 | 192.168.1.105:443 -> 10.0.0.15:52194 | TCP [SYN, ACK] Seq=0 Win=64240</text>
+    
+    <rect x="70" y="127" width="660" height="26" fill="rgba(255,42,95,0.12)"/>
+    <text x="85" y="144" fill="#ff4d79">#02 | 185.220.101.4 -> 10.0.0.15:22 | SSH BRUTE-FORCE DETECTED (Alert P1)</text>
+
+    <rect x="70" y="159" width="660" height="26" fill="rgba(245,184,46,0.1)"/>
+    <text x="85" y="176" fill="#f5b82e">#03 | 10.0.0.15 -> 1.1.1.1:53 | DNS QUERY [TXT] anomalous-beacon.internal</text>
+
+    <rect x="70" y="191" width="660" height="26" fill="rgba(0,240,255,0.05)"/>
+    <text x="85" y="208" fill="#88b5d9">#04 | 10.0.0.15 -> 142.250.190.46:443 | TLSv1.3 Handshake Secret Established</text>
+
+    <rect x="70" y="223" width="660" height="26" fill="rgba(39,201,63,0.1)"/>
+    <text x="85" y="240" fill="#27c93f">#05 | FIREWALL RULE #402: INGRESS DROPPED FROM 185.220.101.0/24 (NIST SP 800-61)</text>
+  </g>
+
+  <!-- Metrics bottom row -->
+  <g transform="translate(70, 275)">
+    <rect x="0" y="0" width="200" height="150" rx="8" fill="#08162b" stroke="rgba(0,240,255,0.2)"/>
+    <text x="20" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#7fa6c8">Total Events Ingested</text>
+    <text x="20" y="70" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" fill="#00f0ff">842,910</text>
+    <text x="20" y="105" font-family="'JetBrains Mono', monospace" font-size="10" fill="#27c93f">✓ Zero False Negatives</text>
+
+    <rect x="230" y="0" width="200" height="150" rx="8" fill="#08162b" stroke="rgba(0,240,255,0.2)"/>
+    <text x="250" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#7fa6c8">Mean Time to Triage</text>
+    <text x="250" y="70" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" fill="#f5b82e">1.4 min</text>
+    <text x="250" y="105" font-family="'JetBrains Mono', monospace" font-size="10" fill="#88b5d9">CCNA / CEH Calibrated</text>
+
+    <rect x="460" y="0" width="200" height="150" rx="8" fill="#08162b" stroke="rgba(0,240,255,0.2)"/>
+    <text x="480" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#7fa6c8">SIEM Ingestion Stack</text>
+    <text x="480" y="65" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="700" fill="#a78bfa">Splunk + ELK</text>
+    <text x="480" y="105" font-family="'JetBrains Mono', monospace" font-size="10" fill="#00f0ff">Snort / Suricata IDS</text>
+  </g>
+</svg>
+

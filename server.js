@@ -228,7 +228,7 @@ app.post('/api/inquiries', rateLimiter({
             });
         }
 
-        const validSubjects = ['order', 'wholesale', 'quality', 'other'];
+        const validSubjects = ['project', 'consulting', 'collaboration', 'hiring', 'order', 'wholesale', 'quality', 'other'];
         const cleanSubject = validSubjects.includes(subject) ? subject : 'other';
         const cleanName = sanitizeText(name, 100);
         const cleanEmail = email.trim().toLowerCase();
@@ -261,16 +261,23 @@ app.post('/api/inquiries', rateLimiter({
     }
 });
 
-// 5. Admin Inquiries List (Protected Endpoint)
-app.get('/api/inquiries', (req, res) => {
-    const clientKey = req.headers['x-admin-key'];
+// Admin Authorization Middleware
+function requireAdmin(req, res, next) {
+    const authHeader = req.headers['authorization'] || '';
+    const bearerKey = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : '';
+    const clientKey = req.headers['x-admin-key'] || bearerKey;
+
     if (!clientKey || clientKey !== ADMIN_API_KEY) {
         return res.status(401).json({
             success: false,
-            error: { code: 'UNAUTHORIZED', message: 'Invalid or missing administrator key.' }
+            error: { code: 'UNAUTHORIZED', message: 'Invalid or missing administrator authorization key.' }
         });
     }
+    next();
+}
 
+// 5. Admin Inquiries List (Protected Endpoint)
+app.get('/api/inquiries', requireAdmin, (req, res) => {
     try {
         const stmt = db.prepare('SELECT * FROM inquiries ORDER BY created_at DESC LIMIT 100');
         const inquiries = stmt.all();
@@ -613,6 +620,365 @@ app.get('/api/telemetry', (req, res) => {
         return res.status(500).json({
             success: false,
             error: { code: 'DATABASE_ERROR', message: 'Failed to retrieve telemetry' }
+        });
+    }
+});
+
+// ==========================================================================
+//  PORTFOLIO & ADMIN REST API ENDPOINTS
+// ==========================================================================
+
+// 10. Admin Authentication
+app.post('/api/admin/auth', rateLimiter({
+    windowMs: 15 * 60 * 1000,
+    maxRequests: 10,
+    message: 'Too many authentication attempts. Please wait 15 minutes.'
+}), (req, res) => {
+    try {
+        const { key, password } = req.body || {};
+        const providedKey = (key || password || '').trim();
+
+        if (!providedKey || providedKey !== ADMIN_API_KEY) {
+            return res.status(401).json({
+                success: false,
+                error: { code: 'INVALID_CREDENTIALS', message: 'Invalid administrator access key.' }
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            token: ADMIN_API_KEY,
+            user: {
+                name: 'Aryan Thakar',
+                role: 'Full-Stack & Security Architect',
+                permissions: ['ALL']
+            }
+        });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            error: { code: 'AUTH_ERROR', message: 'Authentication processing failed.' }
+        });
+    }
+});
+
+// 11. Projects List (Portfolio Showcase)
+app.get('/api/projects', (req, res) => {
+    try {
+        const { category, featured } = req.query;
+        let query = 'SELECT * FROM projects WHERE 1=1';
+        const params = [];
+
+        if (category && category !== 'all') {
+            query += ' AND category = ?';
+            params.push(category);
+        }
+        if (featured === '1' || featured === 'true') {
+            query += ' AND featured = 1';
+        }
+
+        query += ' ORDER BY order_index ASC, created_at DESC';
+        const stmt = db.prepare(query);
+        const rows = stmt.all(...params);
+
+        const projects = rows.map(p => {
+            let techStack = [];
+            try {
+                techStack = JSON.parse(p.tech_stack);
+            } catch (e) {
+                techStack = (p.tech_stack || '').split(',').map(s => s.trim());
+            }
+            return {
+                ...p,
+                tech_stack: techStack
+            };
+        });
+
+        return res.status(200).json({
+            success: true,
+            count: projects.length,
+            data: projects
+        });
+    } catch (err) {
+        console.error('[Error] GET /api/projects:', err);
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: 'Failed to retrieve portfolio projects.' }
+        });
+    }
+});
+
+// 12. Single Project Details by Slug
+app.get('/api/projects/:slug', (req, res) => {
+    try {
+        const stmt = db.prepare('SELECT * FROM projects WHERE slug = ?');
+        const project = stmt.get(req.params.slug);
+
+        if (!project) {
+            return res.status(404).json({
+                success: false,
+                error: { code: 'NOT_FOUND', message: `Project '${req.params.slug}' not found.` }
+            });
+        }
+
+        // Increment view count asynchronously
+        try {
+            db.prepare('UPDATE projects SET views_count = views_count + 1 WHERE id = ?').run(project.id);
+            project.views_count += 1;
+        } catch (e) {
+            // Non-blocking view increment
+        }
+
+        let techStack = [];
+        try {
+            techStack = JSON.parse(project.tech_stack);
+        } catch (e) {
+            techStack = (project.tech_stack || '').split(',').map(s => s.trim());
+        }
+
+        return res.status(200).json({
+            success: true,
+            data: {
+                ...project,
+                tech_stack: techStack
+            }
+        });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: 'Failed to retrieve project details.' }
+        });
+    }
+});
+
+// 13. Create Project (Admin Only)
+app.post('/api/admin/projects', requireAdmin, (req, res) => {
+    try {
+        const {
+            slug, title, tagline, category, description,
+            tech_stack, live_url, github_url, image_url, badge, featured, order_index
+        } = req.body || {};
+
+        if (!slug || !title || !description) {
+            return res.status(400).json({
+                success: false,
+                error: { code: 'MISSING_FIELDS', message: 'Slug, title, and description are required.' }
+            });
+        }
+
+        const id = `proj_${crypto.randomBytes(4).toString('hex')}`;
+        const cleanSlug = slug.toLowerCase().replace(/[^a-z0-9_-]/g, '-');
+        const cleanCategory = category || 'full-stack';
+        const stackStr = Array.isArray(tech_stack) ? JSON.stringify(tech_stack) : (tech_stack || '[]');
+
+        const stmt = db.prepare(`
+            INSERT INTO projects (
+                id, slug, title, tagline, category, description,
+                tech_stack, live_url, github_url, image_url, badge,
+                featured, order_index, views_count
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)
+        `);
+
+        stmt.run(
+            id,
+            cleanSlug,
+            sanitizeText(title, 120),
+            sanitizeText(tagline || '', 200),
+            cleanCategory,
+            sanitizeText(description, 3000),
+            stackStr,
+            sanitizeText(live_url || '', 255),
+            sanitizeText(github_url || '', 255),
+            sanitizeText(image_url || 'images/hero-banner.png', 255),
+            sanitizeText(badge || 'NEW', 50),
+            featured ? 1 : 0,
+            parseInt(order_index, 10) || 0
+        );
+
+        return res.status(201).json({
+            success: true,
+            message: 'Project created successfully',
+            projectId: id
+        });
+    } catch (err) {
+        console.error('[Error] POST /api/admin/projects:', err);
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: err.message || 'Failed to create project.' }
+        });
+    }
+});
+
+// 14. Update Project (Admin Only)
+app.put('/api/admin/projects/:id', requireAdmin, (req, res) => {
+    try {
+        const { id } = req.params;
+        const exists = db.prepare('SELECT id FROM projects WHERE id = ?').get(id);
+        if (!exists) {
+            return res.status(404).json({
+                success: false,
+                error: { code: 'NOT_FOUND', message: 'Project not found.' }
+            });
+        }
+
+        const {
+            title, tagline, category, description,
+            tech_stack, live_url, github_url, image_url, badge, featured, order_index
+        } = req.body || {};
+
+        const stackStr = Array.isArray(tech_stack) ? JSON.stringify(tech_stack) : (tech_stack || '[]');
+
+        const stmt = db.prepare(`
+            UPDATE projects SET
+                title = COALESCE(?, title),
+                tagline = COALESCE(?, tagline),
+                category = COALESCE(?, category),
+                description = COALESCE(?, description),
+                tech_stack = COALESCE(?, tech_stack),
+                live_url = COALESCE(?, live_url),
+                github_url = COALESCE(?, github_url),
+                image_url = COALESCE(?, image_url),
+                badge = COALESCE(?, badge),
+                featured = COALESCE(?, featured),
+                order_index = COALESCE(?, order_index)
+            WHERE id = ?
+        `);
+
+        stmt.run(
+            title ? sanitizeText(title, 120) : null,
+            tagline ? sanitizeText(tagline, 200) : null,
+            category || null,
+            description ? sanitizeText(description, 3000) : null,
+            stackStr || null,
+            live_url !== undefined ? sanitizeText(live_url, 255) : null,
+            github_url !== undefined ? sanitizeText(github_url, 255) : null,
+            image_url ? sanitizeText(image_url, 255) : null,
+            badge ? sanitizeText(badge, 50) : null,
+            featured !== undefined ? (featured ? 1 : 0) : null,
+            order_index !== undefined ? parseInt(order_index, 10) : null,
+            id
+        );
+
+        return res.status(200).json({ success: true, message: 'Project updated successfully.' });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: 'Failed to update project.' }
+        });
+    }
+});
+
+// 15. Delete Project (Admin Only)
+app.delete('/api/admin/projects/:id', requireAdmin, (req, res) => {
+    try {
+        const { id } = req.params;
+        const result = db.prepare('DELETE FROM projects WHERE id = ?').run(id);
+        if (result.changes === 0) {
+            return res.status(404).json({
+                success: false,
+                error: { code: 'NOT_FOUND', message: 'Project not found.' }
+            });
+        }
+        return res.status(200).json({ success: true, message: 'Project deleted successfully.' });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: 'Failed to delete project.' }
+        });
+    }
+});
+
+// 16. Skills API
+app.get('/api/skills', (req, res) => {
+    try {
+        const stmt = db.prepare('SELECT * FROM skills ORDER BY category, order_index ASC');
+        const skills = stmt.all();
+        return res.status(200).json({ success: true, count: skills.length, data: skills });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: 'Failed to retrieve skills.' }
+        });
+    }
+});
+
+// 17. Timeline API
+app.get('/api/timeline', (req, res) => {
+    try {
+        const stmt = db.prepare('SELECT * FROM timeline ORDER BY order_index ASC');
+        const timeline = stmt.all();
+        return res.status(200).json({ success: true, count: timeline.length, data: timeline });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: 'Failed to retrieve timeline.' }
+        });
+    }
+});
+
+// 18. Update Inquiry Status (Admin Only)
+app.patch('/api/admin/inquiries/:id', requireAdmin, (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body || {};
+        const validStatuses = ['NEW', 'REVIEWED', 'REPLIED', 'ARCHIVED'];
+
+        if (!validStatuses.includes(status)) {
+            return res.status(400).json({
+                success: false,
+                error: { code: 'INVALID_STATUS', message: `Status must be one of: ${validStatuses.join(', ')}` }
+            });
+        }
+
+        const result = db.prepare('UPDATE inquiries SET status = ? WHERE id = ?').run(status, id);
+        if (result.changes === 0) {
+            return res.status(404).json({
+                success: false,
+                error: { code: 'NOT_FOUND', message: 'Inquiry not found.' }
+            });
+        }
+
+        return res.status(200).json({ success: true, message: `Inquiry status updated to ${status}.` });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: 'Failed to update inquiry status.' }
+        });
+    }
+});
+
+// 19. Admin Stats Overview (Protected)
+app.get('/api/admin/stats', requireAdmin, (req, res) => {
+    try {
+        const projectCount = db.prepare('SELECT COUNT(*) AS count FROM projects').get().count;
+        const inquiryCount = db.prepare('SELECT COUNT(*) AS count FROM inquiries').get().count;
+        const newInquiryCount = db.prepare("SELECT COUNT(*) AS count FROM inquiries WHERE status = 'NEW'").get().count;
+        const totalViews = db.prepare('SELECT SUM(views_count) AS total FROM projects').get().total || 0;
+        const subscriberCount = db.prepare('SELECT COUNT(*) AS count FROM subscribers').get().count;
+        const orderCount = db.prepare('SELECT COUNT(*) AS count FROM orders').get().count;
+
+        return res.status(200).json({
+            success: true,
+            data: {
+                projects: projectCount,
+                inquiries: {
+                    total: inquiryCount,
+                    new: newInquiryCount
+                },
+                projectViews: totalViews,
+                subscribers: subscriberCount,
+                orders: orderCount,
+                system: {
+                    nodeVersion: process.version,
+                    uptimeSeconds: Math.floor(process.uptime()),
+                    memoryUsageMB: Math.round(process.memoryUsage().rss / 1024 / 1024)
+                }
+            }
+        });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            error: { code: 'DATABASE_ERROR', message: 'Failed to compile admin statistics.' }
         });
     }
 });

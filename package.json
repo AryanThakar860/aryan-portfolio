@@ -1,21 +1,24 @@
 {
   "name": "saffron",
   "version": "1.0.0",
-  "description": "Shreeji Saffron Agency — Imperial Persian Red Gold 3D Experience & E-Commerce Application",
+  "description": "Aryan Thakar — Creative Developer & Cybersecurity Architect | 3D WebGL Portfolio & Full-Stack System",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
+    "build": "node -e \"console.log('Production build ready')\"",
     "test": "node --test test/**/*.test.js",
     "seed": "node db/seed.js"
   },
   "keywords": [
-    "saffron",
+    "portfolio",
     "threejs",
-    "ecommerce",
     "webgl",
-    "fullstack"
+    "fullstack",
+    "cybersecurity",
+    "express",
+    "sqlite"
   ],
   "author": "Aryan Thakar",
   "license": "ISC",

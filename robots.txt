@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/admin/
+Disallow: /api/inquiries
+
+Sitemap: https://aryanthakar.dev/sitemap.xml
+
